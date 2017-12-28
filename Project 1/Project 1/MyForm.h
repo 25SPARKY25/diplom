@@ -654,13 +654,24 @@ private: System::Void button3_Click(System::Object^  sender, System::EventArgs^ 
 
 	ifstream f;
 	f.open("1.txt");
-	vector<vector<int>> invec(268, vector <int>(268));
+
+	//тестово
+	vector<vector<int>> invec(pictureBox2->Image->Width, vector <int>(pictureBox2->Image->Height));
+	//vector<vector<int>> invec(268, vector <int>(268));
+
 	invec = ArrayToFromFile::FileToVec(f);
-	Bitmap ^image = gcnew Bitmap(268,268);
+
+	//тестовое задание нового размера на основе предыдущей картинки
+	Bitmap ^image = gcnew Bitmap(pictureBox2->Image->Width, pictureBox2->Image->Height);
+	//Bitmap ^image = gcnew Bitmap(268,268);
+
+
 	int averageValueColor = 0;
-	for (int x = 0; x < 268; x++)
+
+	//в циклах в случае чего заменить на 268
+	for (int x = 0; x < pictureBox2->Image->Width; x++)
 	{
-		for (int y = 0; y < 268; y++)
+		for (int y = 0; y < pictureBox2->Image->Height; y++)
 		{
 			//узнаём средне рифметическое
 			averageValueColor = invec[x][y] == 48 ? 0 : 255;
