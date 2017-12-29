@@ -1,5 +1,7 @@
 #include "ArrayToFromFile.h"
 
+using namespace std;
+
  void ArrayToFromFile::VecToFile(std::vector<std::vector<int>> blackwhitevec,  int x, int y)
 {
 	ofstream f;
@@ -25,40 +27,44 @@
 			}
 		}
 	}
-
 	f.close();
 }
 
  std::vector<std::vector<int>> ArrayToFromFile::FileToVec(std::ifstream &f)
  {
-	 char dig;//символ в файле, может принимать значенио 0 или 1
+	 ifstream in;
+	 in.open("1.txt");//открываем файл для вывода инфы из файла в прогу
+	 char dig;//символ в файле, может принимать значенио 0 или 1 или размер вектора
 	 int x, y;//размеры вектора
-	 int t = x + 2;
-	 vector<vector<int>> blackwhitevec(268, vector <int>(268));
-	 if (!f.is_open()) // если файл не открыт
+	 string str;//переменная для записи числа()
+	 if (!in.is_open()) // если файл не открыт
 		 cout << "Файл не может быть открыт!\n"; // сообщить об этом
 	 else		
 	 {
 		 //узнаём размеры вектора из файла------------
-		 for (int z = 0; z < 2; z++)
+		 for (int f = 0; f < 2; f++)//это цикл для пробега по 2 первым строкам в файле(эти строки хранят размерность вектора) 
 		 {
-			 f >> dig;
-			 if (z==0) { y = Convert::ToInt16(dig); }
-			 else { x = Convert::ToInt16(dig); } 
+			 for (int z = 0; z < 3; z++)//этот цикл для считывания числа из строки
+			 {
+					 in >> dig;//посимвольно считываем размер
+					 if (f == 0) { str += dig; y = std::stoi(str); }//из символов получаем строку и конвертируем в число
+					 else { dig = ' '; str += dig; x = std::stoi(str); }//это и будет размерность вектора
+			 }
 		 }
+		 vector<vector<int>> blackwhitevec(x, vector <int>(y));//получив размер вектора создаём его
 		 //-------------------------------------------
-		 for (int i = 2; i < t; i++)
+		 int t = x + 2;//для ограничителя
+		 for (int i = 2; i < t; i++)//игнорим 2 первые строки, так как они задают размер вектора
 		 {
 			 for (int j = 0; j < y; j++)
 			 {
-				 //f << "Test";
-				 f >> dig;
+				 in >> dig;
 				 blackwhitevec[j][i-2]=Convert::ToInt16(dig);
 			 }
 		 }
-		 f.close(); // закрываем файл
+		 in.close(); // закрываем файл
+		 return blackwhitevec;
 	 }
-	 return blackwhitevec;
  }
 
 ArrayToFromFile::ArrayToFromFile()

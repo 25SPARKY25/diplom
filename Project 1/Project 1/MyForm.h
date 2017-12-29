@@ -595,33 +595,39 @@ private: System::Void button3_Click(System::Object^  sender, System::EventArgs^ 
 	vector<vector<int>> blackwhitevec(pictureBox1->Image->Width, vector <int>(pictureBox2->Image->Height));
 
 	//Для оптимизации создаём отдельно ячейки в датагриде
-	//датагрид1-исходного изображения
+	//датагрид1-исходного изображения и датагрид 2-ЧБ изображения 
 	for (int x = 0; x <pictureBox1->Image->Width; x++)
 	{
 		//добавление столбцов и заголовков к ним
 		dataGridView1->Columns->Add(x.ToString(), "");
 		dataGridView1->Columns[x]->HeaderText = Convert::ToString(x + 1);
+
+		dataGridView2->Columns->Add(x.ToString(), "");
+		dataGridView2->Columns[x]->HeaderText = Convert::ToString(x + 1);
 	}
 	for (int y = 0; y <pictureBox1->Image->Height; y++)
 	{
 		//добавление строк и заголовков к ним
 		dataGridView1->Rows->Add();
 		dataGridView1->Rows[y]->HeaderCell->Value = Convert::ToString(y + 1);
-	}
 
-	//датагрид2-ЧБ изображения
-	for (int x = 0; x <pictureBox2->Image->Width; x++)
-	{
-		//добавление столбцов и заголовков к ним
-		dataGridView2->Columns->Add(x.ToString(), "");
-		dataGridView2->Columns[x]->HeaderText = Convert::ToString(x + 1);
-	}
-	for (int y = 0; y <pictureBox2->Image->Height; y++)
-	{
-		//добавление строк и заголовков к ним
 		dataGridView2->Rows->Add();
 		dataGridView2->Rows[y]->HeaderCell->Value = Convert::ToString(y + 1);
 	}
+
+	//датагрид2-ЧБ изображения
+	//for (int x = 0; x <pictureBox2->Image->Width; x++)
+	//{
+	//	//добавление столбцов и заголовков к ним
+	//	dataGridView2->Columns->Add(x.ToString(), "");
+	//	dataGridView2->Columns[x]->HeaderText = Convert::ToString(x + 1);
+	//}
+	//for (int y = 0; y <pictureBox2->Image->Height; y++)
+	//{
+	//	//добавление строк и заголовков к ним
+	//	dataGridView2->Rows->Add();
+	//	dataGridView2->Rows[y]->HeaderCell->Value = Convert::ToString(y + 1);
+	//}
 
 	//Заполнение датагридов
 
@@ -629,25 +635,31 @@ private: System::Void button3_Click(System::Object^  sender, System::EventArgs^ 
 	inputvec = ImageToArray::ImgToVec(myBitmap, inputvec);//предаём картинку методу класса ImageToArray и возврат массива 0 и 1
 														  //разбиение изображения на RGB-канал и заполнение датагрида
 
+														  //Датагрид2
+	blackwhitevec = ImageToArray::BWImageToVector(myBitmap, blackwhitevec);//предаём картинку методу класса ImageToArray и возврат массива 0 и 1
+																		   //разбиение изображения на RGB-канал и заполнение датагрида
+
 	for (int x = 0; x < pictureBox1->Image->Width; x++)
 	{
 		for (int y = 0; y <pictureBox1->Image->Height; y++)
 		{
 			dataGridView1->Rows[y]->Cells[x]->Value = inputvec[x][y];
-		}
-	}
-	//Датагрид2
-	blackwhitevec = ImageToArray::BWImageToVector(myBitmap, blackwhitevec);//предаём картинку методу класса ImageToArray и возврат массива 0 и 1
-																		   //разбиение изображения на RGB-канал и заполнение датагрида
 
-	for (int x = 0; x <pictureBox2->Image->Width; x++)
-	{
-		for (int y = 0; y < pictureBox2->Image->Height; y++)
-		{
-			//f << "Test";
 			dataGridView2->Rows[y]->Cells[x]->Value = blackwhitevec[x][y];
 		}
 	}
+	////Датагрид2
+	//blackwhitevec = ImageToArray::BWImageToVector(myBitmap, blackwhitevec);//предаём картинку методу класса ImageToArray и возврат массива 0 и 1
+	//																	   //разбиение изображения на RGB-канал и заполнение датагрида
+
+	//for (int x = 0; x <pictureBox2->Image->Width; x++)
+	//{
+	//	for (int y = 0; y < pictureBox2->Image->Height; y++)
+	//	{
+	//		//f << "Test";
+	//		dataGridView2->Rows[y]->Cells[x]->Value = blackwhitevec[x][y];
+	//	}
+	//}
 
 	ArrayToFromFile::VecToFile(blackwhitevec, pictureBox2->Image->Width, pictureBox2->Image->Height);
 	//получение из файла вектор чб изображения и получение из этого вектора изображения

@@ -4,7 +4,7 @@
 #include <istream>;
 #include "ImageToArray.h";
 #include <vector>;
-
+#include <string>;
 class ArrayToFromFile
 {
 public:

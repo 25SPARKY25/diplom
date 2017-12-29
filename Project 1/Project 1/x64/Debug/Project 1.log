@@ -1,9 +1,12 @@
-﻿  ArrayToFromFile.cpp
+﻿  MyForm.cpp
+d:\vs 2017 projects\project 1\project 1\MyForm.h(2): warning C4067: непредвиденные лексемы за директивой препроцессора, требуется newline
+d:\vs 2017 projects\project 1\project 1\ImageToArray.h(2): warning C4067: непредвиденные лексемы за директивой препроцессора, требуется newline
 d:\vs 2017 projects\project 1\project 1\ArrayToFromFile.h(2): warning C4067: непредвиденные лексемы за директивой препроцессора, требуется newline
 d:\vs 2017 projects\project 1\project 1\ArrayToFromFile.h(3): warning C4067: непредвиденные лексемы за директивой препроцессора, требуется newline
 d:\vs 2017 projects\project 1\project 1\ArrayToFromFile.h(4): warning C4067: непредвиденные лексемы за директивой препроцессора, требуется newline
 d:\vs 2017 projects\project 1\project 1\ArrayToFromFile.h(5): warning C4067: непредвиденные лексемы за директивой препроцессора, требуется newline
-d:\vs 2017 projects\project 1\project 1\ImageToArray.h(2): warning C4067: непредвиденные лексемы за директивой препроцессора, требуется newline
 d:\vs 2017 projects\project 1\project 1\ArrayToFromFile.h(6): warning C4067: непредвиденные лексемы за директивой препроцессора, требуется newline
-d:\vs 2017 projects\project 1\project 1\arraytofromfile.cpp(36): warning C4700: использована неинициализированная локальная переменная "x"
+d:\vs 2017 projects\project 1\project 1\ArrayToFromFile.h(7): warning C4067: непредвиденные лексемы за директивой препроцессора, требуется newline
+d:\vs 2017 projects\project 1\project 1\MyForm.h(3): warning C4067: непредвиденные лексемы за директивой препроцессора, требуется newline
+d:\vs 2017 projects\project 1\project 1\MyForm.h(4): warning C4067: непредвиденные лексемы за директивой препроцессора, требуется newline
   Project 1.vcxproj -> D:\VS 2017 projects\Project 1\x64\Debug\Project 1.exe
