@@ -139,6 +139,7 @@
     <ClCompile Include="..\..\nerualnet-master\neuron.cpp" />
     <ClCompile Include="..\..\nerualnet-master\trainingSet.cpp" />
     <ClCompile Include="ArrayToFromFile.cpp" />
+    <ClCompile Include="Create_Image.cpp" />
     <ClCompile Include="ImageToArray.cpp" />
     <ClCompile Include="MyForm.cpp" />
     <ClCompile Include="MyForm1.cpp" />
@@ -149,6 +150,7 @@
     <ClInclude Include="..\..\nerualnet-master\neuron.h" />
     <ClInclude Include="..\..\nerualnet-master\trainingSet.h" />
     <ClInclude Include="ArrayToFromFile.h" />
+    <ClInclude Include="Create_Image.h" />
     <ClInclude Include="ImageToArray.h" />
     <ClInclude Include="MyForm.h">
       <FileType>CppForm</FileType>

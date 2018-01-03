@@ -45,6 +45,9 @@
     <ClCompile Include="..\..\nerualnet-master\trainingSet.cpp">
       <Filter>Файлы исходного кода</Filter>
     </ClCompile>
+    <ClCompile Include="Create_Image.cpp">
+      <Filter>Файлы исходного кода</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="MyForm.h">
@@ -69,6 +72,9 @@
       <Filter>Заголовочные файлы</Filter>
     </ClInclude>
     <ClInclude Include="..\..\nerualnet-master\trainingSet.h">
+      <Filter>Заголовочные файлы</Filter>
+    </ClInclude>
+    <ClInclude Include="Create_Image.h">
       <Filter>Заголовочные файлы</Filter>
     </ClInclude>
   </ItemGroup>

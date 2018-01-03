@@ -2,6 +2,7 @@
 #include "ImageToArray.h";
 #include "ArrayToFromFile.h";
 #include <vector>;
+#include "Create_Image.h";
 
 
 namespace Project1 {
@@ -63,6 +64,7 @@ namespace Project1 {
 	private: System::Windows::Forms::Button^  button2;
 	private: System::Windows::Forms::Button^  button3;
 	private: System::Windows::Forms::PictureBox^  pictureBox3;
+	private: System::Windows::Forms::Button^  button4;
 
 	protected:
 
@@ -99,6 +101,7 @@ namespace Project1 {
 			this->pictureBox3 = (gcnew System::Windows::Forms::PictureBox());
 			this->label2 = (gcnew System::Windows::Forms::Label());
 			this->pictureBox2 = (gcnew System::Windows::Forms::PictureBox());
+			this->button4 = (gcnew System::Windows::Forms::Button());
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->dataGridView1))->BeginInit();
 			this->tabControl1->SuspendLayout();
 			this->tabPage1->SuspendLayout();
@@ -165,6 +168,7 @@ namespace Project1 {
 			// 
 			// tabPage1
 			// 
+			this->tabPage1->Controls->Add(this->button4);
 			this->tabPage1->Controls->Add(this->button3);
 			this->tabPage1->Controls->Add(this->button2);
 			this->tabPage1->Controls->Add(this->button1);
@@ -336,6 +340,16 @@ namespace Project1 {
 			this->pictureBox2->SizeMode = System::Windows::Forms::PictureBoxSizeMode::AutoSize;
 			this->pictureBox2->TabIndex = 7;
 			this->pictureBox2->TabStop = false;
+			// 
+			// button4
+			// 
+			this->button4->Location = System::Drawing::Point(179, 160);
+			this->button4->Name = L"button4";
+			this->button4->Size = System::Drawing::Size(118, 52);
+			this->button4->TabIndex = 4;
+			this->button4->Text = L"Нарисовать картинку";
+			this->button4->UseVisualStyleBackColor = true;
+			this->button4->Click += gcnew System::EventHandler(this, &MyForm::button4_Click);
 			// 
 			// MyForm
 			// 
@@ -595,33 +609,39 @@ private: System::Void button3_Click(System::Object^  sender, System::EventArgs^ 
 	vector<vector<int>> blackwhitevec(pictureBox1->Image->Width, vector <int>(pictureBox2->Image->Height));
 
 	//Для оптимизации создаём отдельно ячейки в датагриде
-	//датагрид1-исходного изображения
+	//датагрид1-исходного изображения и датагрид 2-ЧБ изображения 
 	for (int x = 0; x <pictureBox1->Image->Width; x++)
 	{
 		//добавление столбцов и заголовков к ним
 		dataGridView1->Columns->Add(x.ToString(), "");
 		dataGridView1->Columns[x]->HeaderText = Convert::ToString(x + 1);
+
+		dataGridView2->Columns->Add(x.ToString(), "");
+		dataGridView2->Columns[x]->HeaderText = Convert::ToString(x + 1);
 	}
 	for (int y = 0; y <pictureBox1->Image->Height; y++)
 	{
 		//добавление строк и заголовков к ним
 		dataGridView1->Rows->Add();
 		dataGridView1->Rows[y]->HeaderCell->Value = Convert::ToString(y + 1);
-	}
 
-	//датагрид2-ЧБ изображения
-	for (int x = 0; x <pictureBox2->Image->Width; x++)
-	{
-		//добавление столбцов и заголовков к ним
-		dataGridView2->Columns->Add(x.ToString(), "");
-		dataGridView2->Columns[x]->HeaderText = Convert::ToString(x + 1);
-	}
-	for (int y = 0; y <pictureBox2->Image->Height; y++)
-	{
-		//добавление строк и заголовков к ним
 		dataGridView2->Rows->Add();
 		dataGridView2->Rows[y]->HeaderCell->Value = Convert::ToString(y + 1);
 	}
+
+	//датагрид2-ЧБ изображения
+	//for (int x = 0; x <pictureBox2->Image->Width; x++)
+	//{
+	//	//добавление столбцов и заголовков к ним
+	//	dataGridView2->Columns->Add(x.ToString(), "");
+	//	dataGridView2->Columns[x]->HeaderText = Convert::ToString(x + 1);
+	//}
+	//for (int y = 0; y <pictureBox2->Image->Height; y++)
+	//{
+	//	//добавление строк и заголовков к ним
+	//	dataGridView2->Rows->Add();
+	//	dataGridView2->Rows[y]->HeaderCell->Value = Convert::ToString(y + 1);
+	//}
 
 	//Заполнение датагридов
 
@@ -629,38 +649,55 @@ private: System::Void button3_Click(System::Object^  sender, System::EventArgs^ 
 	inputvec = ImageToArray::ImgToVec(myBitmap, inputvec);//предаём картинку методу класса ImageToArray и возврат массива 0 и 1
 														  //разбиение изображения на RGB-канал и заполнение датагрида
 
+														  //Датагрид2
+	blackwhitevec = ImageToArray::BWImageToVector(myBitmap, blackwhitevec);//предаём картинку методу класса ImageToArray и возврат массива 0 и 1
+																		   //разбиение изображения на RGB-канал и заполнение датагрида
+
 	for (int x = 0; x < pictureBox1->Image->Width; x++)
 	{
 		for (int y = 0; y <pictureBox1->Image->Height; y++)
 		{
 			dataGridView1->Rows[y]->Cells[x]->Value = inputvec[x][y];
-		}
-	}
-	//Датагрид2
-	blackwhitevec = ImageToArray::BWImageToVector(myBitmap, blackwhitevec);//предаём картинку методу класса ImageToArray и возврат массива 0 и 1
-																		   //разбиение изображения на RGB-канал и заполнение датагрида
 
-	for (int x = 0; x <pictureBox2->Image->Width; x++)
-	{
-		for (int y = 0; y < pictureBox2->Image->Height; y++)
-		{
-			//f << "Test";
 			dataGridView2->Rows[y]->Cells[x]->Value = blackwhitevec[x][y];
 		}
 	}
+	////Датагрид2
+	//blackwhitevec = ImageToArray::BWImageToVector(myBitmap, blackwhitevec);//предаём картинку методу класса ImageToArray и возврат массива 0 и 1
+	//																	   //разбиение изображения на RGB-канал и заполнение датагрида
+
+	//for (int x = 0; x <pictureBox2->Image->Width; x++)
+	//{
+	//	for (int y = 0; y < pictureBox2->Image->Height; y++)
+	//	{
+	//		//f << "Test";
+	//		dataGridView2->Rows[y]->Cells[x]->Value = blackwhitevec[x][y];
+	//	}
+	//}
 
 	ArrayToFromFile::VecToFile(blackwhitevec, pictureBox2->Image->Width, pictureBox2->Image->Height);
 	//получение из файла вектор чб изображения и получение из этого вектора изображения
 
 	ifstream f;
 	f.open("1.txt");
-	vector<vector<int>> invec(268, vector <int>(268));
+
+	//тестово
+	vector<vector<int>> invec(pictureBox2->Image->Width, vector <int>(pictureBox2->Image->Height));
+	//vector<vector<int>> invec(268, vector <int>(268));
+
 	invec = ArrayToFromFile::FileToVec(f);
-	Bitmap ^image = gcnew Bitmap(268,268);
+
+	//тестовое задание нового размера на основе предыдущей картинки
+	Bitmap ^image = gcnew Bitmap(pictureBox2->Image->Width, pictureBox2->Image->Height);
+	//Bitmap ^image = gcnew Bitmap(268,268);
+
+
 	int averageValueColor = 0;
-	for (int x = 0; x < 268; x++)
+
+	//в циклах в случае чего заменить на 268
+	for (int x = 0; x < pictureBox2->Image->Width; x++)
 	{
-		for (int y = 0; y < 268; y++)
+		for (int y = 0; y < pictureBox2->Image->Height; y++)
 		{
 			//узнаём средне рифметическое
 			averageValueColor = invec[x][y] == 48 ? 0 : 255;
@@ -673,5 +710,15 @@ private: System::Void button3_Click(System::Object^  sender, System::EventArgs^ 
 	pictureBox3->Refresh();
 }
 
+private: System::Void button4_Click(System::Object^  sender, System::EventArgs^  e) {
+	//надо будет запилить цикл, где мы генерируем название фигуры из перечисления и отрпавляем методу
+	//метод в классе сравнивает название фигуры, используя switch-ветвление
+	//и применяем к названию фигуры группу операторов, которые присущи к этой фигуре
+	//получаем из метода класса фигуру и сохраняем под именем Имя_фигуры + номер итератора i
+	Bitmap ^image = gcnew Bitmap(100, 100);
+	image=Create_Image::Cr_image();
+	image->Save("test1.bmp");
+
+}
 };
 }
