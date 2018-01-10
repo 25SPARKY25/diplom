@@ -725,10 +725,6 @@ private: System::Void button3_Click(System::Object^  sender, System::EventArgs^ 
 }
 
 private: System::Void button4_Click(System::Object^  sender, System::EventArgs^  e) {
-	//надо будет запилить цикл, где мы генерируем название фигуры из перечисления и отрпавляем методу
-	//метод в классе сравнивает название фигуры, используя switch-ветвление
-	//и применяем к названию фигуры группу операторов, которые присущи к этой фигуре
-	//получаем из метода класса фигуру и сохраняем под именем Имя_фигуры + номер итератора i
 	Bitmap ^image = gcnew Bitmap(100, 100);
 	image=Create_Image::Cr_image();
 	image->Save("test1.bmp");

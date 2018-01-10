@@ -4,29 +4,5 @@ d:\vs 2017 projects\project 1\project 1\Create_Image.h(3): warning C4067: неп
 d:\vs 2017 projects\project 1\project 1\Create_Image.h(4): warning C4067: непредвиденные лексемы за директивой препроцессора, требуется newline
 d:\vs 2017 projects\project 1\project 1\Create_Image.h(5): warning C4067: непредвиденные лексемы за директивой препроцессора, требуется newline
 d:\vs 2017 projects\project 1\project 1\Create_Image.h(6): warning C4067: непредвиденные лексемы за директивой препроцессора, требуется newline
-Create_Image.cpp(54): error C2664: "void System::Drawing::Graphics::FillPolygon(System::Drawing::Brush ^,cli::array<System::Drawing::Point,1> ^,System::Drawing::Drawing2D::FillMode)": невозможно преобразовать аргумент 2 из "System::Drawing::Point" в "cli::array<System::Drawing::PointF,1> ^"
-  Create_Image.cpp(54): note: Для выполнения данного преобразования нет доступного оператора преобразования, определенного пользователем, или вызов оператора невозможен
-Create_Image.cpp(58): error C2374: w: переопределение; множественная инициализация
-  Create_Image.cpp(37): note:  см. объявление "w"
-Create_Image.cpp(42): error C2360: пропуск инициализации "w" из-за метки "case"
-  Create_Image.cpp(37): note:  см. объявление "w"
-Create_Image.cpp(57): error C2360: пропуск инициализации "TrianglePoints" из-за метки "case"
-  Create_Image.cpp(48): note:  см. объявление "TrianglePoints"
-Create_Image.cpp(57): error C2360: пропуск инициализации "point3" из-за метки "case"
-  Create_Image.cpp(46): note:  см. объявление "point3"
-Create_Image.cpp(57): error C2360: пропуск инициализации "point2" из-за метки "case"
-  Create_Image.cpp(45): note:  см. объявление "point2"
-Create_Image.cpp(57): error C2360: пропуск инициализации "point1" из-за метки "case"
-  Create_Image.cpp(44): note:  см. объявление "point1"
-Create_Image.cpp(57): error C2360: пропуск инициализации "w" из-за метки "case"
-  Create_Image.cpp(37): note:  см. объявление "w"
-Create_Image.cpp(63): error C2360: пропуск инициализации "w" из-за метки "case"
-  Create_Image.cpp(58): note:  см. объявление "w"
-Create_Image.cpp(63): error C2360: пропуск инициализации "TrianglePoints" из-за метки "case"
-  Create_Image.cpp(48): note:  см. объявление "TrianglePoints"
-Create_Image.cpp(63): error C2360: пропуск инициализации "point3" из-за метки "case"
-  Create_Image.cpp(46): note:  см. объявление "point3"
-Create_Image.cpp(63): error C2360: пропуск инициализации "point2" из-за метки "case"
-  Create_Image.cpp(45): note:  см. объявление "point2"
-Create_Image.cpp(63): error C2360: пропуск инициализации "point1" из-за метки "case"
-  Create_Image.cpp(44): note:  см. объявление "point1"
+Create_Image.cpp(28): warning C4101: i: неиспользованная локальная переменная
+  Project 1.vcxproj -> D:\VS 2017 projects\Project 1\x64\Debug\Project 1.exe

@@ -1,4 +1,5 @@
 #pragma once
+#include "Create_Image.h";
 
 namespace Project1 {
 
@@ -104,7 +105,17 @@ namespace Project1 {
 		}
 #pragma endregion
 	private: System::Void button1_Click(System::Object^  sender, System::EventArgs^  e) {
+		int z = Convert::ToInt32(textBox1->Text);
+		String^ path;
+		if (folderBrowserDialog1->ShowDialog() == System::Windows::Forms::DialogResult::OK)
+		{
+			path = folderBrowserDialog1->SelectedPath;
+		}
 
+		for (int i = 0; i < z; i++)
+		{
+			Create_Image::void_Cr_image(path, i);
+		}
 	}
 	};
 }
