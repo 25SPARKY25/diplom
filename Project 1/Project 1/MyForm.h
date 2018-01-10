@@ -3,6 +3,7 @@
 #include "ArrayToFromFile.h";
 #include <vector>;
 #include "Create_Image.h";
+#include "MyForm1.h";
 
 
 namespace Project1 {
@@ -65,6 +66,7 @@ namespace Project1 {
 	private: System::Windows::Forms::Button^  button3;
 	private: System::Windows::Forms::PictureBox^  pictureBox3;
 	private: System::Windows::Forms::Button^  button4;
+	private: System::Windows::Forms::Button^  button5;
 
 	protected:
 
@@ -87,6 +89,7 @@ namespace Project1 {
 			this->openFileDialog1 = (gcnew System::Windows::Forms::OpenFileDialog());
 			this->tabControl1 = (gcnew System::Windows::Forms::TabControl());
 			this->tabPage1 = (gcnew System::Windows::Forms::TabPage());
+			this->button4 = (gcnew System::Windows::Forms::Button());
 			this->button3 = (gcnew System::Windows::Forms::Button());
 			this->button2 = (gcnew System::Windows::Forms::Button());
 			this->tabPage2 = (gcnew System::Windows::Forms::TabPage());
@@ -101,7 +104,7 @@ namespace Project1 {
 			this->pictureBox3 = (gcnew System::Windows::Forms::PictureBox());
 			this->label2 = (gcnew System::Windows::Forms::Label());
 			this->pictureBox2 = (gcnew System::Windows::Forms::PictureBox());
-			this->button4 = (gcnew System::Windows::Forms::Button());
+			this->button5 = (gcnew System::Windows::Forms::Button());
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->dataGridView1))->BeginInit();
 			this->tabControl1->SuspendLayout();
 			this->tabPage1->SuspendLayout();
@@ -168,6 +171,7 @@ namespace Project1 {
 			// 
 			// tabPage1
 			// 
+			this->tabPage1->Controls->Add(this->button5);
 			this->tabPage1->Controls->Add(this->button4);
 			this->tabPage1->Controls->Add(this->button3);
 			this->tabPage1->Controls->Add(this->button2);
@@ -180,6 +184,16 @@ namespace Project1 {
 			this->tabPage1->TabIndex = 0;
 			this->tabPage1->Text = L"Загрузка данных";
 			this->tabPage1->UseVisualStyleBackColor = true;
+			// 
+			// button4
+			// 
+			this->button4->Location = System::Drawing::Point(179, 160);
+			this->button4->Name = L"button4";
+			this->button4->Size = System::Drawing::Size(118, 52);
+			this->button4->TabIndex = 4;
+			this->button4->Text = L"Нарисовать картинку";
+			this->button4->UseVisualStyleBackColor = true;
+			this->button4->Click += gcnew System::EventHandler(this, &MyForm::button4_Click);
 			// 
 			// button3
 			// 
@@ -341,15 +355,15 @@ namespace Project1 {
 			this->pictureBox2->TabIndex = 7;
 			this->pictureBox2->TabStop = false;
 			// 
-			// button4
+			// button5
 			// 
-			this->button4->Location = System::Drawing::Point(179, 160);
-			this->button4->Name = L"button4";
-			this->button4->Size = System::Drawing::Size(118, 52);
-			this->button4->TabIndex = 4;
-			this->button4->Text = L"Нарисовать картинку";
-			this->button4->UseVisualStyleBackColor = true;
-			this->button4->Click += gcnew System::EventHandler(this, &MyForm::button4_Click);
+			this->button5->Location = System::Drawing::Point(8, 257);
+			this->button5->Name = L"button5";
+			this->button5->Size = System::Drawing::Size(98, 52);
+			this->button5->TabIndex = 5;
+			this->button5->Text = L"Сгенерировать несколько картинок";
+			this->button5->UseVisualStyleBackColor = true;
+			this->button5->Click += gcnew System::EventHandler(this, &MyForm::button5_Click);
 			// 
 			// MyForm
 			// 
@@ -719,6 +733,11 @@ private: System::Void button4_Click(System::Object^  sender, System::EventArgs^ 
 	image=Create_Image::Cr_image();
 	image->Save("test1.bmp");
 
+}
+private: System::Void button5_Click(System::Object^  sender, System::EventArgs^  e) {
+	MyForm1 ^ genimg = gcnew MyForm1();//отображаем форму генерации картинок
+	//Display frmAbout as a modal dialog
+	genimg->ShowDialog();
 }
 };
 }

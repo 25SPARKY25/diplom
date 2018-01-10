@@ -18,5 +18,7 @@ public:
 	//чтение из файла
 	static Bitmap^ Cr_image();//метод отвечающий за генерацию картинки
 
+	static void void_Cr_image(string path);//void-метод отвечающий за генерацию картинки
+
 };
 
