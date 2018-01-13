@@ -67,6 +67,11 @@ namespace Project1 {
 	private: System::Windows::Forms::PictureBox^  pictureBox3;
 	private: System::Windows::Forms::Button^  button4;
 	private: System::Windows::Forms::Button^  button5;
+	private: System::Windows::Forms::Button^  button6;
+	private: System::Windows::Forms::OpenFileDialog^  openFileDialog2;
+	private: System::Windows::Forms::RichTextBox^  richTextBox1;
+	private: System::Windows::Forms::ImageList^  imageList1;
+	private: System::ComponentModel::IContainer^  components;
 
 	protected:
 
@@ -74,7 +79,7 @@ namespace Project1 {
 		/// <summary>
 		/// ќб€зательна€ переменна€ конструктора.
 		/// </summary>
-		System::ComponentModel::Container ^components;
+
 
 #pragma region Windows Form Designer generated code
 		/// <summary>
@@ -83,12 +88,16 @@ namespace Project1 {
 		/// </summary>
 		void InitializeComponent(void)
 		{
+			this->components = (gcnew System::ComponentModel::Container());
 			this->button1 = (gcnew System::Windows::Forms::Button());
 			this->textBox1 = (gcnew System::Windows::Forms::TextBox());
 			this->dataGridView1 = (gcnew System::Windows::Forms::DataGridView());
 			this->openFileDialog1 = (gcnew System::Windows::Forms::OpenFileDialog());
 			this->tabControl1 = (gcnew System::Windows::Forms::TabControl());
 			this->tabPage1 = (gcnew System::Windows::Forms::TabPage());
+			this->richTextBox1 = (gcnew System::Windows::Forms::RichTextBox());
+			this->button6 = (gcnew System::Windows::Forms::Button());
+			this->button5 = (gcnew System::Windows::Forms::Button());
 			this->button4 = (gcnew System::Windows::Forms::Button());
 			this->button3 = (gcnew System::Windows::Forms::Button());
 			this->button2 = (gcnew System::Windows::Forms::Button());
@@ -104,7 +113,8 @@ namespace Project1 {
 			this->pictureBox3 = (gcnew System::Windows::Forms::PictureBox());
 			this->label2 = (gcnew System::Windows::Forms::Label());
 			this->pictureBox2 = (gcnew System::Windows::Forms::PictureBox());
-			this->button5 = (gcnew System::Windows::Forms::Button());
+			this->openFileDialog2 = (gcnew System::Windows::Forms::OpenFileDialog());
+			this->imageList1 = (gcnew System::Windows::Forms::ImageList(this->components));
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->dataGridView1))->BeginInit();
 			this->tabControl1->SuspendLayout();
 			this->tabPage1->SuspendLayout();
@@ -171,6 +181,8 @@ namespace Project1 {
 			// 
 			// tabPage1
 			// 
+			this->tabPage1->Controls->Add(this->richTextBox1);
+			this->tabPage1->Controls->Add(this->button6);
 			this->tabPage1->Controls->Add(this->button5);
 			this->tabPage1->Controls->Add(this->button4);
 			this->tabPage1->Controls->Add(this->button3);
@@ -184,6 +196,34 @@ namespace Project1 {
 			this->tabPage1->TabIndex = 0;
 			this->tabPage1->Text = L"«агрузка данных";
 			this->tabPage1->UseVisualStyleBackColor = true;
+			// 
+			// richTextBox1
+			// 
+			this->richTextBox1->Location = System::Drawing::Point(451, 24);
+			this->richTextBox1->Name = L"richTextBox1";
+			this->richTextBox1->Size = System::Drawing::Size(309, 157);
+			this->richTextBox1->TabIndex = 7;
+			this->richTextBox1->Text = L"";
+			// 
+			// button6
+			// 
+			this->button6->Location = System::Drawing::Point(179, 257);
+			this->button6->Name = L"button6";
+			this->button6->Size = System::Drawing::Size(85, 52);
+			this->button6->TabIndex = 6;
+			this->button6->Text = L"«агрузить изображени€";
+			this->button6->UseVisualStyleBackColor = true;
+			this->button6->Click += gcnew System::EventHandler(this, &MyForm::button6_Click);
+			// 
+			// button5
+			// 
+			this->button5->Location = System::Drawing::Point(8, 257);
+			this->button5->Name = L"button5";
+			this->button5->Size = System::Drawing::Size(98, 52);
+			this->button5->TabIndex = 5;
+			this->button5->Text = L"—генерировать несколько картинок";
+			this->button5->UseVisualStyleBackColor = true;
+			this->button5->Click += gcnew System::EventHandler(this, &MyForm::button5_Click);
 			// 
 			// button4
 			// 
@@ -355,15 +395,17 @@ namespace Project1 {
 			this->pictureBox2->TabIndex = 7;
 			this->pictureBox2->TabStop = false;
 			// 
-			// button5
+			// openFileDialog2
 			// 
-			this->button5->Location = System::Drawing::Point(8, 257);
-			this->button5->Name = L"button5";
-			this->button5->Size = System::Drawing::Size(98, 52);
-			this->button5->TabIndex = 5;
-			this->button5->Text = L"—генерировать несколько картинок";
-			this->button5->UseVisualStyleBackColor = true;
-			this->button5->Click += gcnew System::EventHandler(this, &MyForm::button5_Click);
+			this->openFileDialog2->FileName = L"openFileDialog1";
+			this->openFileDialog2->Filter = L"(*.bmp)|*.bmp";
+			this->openFileDialog2->Multiselect = true;
+			// 
+			// imageList1
+			// 
+			this->imageList1->ColorDepth = System::Windows::Forms::ColorDepth::Depth8Bit;
+			this->imageList1->ImageSize = System::Drawing::Size(16, 16);
+			this->imageList1->TransparentColor = System::Drawing::Color::Transparent;
 			// 
 			// MyForm
 			// 
@@ -734,6 +776,31 @@ private: System::Void button5_Click(System::Object^  sender, System::EventArgs^ 
 	MyForm1 ^ genimg = gcnew MyForm1();//отображаем форму генерации картинок
 	//Display frmAbout as a modal dialog
 	genimg->ShowDialog();
+}
+private: System::Void button6_Click(System::Object^  sender, System::EventArgs^  e) {
+	//загрузка картинки 
+	System::String^ FileName;
+	openFileDialog2->Title = "Select pictures ";
+	//openFileDialog2->Multiselect = false;
+	//vector<Bitmap^> ImagesVec;
+	//Bitmap^ * InputImages;
+	//cli::array<Bitmap^, 1>^ Images;
+
+	if (openFileDialog2->ShowDialog() == System::Windows::Forms::DialogResult::OK)
+	{
+		FileName = openFileDialog2->FileName->ToString();
+		//pictureBox1->Image = Image::FromFile(openFileDialog2->FileName);
+		label1->Text = FileName;
+		for each (String^ file in openFileDialog2->FileNames)
+		{
+			richTextBox1->AppendText(file);
+			//Bitmap^ file = gcnew Bitmap(500,500);
+			//Images->;
+			imageList1->Images->Add(Image::FromFile(file));
+		}
+		pictureBox1->Image = imageList1->Images[10];
+		//ImagesVec->push_back();
+	}
 }
 };
 }
