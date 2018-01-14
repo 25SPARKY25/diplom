@@ -17,5 +17,4 @@ d:\vs 2017 projects\project 1\project 1\Create_Image.h(5): warning C4067: неп
 d:\vs 2017 projects\project 1\project 1\Create_Image.h(6): warning C4067: непредвиденные лексемы за директивой препроцессора, требуется newline
 d:\vs 2017 projects\project 1\project 1\MyForm.h(6): warning C4067: непредвиденные лексемы за директивой препроцессора, требуется newline
 d:\vs 2017 projects\project 1\project 1\MyForm1.h(2): warning C4067: непредвиденные лексемы за директивой препроцессора, требуется newline
-d:\vs 2017 projects\project 1\project 1\MyForm.h(805): error C3867: "System::Windows::Forms::ImageList::Draw": нестандартный синтаксис; используйте "&", чтобы создать указатель на член
-d:\vs 2017 projects\project 1\project 1\MyForm.h(805): error C2109: для индекса требуется массив или указатель
+  Project 1.vcxproj -> D:\VS 2017 projects\Project 1\x64\Debug\Project 1.exe
