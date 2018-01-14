@@ -783,9 +783,9 @@ private: System::Void button6_Click(System::Object^  sender, System::EventArgs^ 
 	openFileDialog2->Title = "Select pictures ";
 	//openFileDialog2->Multiselect = false;
 	//vector<Bitmap^> ImagesVec;
-	//Bitmap^ * InputImages;
-	//cli::array<Bitmap^, 1>^ Images;
-
+	Bitmap^ * InputImages;
+	//cli::array<Bitmap^>^ Images;
+	int i=0;
 	if (openFileDialog2->ShowDialog() == System::Windows::Forms::DialogResult::OK)
 	{
 		FileName = openFileDialog2->FileName->ToString();
@@ -797,9 +797,19 @@ private: System::Void button6_Click(System::Object^  sender, System::EventArgs^ 
 			//Bitmap^ file = gcnew Bitmap(500,500);
 			//Images->;
 			imageList1->Images->Add(Image::FromFile(file));
+			//ImagesVec.push_back(openFileDialog2->OpenFile);
+			//openFileDialog2->FileName= openFileDialog2->FileNames;
+			pictureBox1->Image = Image::FromFile(file);
+			//Images->Add(Image::FromFile(file));
+			InputImages[i]->FromFile(file);// = Image::FromFile(file);
+			i++;
+			//ImagesVec->push_back(Image::FromFile(file));
 		}
-		pictureBox1->Image = imageList1->Images[10];
-		//ImagesVec->push_back();
+		//pictureBox1->Image = InputImages[10];
+		//pictureBox2->Image = imageList1->Images[10];
+
+		//ImagesVec->push_back(Image::FromFile(file));
+		//Images->Add;
 	}
 }
 };
