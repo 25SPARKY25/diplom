@@ -2,6 +2,9 @@
 #include "ImageToArray.h";
 #include "ArrayToFromFile.h";
 #include <vector>;
+#include "Create_Image.h";
+#include "MyForm1.h";
+#include "recognize.h";
 
 
 namespace Project1 {
@@ -63,6 +66,16 @@ namespace Project1 {
 	private: System::Windows::Forms::Button^  button2;
 	private: System::Windows::Forms::Button^  button3;
 	private: System::Windows::Forms::PictureBox^  pictureBox3;
+	private: System::Windows::Forms::Button^  button4;
+	private: System::Windows::Forms::Button^  button5;
+	private: System::Windows::Forms::Button^  button6;
+	private: System::Windows::Forms::OpenFileDialog^  openFileDialog2;
+	private: System::Windows::Forms::RichTextBox^  richTextBox1;
+	private: System::Windows::Forms::ImageList^  imageList1;
+	private: System::Windows::Forms::Label^  label6;
+	private: System::Windows::Forms::Label^  label5;
+	private: System::Windows::Forms::Button^  button7;
+	private: System::ComponentModel::IContainer^  components;
 
 	protected:
 
@@ -70,7 +83,7 @@ namespace Project1 {
 		/// <summary>
 		/// Обязательная переменная конструктора.
 		/// </summary>
-		System::ComponentModel::Container ^components;
+
 
 #pragma region Windows Form Designer generated code
 		/// <summary>
@@ -79,12 +92,19 @@ namespace Project1 {
 		/// </summary>
 		void InitializeComponent(void)
 		{
+			this->components = (gcnew System::ComponentModel::Container());
 			this->button1 = (gcnew System::Windows::Forms::Button());
 			this->textBox1 = (gcnew System::Windows::Forms::TextBox());
 			this->dataGridView1 = (gcnew System::Windows::Forms::DataGridView());
 			this->openFileDialog1 = (gcnew System::Windows::Forms::OpenFileDialog());
 			this->tabControl1 = (gcnew System::Windows::Forms::TabControl());
 			this->tabPage1 = (gcnew System::Windows::Forms::TabPage());
+			this->label6 = (gcnew System::Windows::Forms::Label());
+			this->label5 = (gcnew System::Windows::Forms::Label());
+			this->richTextBox1 = (gcnew System::Windows::Forms::RichTextBox());
+			this->button6 = (gcnew System::Windows::Forms::Button());
+			this->button5 = (gcnew System::Windows::Forms::Button());
+			this->button4 = (gcnew System::Windows::Forms::Button());
 			this->button3 = (gcnew System::Windows::Forms::Button());
 			this->button2 = (gcnew System::Windows::Forms::Button());
 			this->tabPage2 = (gcnew System::Windows::Forms::TabPage());
@@ -99,6 +119,9 @@ namespace Project1 {
 			this->pictureBox3 = (gcnew System::Windows::Forms::PictureBox());
 			this->label2 = (gcnew System::Windows::Forms::Label());
 			this->pictureBox2 = (gcnew System::Windows::Forms::PictureBox());
+			this->openFileDialog2 = (gcnew System::Windows::Forms::OpenFileDialog());
+			this->imageList1 = (gcnew System::Windows::Forms::ImageList(this->components));
+			this->button7 = (gcnew System::Windows::Forms::Button());
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->dataGridView1))->BeginInit();
 			this->tabControl1->SuspendLayout();
 			this->tabPage1->SuspendLayout();
@@ -165,6 +188,13 @@ namespace Project1 {
 			// 
 			// tabPage1
 			// 
+			this->tabPage1->Controls->Add(this->button7);
+			this->tabPage1->Controls->Add(this->label6);
+			this->tabPage1->Controls->Add(this->label5);
+			this->tabPage1->Controls->Add(this->richTextBox1);
+			this->tabPage1->Controls->Add(this->button6);
+			this->tabPage1->Controls->Add(this->button5);
+			this->tabPage1->Controls->Add(this->button4);
 			this->tabPage1->Controls->Add(this->button3);
 			this->tabPage1->Controls->Add(this->button2);
 			this->tabPage1->Controls->Add(this->button1);
@@ -177,13 +207,69 @@ namespace Project1 {
 			this->tabPage1->Text = L"Загрузка данных";
 			this->tabPage1->UseVisualStyleBackColor = true;
 			// 
+			// label6
+			// 
+			this->label6->AutoSize = true;
+			this->label6->Location = System::Drawing::Point(450, 303);
+			this->label6->Name = L"label6";
+			this->label6->Size = System::Drawing::Size(155, 13);
+			this->label6->TabIndex = 9;
+			this->label6->Text = L"Список загруженных файлов";
+			// 
+			// label5
+			// 
+			this->label5->AutoSize = true;
+			this->label5->Location = System::Drawing::Point(63, 303);
+			this->label5->Name = L"label5";
+			this->label5->Size = System::Drawing::Size(209, 13);
+			this->label5->TabIndex = 8;
+			this->label5->Text = L"Используйте нижеприведённые кнопки";
+			// 
+			// richTextBox1
+			// 
+			this->richTextBox1->Location = System::Drawing::Point(453, 339);
+			this->richTextBox1->Name = L"richTextBox1";
+			this->richTextBox1->Size = System::Drawing::Size(309, 157);
+			this->richTextBox1->TabIndex = 7;
+			this->richTextBox1->Text = L"";
+			// 
+			// button6
+			// 
+			this->button6->Location = System::Drawing::Point(213, 438);
+			this->button6->Name = L"button6";
+			this->button6->Size = System::Drawing::Size(85, 52);
+			this->button6->TabIndex = 6;
+			this->button6->Text = L"Загрузить изображения";
+			this->button6->UseVisualStyleBackColor = true;
+			this->button6->Click += gcnew System::EventHandler(this, &MyForm::button6_Click);
+			// 
+			// button5
+			// 
+			this->button5->Location = System::Drawing::Point(42, 438);
+			this->button5->Name = L"button5";
+			this->button5->Size = System::Drawing::Size(98, 52);
+			this->button5->TabIndex = 5;
+			this->button5->Text = L"Сгенерировать несколько картинок";
+			this->button5->UseVisualStyleBackColor = true;
+			this->button5->Click += gcnew System::EventHandler(this, &MyForm::button5_Click);
+			// 
+			// button4
+			// 
+			this->button4->Location = System::Drawing::Point(213, 341);
+			this->button4->Name = L"button4";
+			this->button4->Size = System::Drawing::Size(118, 52);
+			this->button4->TabIndex = 4;
+			this->button4->Text = L"Нарисовать картинку";
+			this->button4->UseVisualStyleBackColor = true;
+			this->button4->Click += gcnew System::EventHandler(this, &MyForm::button4_Click);
+			// 
 			// button3
 			// 
-			this->button3->Location = System::Drawing::Point(8, 158);
+			this->button3->Location = System::Drawing::Point(42, 339);
 			this->button3->Name = L"button3";
 			this->button3->Size = System::Drawing::Size(114, 55);
 			this->button3->TabIndex = 3;
-			this->button3->Text = L"Vector";
+			this->button3->Text = L"Загрузить 1 картинку используя Vector";
 			this->button3->UseVisualStyleBackColor = true;
 			this->button3->Click += gcnew System::EventHandler(this, &MyForm::button3_Click);
 			// 
@@ -336,6 +422,28 @@ namespace Project1 {
 			this->pictureBox2->SizeMode = System::Windows::Forms::PictureBoxSizeMode::AutoSize;
 			this->pictureBox2->TabIndex = 7;
 			this->pictureBox2->TabStop = false;
+			// 
+			// openFileDialog2
+			// 
+			this->openFileDialog2->FileName = L"openFileDialog1";
+			this->openFileDialog2->Filter = L"(*.bmp)|*.bmp";
+			this->openFileDialog2->Multiselect = true;
+			// 
+			// imageList1
+			// 
+			this->imageList1->ColorDepth = System::Windows::Forms::ColorDepth::Depth8Bit;
+			this->imageList1->ImageSize = System::Drawing::Size(16, 16);
+			this->imageList1->TransparentColor = System::Drawing::Color::Transparent;
+			// 
+			// button7
+			// 
+			this->button7->Location = System::Drawing::Point(931, 26);
+			this->button7->Name = L"button7";
+			this->button7->Size = System::Drawing::Size(111, 35);
+			this->button7->TabIndex = 10;
+			this->button7->Text = L"Зарандомить веса";
+			this->button7->UseVisualStyleBackColor = true;
+			this->button7->Click += gcnew System::EventHandler(this, &MyForm::button7_Click);
 			// 
 			// MyForm
 			// 
@@ -595,33 +703,39 @@ private: System::Void button3_Click(System::Object^  sender, System::EventArgs^ 
 	vector<vector<int>> blackwhitevec(pictureBox1->Image->Width, vector <int>(pictureBox2->Image->Height));
 
 	//Для оптимизации создаём отдельно ячейки в датагриде
-	//датагрид1-исходного изображения
+	//датагрид1-исходного изображения и датагрид 2-ЧБ изображения 
 	for (int x = 0; x <pictureBox1->Image->Width; x++)
 	{
 		//добавление столбцов и заголовков к ним
 		dataGridView1->Columns->Add(x.ToString(), "");
 		dataGridView1->Columns[x]->HeaderText = Convert::ToString(x + 1);
+
+		dataGridView2->Columns->Add(x.ToString(), "");
+		dataGridView2->Columns[x]->HeaderText = Convert::ToString(x + 1);
 	}
 	for (int y = 0; y <pictureBox1->Image->Height; y++)
 	{
 		//добавление строк и заголовков к ним
 		dataGridView1->Rows->Add();
 		dataGridView1->Rows[y]->HeaderCell->Value = Convert::ToString(y + 1);
-	}
 
-	//датагрид2-ЧБ изображения
-	for (int x = 0; x <pictureBox2->Image->Width; x++)
-	{
-		//добавление столбцов и заголовков к ним
-		dataGridView2->Columns->Add(x.ToString(), "");
-		dataGridView2->Columns[x]->HeaderText = Convert::ToString(x + 1);
-	}
-	for (int y = 0; y <pictureBox2->Image->Height; y++)
-	{
-		//добавление строк и заголовков к ним
 		dataGridView2->Rows->Add();
 		dataGridView2->Rows[y]->HeaderCell->Value = Convert::ToString(y + 1);
 	}
+
+	//датагрид2-ЧБ изображения
+	//for (int x = 0; x <pictureBox2->Image->Width; x++)
+	//{
+	//	//добавление столбцов и заголовков к ним
+	//	dataGridView2->Columns->Add(x.ToString(), "");
+	//	dataGridView2->Columns[x]->HeaderText = Convert::ToString(x + 1);
+	//}
+	//for (int y = 0; y <pictureBox2->Image->Height; y++)
+	//{
+	//	//добавление строк и заголовков к ним
+	//	dataGridView2->Rows->Add();
+	//	dataGridView2->Rows[y]->HeaderCell->Value = Convert::ToString(y + 1);
+	//}
 
 	//Заполнение датагридов
 
@@ -629,38 +743,55 @@ private: System::Void button3_Click(System::Object^  sender, System::EventArgs^ 
 	inputvec = ImageToArray::ImgToVec(myBitmap, inputvec);//предаём картинку методу класса ImageToArray и возврат массива 0 и 1
 														  //разбиение изображения на RGB-канал и заполнение датагрида
 
+														  //Датагрид2
+	blackwhitevec = ImageToArray::BWImageToVector(myBitmap, blackwhitevec);//предаём картинку методу класса ImageToArray и возврат массива 0 и 1
+																		   //разбиение изображения на RGB-канал и заполнение датагрида
+
 	for (int x = 0; x < pictureBox1->Image->Width; x++)
 	{
 		for (int y = 0; y <pictureBox1->Image->Height; y++)
 		{
 			dataGridView1->Rows[y]->Cells[x]->Value = inputvec[x][y];
-		}
-	}
-	//Датагрид2
-	blackwhitevec = ImageToArray::BWImageToVector(myBitmap, blackwhitevec);//предаём картинку методу класса ImageToArray и возврат массива 0 и 1
-																		   //разбиение изображения на RGB-канал и заполнение датагрида
 
-	for (int x = 0; x <pictureBox2->Image->Width; x++)
-	{
-		for (int y = 0; y < pictureBox2->Image->Height; y++)
-		{
-			//f << "Test";
 			dataGridView2->Rows[y]->Cells[x]->Value = blackwhitevec[x][y];
 		}
 	}
+	////Датагрид2
+	//blackwhitevec = ImageToArray::BWImageToVector(myBitmap, blackwhitevec);//предаём картинку методу класса ImageToArray и возврат массива 0 и 1
+	//																	   //разбиение изображения на RGB-канал и заполнение датагрида
+
+	//for (int x = 0; x <pictureBox2->Image->Width; x++)
+	//{
+	//	for (int y = 0; y < pictureBox2->Image->Height; y++)
+	//	{
+	//		//f << "Test";
+	//		dataGridView2->Rows[y]->Cells[x]->Value = blackwhitevec[x][y];
+	//	}
+	//}
 
 	ArrayToFromFile::VecToFile(blackwhitevec, pictureBox2->Image->Width, pictureBox2->Image->Height);
 	//получение из файла вектор чб изображения и получение из этого вектора изображения
 
 	ifstream f;
 	f.open("1.txt");
-	vector<vector<int>> invec(268, vector <int>(268));
+
+	//тестово
+	vector<vector<int>> invec(pictureBox2->Image->Width, vector <int>(pictureBox2->Image->Height));
+	//vector<vector<int>> invec(268, vector <int>(268));
+
 	invec = ArrayToFromFile::FileToVec(f);
-	Bitmap ^image = gcnew Bitmap(268,268);
+
+	//тестовое задание нового размера на основе предыдущей картинки
+	Bitmap ^image = gcnew Bitmap(pictureBox2->Image->Width, pictureBox2->Image->Height);
+	//Bitmap ^image = gcnew Bitmap(268,268);
+
+
 	int averageValueColor = 0;
-	for (int x = 0; x < 268; x++)
+
+	//в циклах в случае чего заменить на 268
+	for (int x = 0; x < pictureBox2->Image->Width; x++)
 	{
-		for (int y = 0; y < 268; y++)
+		for (int y = 0; y < pictureBox2->Image->Height; y++)
 		{
 			//узнаём средне рифметическое
 			averageValueColor = invec[x][y] == 48 ? 0 : 255;
@@ -673,5 +804,54 @@ private: System::Void button3_Click(System::Object^  sender, System::EventArgs^ 
 	pictureBox3->Refresh();
 }
 
+private: System::Void button4_Click(System::Object^  sender, System::EventArgs^  e) {
+	Bitmap ^image = gcnew Bitmap(100, 100);
+	image=Create_Image::Cr_image();
+	image->Save("test1.bmp");
+
+}
+private: System::Void button5_Click(System::Object^  sender, System::EventArgs^  e) {
+	MyForm1 ^ genimg = gcnew MyForm1();//отображаем форму генерации картинок
+	//Display frmAbout as a modal dialog
+	genimg->ShowDialog();
+}
+private: System::Void button6_Click(System::Object^  sender, System::EventArgs^  e) {
+	//загрузка картинки 
+	System::String^ FileName;
+	openFileDialog2->Title = "Select pictures ";
+	//openFileDialog2->Multiselect = false;
+	//vector<Bitmap^> ImagesVec;
+	Bitmap^ * InputImages;
+	//cli::array<Bitmap^>^ Images;
+	int i=0;
+	if (openFileDialog2->ShowDialog() == System::Windows::Forms::DialogResult::OK)
+	{
+		FileName = openFileDialog2->FileName->ToString();
+		//pictureBox1->Image = Image::FromFile(openFileDialog2->FileName);
+		label1->Text = FileName;
+		for each (String^ file in openFileDialog2->FileNames)
+		{
+			richTextBox1->AppendText(file);
+			//Bitmap^ file = gcnew Bitmap(500,500);
+			//Images->;
+			imageList1->Images->Add(Image::FromFile(file));
+			//ImagesVec.push_back(openFileDialog2->OpenFile);
+			//openFileDialog2->FileName= openFileDialog2->FileNames;
+			pictureBox1->Image = Image::FromFile(file);
+			//Images->Add(Image::FromFile(file));
+			InputImages[i]->FromFile(file);// = Image::FromFile(file);
+			i++;
+			//ImagesVec->push_back(Image::FromFile(file));
+		}
+		//pictureBox1->Image = InputImages[10];
+		//pictureBox2->Image = imageList1->Images[10];
+
+		//ImagesVec->push_back(Image::FromFile(file));
+		//Images->Add;
+	}
+}
+private: System::Void button7_Click(System::Object^  sender, System::EventArgs^  e) {
+	recognize::Randomize_weights();
+}
 };
 }

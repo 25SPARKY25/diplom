@@ -1,8 +1,17 @@
-﻿  ArrayToFromFile.cpp
+﻿  recognize.cpp
+d:\vs 2017 projects\project 1\project 1\recognize.h(2): warning C4067: непредвиденные лексемы за директивой препроцессора, требуется newline
+d:\vs 2017 projects\project 1\project 1\recognize.h(3): warning C4067: непредвиденные лексемы за директивой препроцессора, требуется newline
+d:\vs 2017 projects\project 1\project 1\recognize.h(4): warning C4067: непредвиденные лексемы за директивой препроцессора, требуется newline
+d:\vs 2017 projects\project 1\project 1\recognize.h(5): warning C4067: непредвиденные лексемы за директивой препроцессора, требуется newline
+d:\vs 2017 projects\project 1\project 1\recognize.h(6): warning C4067: непредвиденные лексемы за директивой препроцессора, требуется newline
+d:\vs 2017 projects\project 1\project 1\recognize.h(7): warning C4067: непредвиденные лексемы за директивой препроцессора, требуется newline
+d:\vs 2017 projects\project 1\project 1\ImageToArray.h(2): warning C4067: непредвиденные лексемы за директивой препроцессора, требуется newline
 d:\vs 2017 projects\project 1\project 1\ArrayToFromFile.h(2): warning C4067: непредвиденные лексемы за директивой препроцессора, требуется newline
 d:\vs 2017 projects\project 1\project 1\ArrayToFromFile.h(3): warning C4067: непредвиденные лексемы за директивой препроцессора, требуется newline
 d:\vs 2017 projects\project 1\project 1\ArrayToFromFile.h(4): warning C4067: непредвиденные лексемы за директивой препроцессора, требуется newline
 d:\vs 2017 projects\project 1\project 1\ArrayToFromFile.h(5): warning C4067: непредвиденные лексемы за директивой препроцессора, требуется newline
-d:\vs 2017 projects\project 1\project 1\ImageToArray.h(2): warning C4067: непредвиденные лексемы за директивой препроцессора, требуется newline
 d:\vs 2017 projects\project 1\project 1\ArrayToFromFile.h(6): warning C4067: непредвиденные лексемы за директивой препроцессора, требуется newline
+d:\vs 2017 projects\project 1\project 1\ArrayToFromFile.h(7): warning C4067: непредвиденные лексемы за директивой препроцессора, требуется newline
+d:\vs 2017 projects\project 1\project 1\recognize.h(8): warning C4067: непредвиденные лексемы за директивой препроцессора, требуется newline
+recognize.cpp(7): warning C4244: аргумент: преобразование "time_t" в "unsigned int", возможна потеря данных
   Project 1.vcxproj -> D:\VS 2017 projects\Project 1\x64\Debug\Project 1.exe

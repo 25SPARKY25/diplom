@@ -26,10 +26,19 @@ vector<std::vector<int>> ImageToArray::BWImageToVector(Bitmap ^ img, vector<std:
 	return OutputBlackWhiteVec;
 }
 
-//Bitmap ^ ImageToArray::BWImage(vector<std::vector<int>> inputvec)
-//{
-//	// TODO: вставьте здесь оператор return
-//}
+std::vector<int> ImageToArray::BWImage(Bitmap ^img, std::vector<int> single_inputvec)
+{
+	//int i = 0;
+	for (int x = 0; x < img->Width; x++)
+	{
+		for (int y = 0; y < img->Height; y++)
+		{
+			single_inputvec.push_back(Convert::ToInt16(Color(img->GetPixel(x, y)).R) >= 130 && Convert::ToInt16(Color(img->GetPixel(x, y)).G) >= 130 && Convert::ToInt16(Color(img->GetPixel(x, y)).B) >= 130 ? 0 : 1);
+			//i++;
+		}
+	}
+	return single_inputvec;
+}
 
 int ** ImageToArray::ImgToArr(Bitmap ^ img, int ** InputColorArr)
  {
