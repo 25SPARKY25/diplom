@@ -17,7 +17,7 @@ ref class recognize
 {
 public:
 	static vector<std::vector<double>> Randomize_weights();//делаем веса рандомными
-	static std::vector<std::vector<double>> FileToVecWieights(std::ifstream &f);
+	static std::vector<std::vector<double>> FileToVecWieights();
 	recognize();
 };
 

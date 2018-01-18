@@ -75,6 +75,8 @@ namespace Project1 {
 	private: System::Windows::Forms::Label^  label6;
 	private: System::Windows::Forms::Label^  label5;
 	private: System::Windows::Forms::Button^  button7;
+	private: System::Windows::Forms::Button^  button8;
+
 	private: System::ComponentModel::IContainer^  components;
 
 	protected:
@@ -99,6 +101,8 @@ namespace Project1 {
 			this->openFileDialog1 = (gcnew System::Windows::Forms::OpenFileDialog());
 			this->tabControl1 = (gcnew System::Windows::Forms::TabControl());
 			this->tabPage1 = (gcnew System::Windows::Forms::TabPage());
+			this->button8 = (gcnew System::Windows::Forms::Button());
+			this->button7 = (gcnew System::Windows::Forms::Button());
 			this->label6 = (gcnew System::Windows::Forms::Label());
 			this->label5 = (gcnew System::Windows::Forms::Label());
 			this->richTextBox1 = (gcnew System::Windows::Forms::RichTextBox());
@@ -121,7 +125,6 @@ namespace Project1 {
 			this->pictureBox2 = (gcnew System::Windows::Forms::PictureBox());
 			this->openFileDialog2 = (gcnew System::Windows::Forms::OpenFileDialog());
 			this->imageList1 = (gcnew System::Windows::Forms::ImageList(this->components));
-			this->button7 = (gcnew System::Windows::Forms::Button());
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->dataGridView1))->BeginInit();
 			this->tabControl1->SuspendLayout();
 			this->tabPage1->SuspendLayout();
@@ -188,6 +191,7 @@ namespace Project1 {
 			// 
 			// tabPage1
 			// 
+			this->tabPage1->Controls->Add(this->button8);
 			this->tabPage1->Controls->Add(this->button7);
 			this->tabPage1->Controls->Add(this->label6);
 			this->tabPage1->Controls->Add(this->label5);
@@ -206,6 +210,26 @@ namespace Project1 {
 			this->tabPage1->TabIndex = 0;
 			this->tabPage1->Text = L"Загрузка данных";
 			this->tabPage1->UseVisualStyleBackColor = true;
+			// 
+			// button8
+			// 
+			this->button8->Location = System::Drawing::Point(930, 80);
+			this->button8->Name = L"button8";
+			this->button8->Size = System::Drawing::Size(111, 30);
+			this->button8->TabIndex = 11;
+			this->button8->Text = L"Загрузить веса";
+			this->button8->UseVisualStyleBackColor = true;
+			this->button8->Click += gcnew System::EventHandler(this, &MyForm::button8_Click);
+			// 
+			// button7
+			// 
+			this->button7->Location = System::Drawing::Point(931, 26);
+			this->button7->Name = L"button7";
+			this->button7->Size = System::Drawing::Size(111, 35);
+			this->button7->TabIndex = 10;
+			this->button7->Text = L"Зарандомить веса";
+			this->button7->UseVisualStyleBackColor = true;
+			this->button7->Click += gcnew System::EventHandler(this, &MyForm::button7_Click);
 			// 
 			// label6
 			// 
@@ -434,16 +458,6 @@ namespace Project1 {
 			this->imageList1->ColorDepth = System::Windows::Forms::ColorDepth::Depth8Bit;
 			this->imageList1->ImageSize = System::Drawing::Size(16, 16);
 			this->imageList1->TransparentColor = System::Drawing::Color::Transparent;
-			// 
-			// button7
-			// 
-			this->button7->Location = System::Drawing::Point(931, 26);
-			this->button7->Name = L"button7";
-			this->button7->Size = System::Drawing::Size(111, 35);
-			this->button7->TabIndex = 10;
-			this->button7->Text = L"Зарандомить веса";
-			this->button7->UseVisualStyleBackColor = true;
-			this->button7->Click += gcnew System::EventHandler(this, &MyForm::button7_Click);
 			// 
 			// MyForm
 			// 
@@ -852,6 +866,73 @@ private: System::Void button6_Click(System::Object^  sender, System::EventArgs^ 
 }
 private: System::Void button7_Click(System::Object^  sender, System::EventArgs^  e) {
 	recognize::Randomize_weights();
+}
+	private: System::Void button8_Click(System::Object^  sender, System::EventArgs^  e) {
+		//загрузка весов из файла 
+		ifstream in;
+		in.open("ranom_weights.txt");//открываем файл для вывода инфы из файла в прогу
+		char dig;//символ в файле, может принимать значенио 0 или 1 или размер вектора
+		int x, y;//размеры вектора
+		string str;//переменная для записи числа()
+		if (!in.is_open()) // если файл не открыт
+			cout << "Файл не может быть открыт!\n"; // сообщить об этом
+		else
+		{
+		//узнаём размеры вектора из файла------------
+		for (int f = 0; f < 2; f++)//это цикл для пробега по 2 первым строкам в файле(эти строки хранят размерность вектора) 
+		{
+			
+				//in >> dig;//посимвольно считываем размер
+				if (f == 0) {
+					while (dig != '\n') {
+						in >> dig;//посимвольно считываем размер
+						str += dig;
+						y = std::stoi(str);
+						//f++;
+						break;
+					}
+					
+				}//из символов получаем строку и конвертируем в число
+				
+				else { 
+					dig = ' ';
+					str = ' ';
+					while (dig != '\n') {
+						in >> dig;//посимвольно считываем размер
+						str += dig;
+						x = std::stoi(str);
+						f++;
+						break;
+					}
+				}//это и будет размерность вектора
+				
+			
+		}
+	}
+	vector<vector<double>> inweights(x, vector <double>(y));
+	inweights = recognize::FileToVecWieights();
+	label5->Text=Convert::ToString(y);
+	label6->Text = Convert::ToString(x);
+
+	for (int i = 0; i <x; i++)
+	{
+		//добавление столбцов и заголовков к ним
+		dataGridView1->Columns->Add(i.ToString(), "");
+		dataGridView1->Columns[i]->HeaderText = Convert::ToString(i + 1);
+	}
+	for (int j = 0; j <y; j++)
+	{
+		//добавление строк и заголовков к ним
+		dataGridView1->Rows->Add();
+		dataGridView1->Rows[j]->HeaderCell->Value = Convert::ToString(j + 1);
+	}
+	for (int i = 0; i < x; i++)
+	{
+		for (int j = 0; j <y; j++)
+		{
+			dataGridView1->Rows[j]->Cells[i]->Value = inweights[j][i];
+		}
+	}
 }
 };
 }

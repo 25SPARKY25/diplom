@@ -4,27 +4,36 @@
 
 vector<std::vector<double>> recognize::Randomize_weights()
 {
+	int t = 4 + 2;//количеств строк
 	srand(time(NULL));
 	//создаём вектор рандомных весов
 	ofstream f;
 	f.open("ranom_weights.txt");
-	vector<std::vector<double>> rand_weights(4, vector <double>(5));
+	vector<std::vector<double>> rand_weights(6, vector <double>(5));
 	//rand_weights.resize(4,  std::vector<double>(500 * 500));
-	for (int i = 0; i < 4; i++) {
-		for (int j = 0; j < (5); j++) {
+	f.precision(2);
+	f.fixed;
+	for (int i = 0; i < t; i++) {//строки
+
+		//запись размеров вектора-------
+		if (i == 0) { f << 4 << "\n"; i++; f << 5 << "\n"; i++; }
+		//------------------------------
+		if (i >= 3) { f << "\n"; }
+
+		for (int j = 0; j < (5); j++) {//столбцы
 			rand_weights[i][j] = (double)(rand()) / RAND_MAX;
-			f <<rand_weights[i][j]<<" ";
+			f <<rand_weights[i][j]<<"|";
 		}
-		if (i < 3) { f << "\n"; }	
+		//if (i < 3) { f << "\n"; }	
 	}
 	f.close();
 	return rand_weights;
 }
 
-std::vector<std::vector<double>> recognize::FileToVecWieights(std::ifstream & f)//этот метод ещё не реализован!!!
+std::vector<std::vector<double>> recognize::FileToVecWieights()//этот метод ещё не реализован!!!
 {
 	ifstream in;
-	in.open("1.txt");//открываем файл для вывода инфы из файла в прогу
+	in.open("ranom_weights.txt");//открываем файл для вывода инфы из файла в прогу
 	char dig;//символ в файле, может принимать значенио 0 или 1 или размер вектора
 	int x, y;//размеры вектора
 	string str;//переменная для записи числа()
@@ -35,22 +44,48 @@ std::vector<std::vector<double>> recognize::FileToVecWieights(std::ifstream & f)
 		//узнаём размеры вектора из файла------------
 		for (int f = 0; f < 2; f++)//это цикл для пробега по 2 первым строкам в файле(эти строки хранят размерность вектора) 
 		{
-			for (int z = 0; z < 3; z++)//этот цикл для считывания числа из строки
-			{
-				in >> dig;//посимвольно считываем размер
-				if (f == 0) { str += dig; y = std::stoi(str); }//из символов получаем строку и конвертируем в число
-				else { dig = ' '; str += dig; x = std::stoi(str); }//это и будет размерность вектора
-			}
+			//in >> dig;//посимвольно считываем размер
+			if (f == 0) {
+				while (dig != '\n') {
+					in >> dig;//посимвольно считываем размер
+					str += dig;
+					x = std::stoi(str);
+					//f++;
+					break;
+				}
+
+			}//из символов получаем строку и конвертируем в число
+
+			else {
+				dig = ' ';
+				str = ' ';
+				while (dig != '\n') {
+					in >> dig;//посимвольно считываем размер
+					str += dig;
+					y = std::stoi(str);
+					f++;
+					break;
+				}
+			}//это и будет размерность вектора
 		}
-		vector<vector<int>> blackwhitevec(x, vector <int>(y));//получив размер вектора создаём его
+		vector<vector<double>> blackwhitevec(x, vector <double>(y));//получив размер вектора создаём его
 															  //-------------------------------------------
 		int t = x + 2;//для ограничителя
 		for (int i = 2; i < t; i++)//игнорим 2 первые строки, так как они задают размер вектора
 		{
 			for (int j = 0; j < y; j++)
 			{
+				dig = ' ';
+				str = ' ';
+				while (dig != '|') 
+				{
 				in >> dig;
-				blackwhitevec[j][i - 2] = Convert::ToInt16(dig);
+				if (dig == '|') { break; }
+				str += dig;
+				
+				//break;
+				}
+				blackwhitevec[i-2][j] = stod(str);
 			}
 		}
 		in.close(); // закрываем файл
