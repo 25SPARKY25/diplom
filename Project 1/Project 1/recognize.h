@@ -18,6 +18,7 @@ ref class recognize
 public:
 	static vector<std::vector<double>> Randomize_weights();//делаем веса рандомными
 	static std::vector<std::vector<double>> FileToVecWieights();
+	static Bitmap^ Recognized_Image(Bitmap ^inimg, Bitmap ^refimg); //ищем порок
 	recognize();
 };
 

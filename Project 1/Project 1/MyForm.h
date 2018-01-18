@@ -76,6 +76,8 @@ namespace Project1 {
 	private: System::Windows::Forms::Label^  label5;
 	private: System::Windows::Forms::Button^  button7;
 	private: System::Windows::Forms::Button^  button8;
+	private: System::Windows::Forms::Button^  button9;
+	private: System::Windows::Forms::OpenFileDialog^  openFileDialog3;
 
 	private: System::ComponentModel::IContainer^  components;
 
@@ -101,6 +103,7 @@ namespace Project1 {
 			this->openFileDialog1 = (gcnew System::Windows::Forms::OpenFileDialog());
 			this->tabControl1 = (gcnew System::Windows::Forms::TabControl());
 			this->tabPage1 = (gcnew System::Windows::Forms::TabPage());
+			this->button9 = (gcnew System::Windows::Forms::Button());
 			this->button8 = (gcnew System::Windows::Forms::Button());
 			this->button7 = (gcnew System::Windows::Forms::Button());
 			this->label6 = (gcnew System::Windows::Forms::Label());
@@ -125,6 +128,7 @@ namespace Project1 {
 			this->pictureBox2 = (gcnew System::Windows::Forms::PictureBox());
 			this->openFileDialog2 = (gcnew System::Windows::Forms::OpenFileDialog());
 			this->imageList1 = (gcnew System::Windows::Forms::ImageList(this->components));
+			this->openFileDialog3 = (gcnew System::Windows::Forms::OpenFileDialog());
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->dataGridView1))->BeginInit();
 			this->tabControl1->SuspendLayout();
 			this->tabPage1->SuspendLayout();
@@ -191,6 +195,7 @@ namespace Project1 {
 			// 
 			// tabPage1
 			// 
+			this->tabPage1->Controls->Add(this->button9);
 			this->tabPage1->Controls->Add(this->button8);
 			this->tabPage1->Controls->Add(this->button7);
 			this->tabPage1->Controls->Add(this->label6);
@@ -210,6 +215,16 @@ namespace Project1 {
 			this->tabPage1->TabIndex = 0;
 			this->tabPage1->Text = L"Загрузка данных";
 			this->tabPage1->UseVisualStyleBackColor = true;
+			// 
+			// button9
+			// 
+			this->button9->Location = System::Drawing::Point(925, 127);
+			this->button9->Name = L"button9";
+			this->button9->Size = System::Drawing::Size(116, 34);
+			this->button9->TabIndex = 12;
+			this->button9->Text = L"Попробовать найти порок";
+			this->button9->UseVisualStyleBackColor = true;
+			this->button9->Click += gcnew System::EventHandler(this, &MyForm::button9_Click);
 			// 
 			// button8
 			// 
@@ -421,9 +436,9 @@ namespace Project1 {
 			// 
 			// pictureBox3
 			// 
-			this->pictureBox3->Location = System::Drawing::Point(35, 249);
+			this->pictureBox3->Location = System::Drawing::Point(3, 497);
 			this->pictureBox3->Name = L"pictureBox3";
-			this->pictureBox3->Size = System::Drawing::Size(324, 184);
+			this->pictureBox3->Size = System::Drawing::Size(79, 69);
 			this->pictureBox3->TabIndex = 9;
 			this->pictureBox3->TabStop = false;
 			// 
@@ -458,6 +473,12 @@ namespace Project1 {
 			this->imageList1->ColorDepth = System::Windows::Forms::ColorDepth::Depth8Bit;
 			this->imageList1->ImageSize = System::Drawing::Size(16, 16);
 			this->imageList1->TransparentColor = System::Drawing::Color::Transparent;
+			// 
+			// openFileDialog3
+			// 
+			this->openFileDialog3->FileName = L"openFileDialog1";
+			this->openFileDialog3->Filter = L"(*.bmp)|*.bmp";
+			this->openFileDialog3->Multiselect = true;
 			// 
 			// MyForm
 			// 
@@ -933,6 +954,34 @@ private: System::Void button7_Click(System::Object^  sender, System::EventArgs^ 
 			dataGridView1->Rows[j]->Cells[i]->Value = inweights[j][i];
 		}
 	}
+}
+private: System::Void button9_Click(System::Object^  sender, System::EventArgs^  e) {
+	System::String^ FileName;
+	openFileDialog2->Title = "Select ref picture ";
+	openFileDialog2->Multiselect = false;
+	openFileDialog3->Title = "Select in picture ";
+	openFileDialog3->Multiselect = false;
+	
+	if (openFileDialog2->ShowDialog() == System::Windows::Forms::DialogResult::OK)
+	{
+		FileName = openFileDialog2->FileName->ToString();
+		pictureBox2->Image = Image::FromFile(openFileDialog2->FileName);
+		
+		//label1->Text = FileName;
+	}
+
+	if (openFileDialog3->ShowDialog() == System::Windows::Forms::DialogResult::OK)
+	{
+		FileName = openFileDialog3->FileName->ToString();
+		//pictureBox2->Image = Image::FromFile(openFileDialog3->FileName);
+		
+		//label1->Text = FileName;
+	}
+	Bitmap ^refimage = gcnew Bitmap(Image::FromFile(openFileDialog2->FileName));
+	Bitmap ^inimage = gcnew Bitmap(Image::FromFile(openFileDialog3->FileName));
+	pictureBox1->Image = recognize::Recognized_Image(inimage, refimage);
+
+
 }
 };
 }

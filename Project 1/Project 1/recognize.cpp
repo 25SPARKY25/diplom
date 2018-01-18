@@ -93,6 +93,38 @@ std::vector<std::vector<double>> recognize::FileToVecWieights()//этот метод ещё 
 	}
 }
 
+Bitmap ^ recognize::Recognized_Image(Bitmap ^ inimg, Bitmap ^ refimg)
+{
+	Bitmap ^inimage = gcnew Bitmap(inimg);//входное изображение
+	Bitmap ^refimage = gcnew Bitmap(refimg);//образец
+	Bitmap ^clone_inimage = gcnew Bitmap(inimg);//клонируем входное изображени для обозначения порока
+	int inaverageValueColor = 0;	//среднее арифметическое значения RGB для каждого пикселя
+	int refaverageValueColor = 0;	//среднее арифметическое значения RGB для каждого пикселя
+	int bx=NULL, by= NULL, ex= NULL, ey= NULL;//координаты выделяющего порок прямоугольника
+	for (int y = 0; y < inimg->Height; y++)
+	{
+		for (int x = 0; x < inimg->Width; x++)
+		{
+			//узнаём средне рифметическое
+			inaverageValueColor = (Convert::ToInt16(Color(inimg->GetPixel(x, y)).R) + Convert::ToInt16(Color(inimg->GetPixel(x, y)).G) + Convert::ToInt16(Color(inimg->GetPixel(x, y)).B)) / 3;
+			refaverageValueColor = (Convert::ToInt16(Color(refimg->GetPixel(x, y)).R) + Convert::ToInt16(Color(refimg->GetPixel(x, y)).G) + Convert::ToInt16(Color(refimg->GetPixel(x, y)).B)) / 3;
+			//делаем картинку ЧБ
+			//image->SetPixel(x, y, Color::FromArgb(inaverageValueColor, inaverageValueColor, inaverageValueColor));
+			if (inaverageValueColor!= refaverageValueColor)
+			{
+				if (bx == NULL || bx>x) { bx = x; }//верхний x
+				if(by==NULL){by = y;}//верхний у
+				if (ex == NULL || ex<x) { ex = x; }//нижний x
+				if (ey == NULL || ey<y) { ey = y; }//нижний y
+			}
+		}
+	}
+	Graphics ^ g = Graphics::FromImage(clone_inimage);//создаём объект Graphics
+	Pen ^ blackPen = gcnew Pen(Color::Green, 5);
+	g->DrawRectangle(blackPen, bx-5, by-5, ex-bx+5+5, ey-by+5+5);
+	return clone_inimage;
+}
+
 recognize::recognize()
 {
 }
