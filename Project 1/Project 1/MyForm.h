@@ -78,6 +78,7 @@ namespace Project1 {
 	private: System::Windows::Forms::Button^  button8;
 	private: System::Windows::Forms::Button^  button9;
 	private: System::Windows::Forms::OpenFileDialog^  openFileDialog3;
+	private: System::Windows::Forms::Button^  button10;
 
 	private: System::ComponentModel::IContainer^  components;
 
@@ -129,6 +130,7 @@ namespace Project1 {
 			this->openFileDialog2 = (gcnew System::Windows::Forms::OpenFileDialog());
 			this->imageList1 = (gcnew System::Windows::Forms::ImageList(this->components));
 			this->openFileDialog3 = (gcnew System::Windows::Forms::OpenFileDialog());
+			this->button10 = (gcnew System::Windows::Forms::Button());
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->dataGridView1))->BeginInit();
 			this->tabControl1->SuspendLayout();
 			this->tabPage1->SuspendLayout();
@@ -195,6 +197,7 @@ namespace Project1 {
 			// 
 			// tabPage1
 			// 
+			this->tabPage1->Controls->Add(this->button10);
 			this->tabPage1->Controls->Add(this->button9);
 			this->tabPage1->Controls->Add(this->button8);
 			this->tabPage1->Controls->Add(this->button7);
@@ -479,6 +482,16 @@ namespace Project1 {
 			this->openFileDialog3->FileName = L"openFileDialog1";
 			this->openFileDialog3->Filter = L"(*.bmp)|*.bmp";
 			this->openFileDialog3->Multiselect = true;
+			// 
+			// button10
+			// 
+			this->button10->Location = System::Drawing::Point(925, 178);
+			this->button10->Name = L"button10";
+			this->button10->Size = System::Drawing::Size(117, 38);
+			this->button10->TabIndex = 13;
+			this->button10->Text = L"Пулинг изображения";
+			this->button10->UseVisualStyleBackColor = true;
+			this->button10->Click += gcnew System::EventHandler(this, &MyForm::button10_Click);
 			// 
 			// MyForm
 			// 
@@ -864,17 +877,17 @@ private: System::Void button6_Click(System::Object^  sender, System::EventArgs^ 
 		FileName = openFileDialog2->FileName->ToString();
 		//pictureBox1->Image = Image::FromFile(openFileDialog2->FileName);
 		label1->Text = FileName;
-		for each (String^ file in openFileDialog2->FileNames)
+		for each (FileName in openFileDialog2->FileNames)
 		{
-			richTextBox1->AppendText(file);
+			richTextBox1->AppendText(FileName);
 			//Bitmap^ file = gcnew Bitmap(500,500);
 			//Images->;
-			imageList1->Images->Add(Image::FromFile(file));
+			imageList1->Images->Add(Image::FromFile(FileName));
 			//ImagesVec.push_back(openFileDialog2->OpenFile);
 			//openFileDialog2->FileName= openFileDialog2->FileNames;
-			pictureBox1->Image = Image::FromFile(file);
+			pictureBox1->Image = Image::FromFile(FileName);
 			//Images->Add(Image::FromFile(file));
-			InputImages[i]->FromFile(file);// = Image::FromFile(file);
+			InputImages[i]->FromFile(FileName);// = Image::FromFile(file);
 			i++;
 			//ImagesVec->push_back(Image::FromFile(file));
 		}
@@ -982,6 +995,27 @@ private: System::Void button9_Click(System::Object^  sender, System::EventArgs^ 
 	pictureBox1->Image = recognize::Recognized_Image(inimage, refimage);
 
 
+}
+private: System::Void button10_Click(System::Object^  sender, System::EventArgs^  e) {
+	//загрузка картинки 
+	System::String^ FileName;
+	openFileDialog1->Title = "Select picture ";
+	openFileDialog1->Multiselect = false;
+	if (openFileDialog1->ShowDialog() == System::Windows::Forms::DialogResult::OK)
+	{
+		FileName = openFileDialog1->FileName->ToString();
+		pictureBox1->Image = Image::FromFile(openFileDialog1->FileName);
+		label1->Text = FileName;
+	}
+	pictureBox1->Refresh();
+	this->Refresh();
+
+	//Создаём BMP-картинку и загружаем её в пикчабокс1
+	Bitmap ^myBitmap = gcnew Bitmap(pictureBox1->Image);
+
+	//Загружаем ЧБ фото
+	pictureBox2->Image = recognize::Max_Poling(myBitmap);
+	pictureBox2->Refresh();
 }
 };
 }

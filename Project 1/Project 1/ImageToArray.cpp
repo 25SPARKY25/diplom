@@ -40,6 +40,20 @@ std::vector<int> ImageToArray::BWImage(Bitmap ^img, std::vector<int> single_inpu
 	return single_inputvec;
 }
 
+vector<std::vector<double>> ImageToArray::AVG_Color(Bitmap ^ img)
+{
+	vector<std::vector<double>> AVG_Color((img->Height), vector <double>(img->Width));
+	for (int x = 0; x < img->Height; x++)
+	{
+		for (int y = 0; y < img->Width; y++)
+		{
+			AVG_Color[x][y]=((Convert::ToInt16(Color(img->GetPixel(x, y)).R) + Convert::ToInt16(Color(img->GetPixel(x, y)).G) + Convert::ToInt16(Color(img->GetPixel(x, y)).B))/3);
+			//i++;
+		}
+	}
+	return AVG_Color;
+}
+
 int ** ImageToArray::ImgToArr(Bitmap ^ img, int ** InputColorArr)
  {
 	 //массив пикселей

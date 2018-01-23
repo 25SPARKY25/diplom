@@ -30,7 +30,7 @@ vector<std::vector<double>> recognize::Randomize_weights()
 	return rand_weights;
 }
 
-std::vector<std::vector<double>> recognize::FileToVecWieights()//этот метод ещё не реализован!!!
+std::vector<std::vector<double>> recognize::FileToVecWieights()//загрузка весов из файла
 {
 	ifstream in;
 	in.open("ranom_weights.txt");//открываем файл для вывода инфы из файла в прогу
@@ -123,6 +123,46 @@ Bitmap ^ recognize::Recognized_Image(Bitmap ^ inimg, Bitmap ^ refimg)
 	Pen ^ blackPen = gcnew Pen(Color::Green, 5);
 	g->DrawRectangle(blackPen, bx-5, by-5, ex-bx+5+5, ey-by+5+5);
 	return clone_inimage;
+}
+
+Bitmap ^ recognize::Max_Poling(Bitmap ^ inimg)
+{
+	Bitmap ^ rezimg = gcnew Bitmap(inimg->Width/2, inimg->Height / 2);
+	int i=0;//итераторы для выходного вектора
+	double a11, a12, a21, a22;
+	std::vector<double> temp_of_grid(vector <double>(4));//временные данные в сетке
+	vector<std::vector<double>> result_of_poling((inimg->Height/2), vector <double>(inimg->Width / 2));//результат пулинга
+	std::vector<double> temp_of_poling(vector <double>((inimg->Width / 2)*(inimg->Height / 2)));//для хранения максимальных значенийисходного вектора
+	vector<std::vector<double>> AVG_Color((inimg->Height), vector <double>(inimg->Width));
+	AVG_Color = ImageToArray::AVG_Color(inimg);//вектор средних цветов для пулинга
+	//исходный вектор
+	for (int y = 0; y < inimg->Height; y+=2)
+	{
+		for (int x = 0; x < inimg->Width; x+=2)
+		{
+			temp_of_grid.clear();
+			temp_of_grid.push_back(AVG_Color[y][x]);
+			temp_of_grid.push_back(AVG_Color[y][x+1]);
+			temp_of_grid.push_back(AVG_Color[y+1][x]);
+			temp_of_grid.push_back(AVG_Color[y+1][x + 1]);
+			temp_of_poling[i]=(*std::max_element(temp_of_grid.begin(), temp_of_grid.end()));
+			i++;
+		}
+	}
+	int z = 0;
+	for (int y = 0; y < inimg->Height/2; y ++)
+	{
+		for (int x = 0; x < inimg->Width/2; x ++)
+		{
+			result_of_poling[y][x] = temp_of_poling[z];
+			z++;
+			rezimg->SetPixel(y, x, Color::FromArgb(result_of_poling[y][x], result_of_poling[y][x], result_of_poling[y][x]));
+		}
+	}
+	rezimg->Save("polled.bmp");
+	return rezimg;
+	//throw gcnew System::NotImplementedException();
+	// TODO: вставьте здесь оператор return
 }
 
 recognize::recognize()
