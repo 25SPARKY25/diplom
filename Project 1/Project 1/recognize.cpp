@@ -169,18 +169,18 @@ Bitmap ^ recognize::Max_Poling(Bitmap ^ inimg)
 {
 	//Bitmap ^inimage = gcnew Bitmap(inimg);//входное изображение
 
-	Mat  src; 
+	cv::Mat  src; 
 	int  DELAY_BLUR = 100;
-	int  MAX_KERNEL_LENGTH = 31;
-	Mat  dst;
-	src = imread(FileName, 1);
+	int  MAX_KERNEL_LENGTH = 51;
+	cv::Mat  dst;
+	src = cv::imread(FileName, 1);
 	dst = src.clone();
 	/// Применение гауссовского размытия 
 	for (int i = 1; i < MAX_KERNEL_LENGTH; i = i + 2)
 	{
 		GaussianBlur(src, dst, cv::Size(i, i), 0, 0);
 	}
-	imwrite("gaussian.bmp", dst);
+	cv::imwrite("gaussian.bmp", dst);
 	//throw gcnew System::NotImplementedException();
 	//// TODO: вставьте здесь оператор return
 }

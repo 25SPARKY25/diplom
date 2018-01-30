@@ -1,11 +1,12 @@
 #pragma once
+#include <msclr\marshal_cppstd.h>; //для маршлинга строк
+#include <msclr\marshal_atl.h>; //в моём случае конвернтация из System::String в std::string
 #include "ImageToArray.h";
 #include "ArrayToFromFile.h";
 #include <vector>;
 #include "Create_Image.h";
 #include "MyForm1.h";
 #include "recognize.h";
-#include <msclr\marshal_cppstd.h>
 
 
 namespace Project1 {
@@ -17,7 +18,9 @@ namespace Project1 {
 	using namespace System::Data;
 	using namespace System::Drawing;
 	using namespace std;
+	//тоже для маршлинга
 	using namespace Runtime::InteropServices;
+	using namespace msclr::interop;
 
 	/// <summary>
 	/// Сводка для MyForm
@@ -1036,7 +1039,7 @@ private: System::Void button10_Click(System::Object^  sender, System::EventArgs^
 private: System::Void button11_Click(System::Object^  sender, System::EventArgs^  e) {
 
 	//загрузка картинки 
-	System::String^ FileName;
+	System::String^ SFileName;
 	openFileDialog2->Title = "Select pictures ";
 	//openFileDialog2->Multiselect = false;
 	//vector<Bitmap^> ImagesVec;
@@ -1045,11 +1048,12 @@ private: System::Void button11_Click(System::Object^  sender, System::EventArgs^
 	//cli::array<Bitmap^>^ Images;
 	if (openFileDialog2->ShowDialog() == System::Windows::Forms::DialogResult::OK)
 	{
-		FileName = openFileDialog2->FileName->ToString();
+		SFileName = openFileDialog2->FileName->ToString();
 		//pictureBox1->Image = Image::FromFile(openFileDialog2->FileName);
-		label1->Text = FileName;
+		label1->Text = SFileName;
+		//маршлим строку
 		msclr::interop::marshal_context context;
-		str = context.marshal_as<std::string>(FileName);
+		str = context.marshal_as<std::string>(SFileName);
 		//System::Runtime::InteropServices::Marshal::StringToCoTaskMemUni(FileName);
 		recognize::Gaussian(str);
 	}

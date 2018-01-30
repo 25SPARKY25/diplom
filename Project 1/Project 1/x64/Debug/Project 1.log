@@ -1,5 +1,10 @@
-﻿  MyForm.cpp
-d:\vs 2017 projects\project 1\project 1\MyForm.h(2): warning C4067: непредвиденные лексемы за директивой препроцессора, требуется newline
+﻿  recognize.cpp
+d:\vs 2017 projects\project 1\project 1\recognize.h(2): warning C4067: непредвиденные лексемы за директивой препроцессора, требуется newline
+d:\vs 2017 projects\project 1\project 1\recognize.h(3): warning C4067: непредвиденные лексемы за директивой препроцессора, требуется newline
+d:\vs 2017 projects\project 1\project 1\recognize.h(4): warning C4067: непредвиденные лексемы за директивой препроцессора, требуется newline
+d:\vs 2017 projects\project 1\project 1\recognize.h(5): warning C4067: непредвиденные лексемы за директивой препроцессора, требуется newline
+d:\vs 2017 projects\project 1\project 1\recognize.h(6): warning C4067: непредвиденные лексемы за директивой препроцессора, требуется newline
+d:\vs 2017 projects\project 1\project 1\recognize.h(7): warning C4067: непредвиденные лексемы за директивой препроцессора, требуется newline
 d:\vs 2017 projects\project 1\project 1\ImageToArray.h(2): warning C4067: непредвиденные лексемы за директивой препроцессора, требуется newline
 d:\vs 2017 projects\project 1\project 1\ArrayToFromFile.h(2): warning C4067: непредвиденные лексемы за директивой препроцессора, требуется newline
 d:\vs 2017 projects\project 1\project 1\ArrayToFromFile.h(3): warning C4067: непредвиденные лексемы за директивой препроцессора, требуется newline
@@ -7,171 +12,28 @@ d:\vs 2017 projects\project 1\project 1\ArrayToFromFile.h(4): warning C4067: н�
 d:\vs 2017 projects\project 1\project 1\ArrayToFromFile.h(5): warning C4067: непредвиденные лексемы за директивой препроцессора, требуется newline
 d:\vs 2017 projects\project 1\project 1\ArrayToFromFile.h(6): warning C4067: непредвиденные лексемы за директивой препроцессора, требуется newline
 d:\vs 2017 projects\project 1\project 1\ArrayToFromFile.h(7): warning C4067: непредвиденные лексемы за директивой препроцессора, требуется newline
-d:\vs 2017 projects\project 1\project 1\MyForm.h(3): warning C4067: непредвиденные лексемы за директивой препроцессора, требуется newline
-d:\vs 2017 projects\project 1\project 1\MyForm.h(4): warning C4067: непредвиденные лексемы за директивой препроцессора, требуется newline
-d:\vs 2017 projects\project 1\project 1\MyForm.h(5): warning C4067: непредвиденные лексемы за директивой препроцессора, требуется newline
-d:\vs 2017 projects\project 1\project 1\Create_Image.h(2): warning C4067: непредвиденные лексемы за директивой препроцессора, требуется newline
-d:\vs 2017 projects\project 1\project 1\Create_Image.h(3): warning C4067: непредвиденные лексемы за директивой препроцессора, требуется newline
-d:\vs 2017 projects\project 1\project 1\Create_Image.h(4): warning C4067: непредвиденные лексемы за директивой препроцессора, требуется newline
-d:\vs 2017 projects\project 1\project 1\Create_Image.h(5): warning C4067: непредвиденные лексемы за директивой препроцессора, требуется newline
-d:\vs 2017 projects\project 1\project 1\Create_Image.h(6): warning C4067: непредвиденные лексемы за директивой препроцессора, требуется newline
-d:\vs 2017 projects\project 1\project 1\MyForm.h(6): warning C4067: непредвиденные лексемы за директивой препроцессора, требуется newline
-d:\vs 2017 projects\project 1\project 1\MyForm1.h(2): warning C4067: непредвиденные лексемы за директивой препроцессора, требуется newline
-d:\vs 2017 projects\project 1\project 1\MyForm.h(7): warning C4067: непредвиденные лексемы за директивой препроцессора, требуется newline
-d:\vs 2017 projects\project 1\project 1\recognize.h(2): warning C4067: непредвиденные лексемы за директивой препроцессора, требуется newline
-d:\vs 2017 projects\project 1\project 1\recognize.h(3): warning C4067: непредвиденные лексемы за директивой препроцессора, требуется newline
-d:\vs 2017 projects\project 1\project 1\recognize.h(4): warning C4067: непредвиденные лексемы за директивой препроцессора, требуется newline
-d:\vs 2017 projects\project 1\project 1\recognize.h(5): warning C4067: непредвиденные лексемы за директивой препроцессора, требуется newline
-d:\vs 2017 projects\project 1\project 1\recognize.h(6): warning C4067: непредвиденные лексемы за директивой препроцессора, требуется newline
-d:\vs 2017 projects\project 1\project 1\recognize.h(7): warning C4067: непредвиденные лексемы за директивой препроцессора, требуется newline
 d:\vs 2017 projects\project 1\project 1\recognize.h(8): warning C4067: непредвиденные лексемы за директивой препроцессора, требуется newline
 d:\vs 2017 projects\project 1\project 1\recognize.h(9): warning C4067: непредвиденные лексемы за директивой препроцессора, требуется newline
 d:\vs 2017 projects\project 1\project 1\recognize.h(10): warning C4067: непредвиденные лексемы за директивой препроцессора, требуется newline
-C:\Program Files (x86)\Windows Kits\8.1\Include\um\winnt.h(9092): error C2872: ACCESS_MASK: неоднозначный символ
-  C:\Program Files (x86)\Windows Kits\8.1\Include\um\winnt.h(9091): note: может быть "DWORD ACCESS_MASK"
-  D:\Open_CV\opencv\build\include\opencv2/core/mat.hpp(63): note: или       "ACCESS_MASK"
-C:\Program Files (x86)\Windows Kits\8.1\Include\um\winnt.h(9150): error C2872: ACCESS_MASK: неоднозначный символ
-  C:\Program Files (x86)\Windows Kits\8.1\Include\um\winnt.h(9091): note: может быть "DWORD ACCESS_MASK"
-  D:\Open_CV\opencv\build\include\opencv2/core/mat.hpp(63): note: или       "ACCESS_MASK"
-C:\Program Files (x86)\Windows Kits\8.1\Include\um\winnt.h(9151): error C2872: ACCESS_MASK: неоднозначный символ
-  C:\Program Files (x86)\Windows Kits\8.1\Include\um\winnt.h(9091): note: может быть "DWORD ACCESS_MASK"
-  D:\Open_CV\opencv\build\include\opencv2/core/mat.hpp(63): note: или       "ACCESS_MASK"
-C:\Program Files (x86)\Windows Kits\8.1\Include\um\winnt.h(9152): error C2872: ACCESS_MASK: неоднозначный символ
-  C:\Program Files (x86)\Windows Kits\8.1\Include\um\winnt.h(9091): note: может быть "DWORD ACCESS_MASK"
-  D:\Open_CV\opencv\build\include\opencv2/core/mat.hpp(63): note: или       "ACCESS_MASK"
-C:\Program Files (x86)\Windows Kits\8.1\Include\um\winnt.h(9153): error C2872: ACCESS_MASK: неоднозначный символ
-  C:\Program Files (x86)\Windows Kits\8.1\Include\um\winnt.h(9091): note: может быть "DWORD ACCESS_MASK"
-  D:\Open_CV\opencv\build\include\opencv2/core/mat.hpp(63): note: или       "ACCESS_MASK"
-C:\Program Files (x86)\Windows Kits\8.1\Include\um\winnt.h(9991): error C2872: ACCESS_MASK: неоднозначный символ
-  C:\Program Files (x86)\Windows Kits\8.1\Include\um\winnt.h(9091): note: может быть "DWORD ACCESS_MASK"
-  D:\Open_CV\opencv\build\include\opencv2/core/mat.hpp(63): note: или       "ACCESS_MASK"
-C:\Program Files (x86)\Windows Kits\8.1\Include\um\winnt.h(9999): error C2872: ACCESS_MASK: неоднозначный символ
-  C:\Program Files (x86)\Windows Kits\8.1\Include\um\winnt.h(9091): note: может быть "DWORD ACCESS_MASK"
-  D:\Open_CV\opencv\build\include\opencv2/core/mat.hpp(63): note: или       "ACCESS_MASK"
-C:\Program Files (x86)\Windows Kits\8.1\Include\um\winnt.h(10006): error C2872: ACCESS_MASK: неоднозначный символ
-  C:\Program Files (x86)\Windows Kits\8.1\Include\um\winnt.h(9091): note: может быть "DWORD ACCESS_MASK"
-  D:\Open_CV\opencv\build\include\opencv2/core/mat.hpp(63): note: или       "ACCESS_MASK"
-C:\Program Files (x86)\Windows Kits\8.1\Include\um\winnt.h(10013): error C2872: ACCESS_MASK: неоднозначный символ
-  C:\Program Files (x86)\Windows Kits\8.1\Include\um\winnt.h(9091): note: может быть "DWORD ACCESS_MASK"
-  D:\Open_CV\opencv\build\include\opencv2/core/mat.hpp(63): note: или       "ACCESS_MASK"
-C:\Program Files (x86)\Windows Kits\8.1\Include\um\winnt.h(10020): error C2872: ACCESS_MASK: неоднозначный символ
-  C:\Program Files (x86)\Windows Kits\8.1\Include\um\winnt.h(9091): note: может быть "DWORD ACCESS_MASK"
-  D:\Open_CV\opencv\build\include\opencv2/core/mat.hpp(63): note: или       "ACCESS_MASK"
-C:\Program Files (x86)\Windows Kits\8.1\Include\um\winnt.h(10027): error C2872: ACCESS_MASK: неоднозначный символ
-  C:\Program Files (x86)\Windows Kits\8.1\Include\um\winnt.h(9091): note: может быть "DWORD ACCESS_MASK"
-  D:\Open_CV\opencv\build\include\opencv2/core/mat.hpp(63): note: или       "ACCESS_MASK"
-C:\Program Files (x86)\Windows Kits\8.1\Include\um\winnt.h(10033): error C2872: ACCESS_MASK: неоднозначный символ
-  C:\Program Files (x86)\Windows Kits\8.1\Include\um\winnt.h(9091): note: может быть "DWORD ACCESS_MASK"
-  D:\Open_CV\opencv\build\include\opencv2/core/mat.hpp(63): note: или       "ACCESS_MASK"
-C:\Program Files (x86)\Windows Kits\8.1\Include\um\winnt.h(10039): error C2872: ACCESS_MASK: неоднозначный символ
-  C:\Program Files (x86)\Windows Kits\8.1\Include\um\winnt.h(9091): note: может быть "DWORD ACCESS_MASK"
-  D:\Open_CV\opencv\build\include\opencv2/core/mat.hpp(63): note: или       "ACCESS_MASK"
-C:\Program Files (x86)\Windows Kits\8.1\Include\um\winnt.h(10059): error C2872: ACCESS_MASK: неоднозначный символ
-  C:\Program Files (x86)\Windows Kits\8.1\Include\um\winnt.h(9091): note: может быть "DWORD ACCESS_MASK"
-  D:\Open_CV\opencv\build\include\opencv2/core/mat.hpp(63): note: или       "ACCESS_MASK"
-C:\Program Files (x86)\Windows Kits\8.1\Include\um\winnt.h(10068): error C2872: ACCESS_MASK: неоднозначный символ
-  C:\Program Files (x86)\Windows Kits\8.1\Include\um\winnt.h(9091): note: может быть "DWORD ACCESS_MASK"
-  D:\Open_CV\opencv\build\include\opencv2/core/mat.hpp(63): note: или       "ACCESS_MASK"
-C:\Program Files (x86)\Windows Kits\8.1\Include\um\winnt.h(10077): error C2872: ACCESS_MASK: неоднозначный символ
-  C:\Program Files (x86)\Windows Kits\8.1\Include\um\winnt.h(9091): note: может быть "DWORD ACCESS_MASK"
-  D:\Open_CV\opencv\build\include\opencv2/core/mat.hpp(63): note: или       "ACCESS_MASK"
-C:\Program Files (x86)\Windows Kits\8.1\Include\um\winnt.h(10086): error C2872: ACCESS_MASK: неоднозначный символ
-  C:\Program Files (x86)\Windows Kits\8.1\Include\um\winnt.h(9091): note: может быть "DWORD ACCESS_MASK"
-  D:\Open_CV\opencv\build\include\opencv2/core/mat.hpp(63): note: или       "ACCESS_MASK"
-C:\Program Files (x86)\Windows Kits\8.1\Include\um\winnt.h(10100): error C2872: ACCESS_MASK: неоднозначный символ
-  C:\Program Files (x86)\Windows Kits\8.1\Include\um\winnt.h(9091): note: может быть "DWORD ACCESS_MASK"
-  D:\Open_CV\opencv\build\include\opencv2/core/mat.hpp(63): note: или       "ACCESS_MASK"
-C:\Program Files (x86)\Windows Kits\8.1\Include\um\winnt.h(10107): error C2872: ACCESS_MASK: неоднозначный символ
-  C:\Program Files (x86)\Windows Kits\8.1\Include\um\winnt.h(9091): note: может быть "DWORD ACCESS_MASK"
-  D:\Open_CV\opencv\build\include\opencv2/core/mat.hpp(63): note: или       "ACCESS_MASK"
-C:\Program Files (x86)\Windows Kits\8.1\Include\um\winnt.h(10114): error C2872: ACCESS_MASK: неоднозначный символ
-  C:\Program Files (x86)\Windows Kits\8.1\Include\um\winnt.h(9091): note: может быть "DWORD ACCESS_MASK"
-  D:\Open_CV\opencv\build\include\opencv2/core/mat.hpp(63): note: или       "ACCESS_MASK"
-C:\Program Files (x86)\Windows Kits\8.1\Include\um\winnt.h(10121): error C2872: ACCESS_MASK: неоднозначный символ
-  C:\Program Files (x86)\Windows Kits\8.1\Include\um\winnt.h(9091): note: может быть "DWORD ACCESS_MASK"
-  D:\Open_CV\opencv\build\include\opencv2/core/mat.hpp(63): note: или       "ACCESS_MASK"
-C:\Program Files (x86)\Windows Kits\8.1\Include\um\winnt.h(10128): error C2872: ACCESS_MASK: неоднозначный символ
-  C:\Program Files (x86)\Windows Kits\8.1\Include\um\winnt.h(9091): note: может быть "DWORD ACCESS_MASK"
-  D:\Open_CV\opencv\build\include\opencv2/core/mat.hpp(63): note: или       "ACCESS_MASK"
-C:\Program Files (x86)\Windows Kits\8.1\Include\um\winnt.h(10138): error C2872: ACCESS_MASK: неоднозначный символ
-  C:\Program Files (x86)\Windows Kits\8.1\Include\um\winnt.h(9091): note: может быть "DWORD ACCESS_MASK"
-  D:\Open_CV\opencv\build\include\opencv2/core/mat.hpp(63): note: или       "ACCESS_MASK"
-C:\Program Files (x86)\Windows Kits\8.1\Include\um\winnt.h(10148): error C2872: ACCESS_MASK: неоднозначный символ
-  C:\Program Files (x86)\Windows Kits\8.1\Include\um\winnt.h(9091): note: может быть "DWORD ACCESS_MASK"
-  D:\Open_CV\opencv\build\include\opencv2/core/mat.hpp(63): note: или       "ACCESS_MASK"
-C:\Program Files (x86)\Windows Kits\8.1\Include\um\winnt.h(10158): error C2872: ACCESS_MASK: неоднозначный символ
-  C:\Program Files (x86)\Windows Kits\8.1\Include\um\winnt.h(9091): note: может быть "DWORD ACCESS_MASK"
-  D:\Open_CV\opencv\build\include\opencv2/core/mat.hpp(63): note: или       "ACCESS_MASK"
-C:\Program Files (x86)\Windows Kits\8.1\Include\um\winnt.h(10584): error C2872: ACCESS_MASK: неоднозначный символ
-  C:\Program Files (x86)\Windows Kits\8.1\Include\um\winnt.h(9091): note: может быть "DWORD ACCESS_MASK"
-  D:\Open_CV\opencv\build\include\opencv2/core/mat.hpp(63): note: или       "ACCESS_MASK"
-C:\Program Files (x86)\Windows Kits\8.1\Include\um\winnt.h(10585): error C2872: ACCESS_MASK: неоднозначный символ
-  C:\Program Files (x86)\Windows Kits\8.1\Include\um\winnt.h(9091): note: может быть "DWORD ACCESS_MASK"
-  D:\Open_CV\opencv\build\include\opencv2/core/mat.hpp(63): note: или       "ACCESS_MASK"
-C:\Program Files (x86)\Windows Kits\8.1\Include\um\winuser.h(1313): error C2872: ACCESS_MASK: неоднозначный символ
-  C:\Program Files (x86)\Windows Kits\8.1\Include\um\winnt.h(9091): note: может быть "DWORD ACCESS_MASK"
-  D:\Open_CV\opencv\build\include\opencv2/core/mat.hpp(63): note: или       "ACCESS_MASK"
-C:\Program Files (x86)\Windows Kits\8.1\Include\um\winuser.h(1323): error C2872: ACCESS_MASK: неоднозначный символ
-  C:\Program Files (x86)\Windows Kits\8.1\Include\um\winnt.h(9091): note: может быть "DWORD ACCESS_MASK"
-  D:\Open_CV\opencv\build\include\opencv2/core/mat.hpp(63): note: или       "ACCESS_MASK"
-C:\Program Files (x86)\Windows Kits\8.1\Include\um\winuser.h(1339): error C2872: ACCESS_MASK: неоднозначный символ
-  C:\Program Files (x86)\Windows Kits\8.1\Include\um\winnt.h(9091): note: может быть "DWORD ACCESS_MASK"
-  D:\Open_CV\opencv\build\include\opencv2/core/mat.hpp(63): note: или       "ACCESS_MASK"
-C:\Program Files (x86)\Windows Kits\8.1\Include\um\winuser.h(1351): error C2872: ACCESS_MASK: неоднозначный символ
-  C:\Program Files (x86)\Windows Kits\8.1\Include\um\winnt.h(9091): note: может быть "DWORD ACCESS_MASK"
-  D:\Open_CV\opencv\build\include\opencv2/core/mat.hpp(63): note: или       "ACCESS_MASK"
-C:\Program Files (x86)\Windows Kits\8.1\Include\um\winuser.h(1377): error C2872: ACCESS_MASK: неоднозначный символ
-  C:\Program Files (x86)\Windows Kits\8.1\Include\um\winnt.h(9091): note: может быть "DWORD ACCESS_MASK"
-  D:\Open_CV\opencv\build\include\opencv2/core/mat.hpp(63): note: или       "ACCESS_MASK"
-C:\Program Files (x86)\Windows Kits\8.1\Include\um\winuser.h(1385): error C2872: ACCESS_MASK: неоднозначный символ
-  C:\Program Files (x86)\Windows Kits\8.1\Include\um\winnt.h(9091): note: может быть "DWORD ACCESS_MASK"
-  D:\Open_CV\opencv\build\include\opencv2/core/mat.hpp(63): note: или       "ACCESS_MASK"
-C:\Program Files (x86)\Windows Kits\8.1\Include\um\winuser.h(1398): error C2872: ACCESS_MASK: неоднозначный символ
-  C:\Program Files (x86)\Windows Kits\8.1\Include\um\winnt.h(9091): note: может быть "DWORD ACCESS_MASK"
-  D:\Open_CV\opencv\build\include\opencv2/core/mat.hpp(63): note: или       "ACCESS_MASK"
-C:\Program Files (x86)\Windows Kits\8.1\Include\um\winuser.h(1497): error C2872: ACCESS_MASK: неоднозначный символ
-  C:\Program Files (x86)\Windows Kits\8.1\Include\um\winnt.h(9091): note: может быть "DWORD ACCESS_MASK"
-  D:\Open_CV\opencv\build\include\opencv2/core/mat.hpp(63): note: или       "ACCESS_MASK"
-C:\Program Files (x86)\Windows Kits\8.1\Include\um\winuser.h(1505): error C2872: ACCESS_MASK: неоднозначный символ
-  C:\Program Files (x86)\Windows Kits\8.1\Include\um\winnt.h(9091): note: может быть "DWORD ACCESS_MASK"
-  D:\Open_CV\opencv\build\include\opencv2/core/mat.hpp(63): note: или       "ACCESS_MASK"
-C:\Program Files (x86)\Windows Kits\8.1\Include\um\winuser.h(1519): error C2872: ACCESS_MASK: неоднозначный символ
-  C:\Program Files (x86)\Windows Kits\8.1\Include\um\winnt.h(9091): note: может быть "DWORD ACCESS_MASK"
-  D:\Open_CV\opencv\build\include\opencv2/core/mat.hpp(63): note: или       "ACCESS_MASK"
-C:\Program Files (x86)\Windows Kits\8.1\Include\um\winuser.h(1526): error C2872: ACCESS_MASK: неоднозначный символ
-  C:\Program Files (x86)\Windows Kits\8.1\Include\um\winnt.h(9091): note: может быть "DWORD ACCESS_MASK"
-  D:\Open_CV\opencv\build\include\opencv2/core/mat.hpp(63): note: или       "ACCESS_MASK"
-C:\Program Files (x86)\Windows Kits\8.1\Include\um\winreg.h(89): error C2872: ACCESS_MASK: неоднозначный символ
-  C:\Program Files (x86)\Windows Kits\8.1\Include\um\winnt.h(9091): note: может быть "DWORD ACCESS_MASK"
-  D:\Open_CV\opencv\build\include\opencv2/core/mat.hpp(63): note: или       "ACCESS_MASK"
-C:\Program Files (x86)\Windows Kits\8.1\Include\um\winioctl.h(5644): error C2872: ACCESS_MASK: неоднозначный символ
-  C:\Program Files (x86)\Windows Kits\8.1\Include\um\winnt.h(9091): note: может быть "DWORD ACCESS_MASK"
-  D:\Open_CV\opencv\build\include\opencv2/core/mat.hpp(63): note: или       "ACCESS_MASK"
-C:\Program Files (x86)\Windows Kits\8.1\Include\um\winioctl.h(7513): error C2872: ACCESS_MASK: неоднозначный символ
-  C:\Program Files (x86)\Windows Kits\8.1\Include\um\winnt.h(9091): note: может быть "DWORD ACCESS_MASK"
-  D:\Open_CV\opencv\build\include\opencv2/core/mat.hpp(63): note: или       "ACCESS_MASK"
-C:\Program Files (x86)\Windows Kits\8.1\Include\um\winspool.h(1178): error C2872: ACCESS_MASK: неоднозначный символ
-  C:\Program Files (x86)\Windows Kits\8.1\Include\um\winnt.h(9091): note: может быть "DWORD ACCESS_MASK"
-  D:\Open_CV\opencv\build\include\opencv2/core/mat.hpp(63): note: или       "ACCESS_MASK"
-C:\Program Files (x86)\Windows Kits\8.1\Include\um\winspool.h(1183): error C2872: ACCESS_MASK: неоднозначный символ
-  C:\Program Files (x86)\Windows Kits\8.1\Include\um\winnt.h(9091): note: может быть "DWORD ACCESS_MASK"
-  D:\Open_CV\opencv\build\include\opencv2/core/mat.hpp(63): note: или       "ACCESS_MASK"
-c:\program files (x86)\windows kits\8.1\include\um\servprov.h(92): error C3699: *: это косвенное обращение невозможно использовать для типа "IServiceProvider"
-  c:\program files (x86)\windows kits\8.1\include\um\servprov.h(92): note: для продолжения работы компилятор заменил "*" на "^"
-c:\program files (x86)\windows kits\8.1\include\um\servprov.h(99): error C2371: IServiceProvider: переопределение; различные базовые типы
-  c:\program files (x86)\windows kits\8.1\include\um\servprov.h(45): note:  см. объявление "IServiceProvider"
-c:\program files (x86)\windows kits\8.1\include\um\servprov.h(116): error C2872: IServiceProvider: неоднозначный символ
-  c:\program files (x86)\windows kits\8.1\include\um\servprov.h(99): note: может быть "IServiceProvider"
-  c:\program files (x86)\windows kits\8.1\include\um\servprov.h(45): note: или       "System::IServiceProvider"
-c:\program files (x86)\windows kits\8.1\include\um\servprov.h(240): error C2872: IServiceProvider: неоднозначный символ
-  c:\program files (x86)\windows kits\8.1\include\um\servprov.h(99): note: может быть "IServiceProvider"
-  c:\program files (x86)\windows kits\8.1\include\um\servprov.h(45): note: или       "System::IServiceProvider"
-c:\program files (x86)\windows kits\8.1\include\um\servprov.h(250): error C2872: IServiceProvider: неоднозначный символ
-  c:\program files (x86)\windows kits\8.1\include\um\servprov.h(99): note: может быть "IServiceProvider"
-  c:\program files (x86)\windows kits\8.1\include\um\servprov.h(45): note: или       "System::IServiceProvider"
-C:\Program Files (x86)\Windows Kits\8.1\Include\um\urlmon.h(6827): error C2872: IServiceProvider: неоднозначный символ
-  c:\program files (x86)\windows kits\8.1\include\um\servprov.h(99): note: может быть "IServiceProvider"
-  c:\program files (x86)\windows kits\8.1\include\um\servprov.h(45): note: или       "System::IServiceProvider"
-C:\Program Files (x86)\Windows Kits\8.1\Include\um\urlmon.h(6829): error C2872: IServiceProvider: неоднозначный символ
-  c:\program files (x86)\windows kits\8.1\include\um\servprov.h(99): note: может быть "IServiceProvider"
-  c:\program files (x86)\windows kits\8.1\include\um\servprov.h(45): note: или       "System::IServiceProvider"
+recognize.cpp(8): warning C4244: аргумент: преобразование "time_t" в "unsigned int", возможна потеря данных
+recognize.cpp(159): warning C4244: аргумент: преобразование "double" в "int", возможна потеря данных
+recognize.cpp(132): warning C4101: a22: неиспользованная локальная переменная
+recognize.cpp(132): warning C4101: a11: неиспользованная локальная переменная
+recognize.cpp(132): warning C4101: a12: неиспользованная локальная переменная
+recognize.cpp(132): warning C4101: a21: неиспользованная локальная переменная
+d:\open_cv\opencv\build\include\opencv2\core\cvstd.hpp(575): warning C4793: cv::String::String: функция скомпилирована как машинная:
+  	Обнаружена встроенная функция, которая не поддерживается в управляемом коде
+d:\open_cv\opencv\build\include\opencv2\core\mat.inl.hpp(482): warning C4793: cv::Mat::Mat: функция скомпилирована как машинная:
+  	Обнаружена встроенная функция, которая не поддерживается в управляемом коде
+d:\vs 2017 projects\project 1\project 1\recognize.cpp(94): warning C4715: recognize::FileToVecWieights: значение возвращается не при всех путях выполнения
+d:\open_cv\opencv\build\include\opencv2\core\mat.inl.hpp(803): warning C4793: cv::Mat::release: функция скомпилирована как машинная:
+  	Обнаружена встроенная функция, которая не поддерживается в управляемом коде
+d:\open_cv\opencv\build\include\opencv2\core\mat.inl.hpp(2083): warning C4793: cv::SparseMat::addref: функция скомпилирована как машинная:
+  	Обнаружена встроенная функция, которая не поддерживается в управляемом коде
+d:\open_cv\opencv\build\include\opencv2\core\mat.inl.hpp(3683): warning C4793: cv::UMat::addref: функция скомпилирована как машинная:
+  	Обнаружена встроенная функция, которая не поддерживается в управляемом коде
+d:\open_cv\opencv\build\include\opencv2\core\ptr.inl.hpp(67): warning C4793: cv::detail::PtrOwner::incRef: функция скомпилирована как машинная:
+  	Обнаружена встроенная функция, которая не поддерживается в управляемом коде
+d:\open_cv\opencv\build\include\opencv2\core\ptr.inl.hpp(72): warning C4793: cv::detail::PtrOwner::decRef: функция скомпилирована как машинная:
+  	Обнаружена встроенная функция, которая не поддерживается в управляемом коде
+  Project 1.vcxproj -> D:\VS 2017 projects\Project 1\x64\Debug\Project 1.exe

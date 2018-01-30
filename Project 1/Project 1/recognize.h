@@ -14,7 +14,7 @@
 using namespace System::Drawing;
 using namespace System;
 using namespace std;
-using namespace cv;
+//using namespace cv;
 
 
 
