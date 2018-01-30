@@ -132,7 +132,7 @@ Bitmap ^ recognize::Max_Poling(Bitmap ^ inimg)
 	double a11, a12, a21, a22;
 	std::vector<double> temp_of_grid(vector <double>(4));//временные данные в сетке
 	vector<std::vector<double>> result_of_poling((inimg->Height/2), vector <double>(inimg->Width / 2));//результат пулинга
-	std::vector<double> temp_of_poling(vector <double>((inimg->Width / 2)*(inimg->Height / 2)));//дл€ хранени€ максимальных значенийисходного вектора
+	std::vector<double> temp_of_poling(vector <double>((inimg->Width / 2)*(inimg->Height / 2)));//дл€ хранени€ максимальных значений исходного вектора
 	vector<std::vector<double>> AVG_Color((inimg->Height), vector <double>(inimg->Width));
 	AVG_Color = ImageToArray::AVG_Color(inimg);//вектор средних цветов дл€ пулинга
 	//исходный вектор
@@ -163,6 +163,26 @@ Bitmap ^ recognize::Max_Poling(Bitmap ^ inimg)
 	return rezimg;
 	//throw gcnew System::NotImplementedException();
 	// TODO: вставьте здесь оператор return
+}
+
+ void recognize::Gaussian(std::string FileName)
+{
+	//Bitmap ^inimage = gcnew Bitmap(inimg);//входное изображение
+
+	Mat  src; 
+	int  DELAY_BLUR = 100;
+	int  MAX_KERNEL_LENGTH = 31;
+	Mat  dst;
+	src = imread(FileName, 1);
+	dst = src.clone();
+	/// ѕрименение гауссовского размыти€ 
+	for (int i = 1; i < MAX_KERNEL_LENGTH; i = i + 2)
+	{
+		GaussianBlur(src, dst, cv::Size(i, i), 0, 0);
+	}
+	imwrite("gaussian.bmp", dst);
+	//throw gcnew System::NotImplementedException();
+	//// TODO: вставьте здесь оператор return
 }
 
 recognize::recognize()

@@ -5,6 +5,7 @@
 #include "Create_Image.h";
 #include "MyForm1.h";
 #include "recognize.h";
+#include <msclr\marshal_cppstd.h>
 
 
 namespace Project1 {
@@ -79,6 +80,7 @@ namespace Project1 {
 	private: System::Windows::Forms::Button^  button9;
 	private: System::Windows::Forms::OpenFileDialog^  openFileDialog3;
 	private: System::Windows::Forms::Button^  button10;
+	private: System::Windows::Forms::Button^  button11;
 
 	private: System::ComponentModel::IContainer^  components;
 
@@ -104,6 +106,7 @@ namespace Project1 {
 			this->openFileDialog1 = (gcnew System::Windows::Forms::OpenFileDialog());
 			this->tabControl1 = (gcnew System::Windows::Forms::TabControl());
 			this->tabPage1 = (gcnew System::Windows::Forms::TabPage());
+			this->button10 = (gcnew System::Windows::Forms::Button());
 			this->button9 = (gcnew System::Windows::Forms::Button());
 			this->button8 = (gcnew System::Windows::Forms::Button());
 			this->button7 = (gcnew System::Windows::Forms::Button());
@@ -130,7 +133,7 @@ namespace Project1 {
 			this->openFileDialog2 = (gcnew System::Windows::Forms::OpenFileDialog());
 			this->imageList1 = (gcnew System::Windows::Forms::ImageList(this->components));
 			this->openFileDialog3 = (gcnew System::Windows::Forms::OpenFileDialog());
-			this->button10 = (gcnew System::Windows::Forms::Button());
+			this->button11 = (gcnew System::Windows::Forms::Button());
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->dataGridView1))->BeginInit();
 			this->tabControl1->SuspendLayout();
 			this->tabPage1->SuspendLayout();
@@ -197,6 +200,7 @@ namespace Project1 {
 			// 
 			// tabPage1
 			// 
+			this->tabPage1->Controls->Add(this->button11);
 			this->tabPage1->Controls->Add(this->button10);
 			this->tabPage1->Controls->Add(this->button9);
 			this->tabPage1->Controls->Add(this->button8);
@@ -218,6 +222,16 @@ namespace Project1 {
 			this->tabPage1->TabIndex = 0;
 			this->tabPage1->Text = L"Загрузка данных";
 			this->tabPage1->UseVisualStyleBackColor = true;
+			// 
+			// button10
+			// 
+			this->button10->Location = System::Drawing::Point(925, 178);
+			this->button10->Name = L"button10";
+			this->button10->Size = System::Drawing::Size(117, 38);
+			this->button10->TabIndex = 13;
+			this->button10->Text = L"Пулинг изображения";
+			this->button10->UseVisualStyleBackColor = true;
+			this->button10->Click += gcnew System::EventHandler(this, &MyForm::button10_Click);
 			// 
 			// button9
 			// 
@@ -483,15 +497,15 @@ namespace Project1 {
 			this->openFileDialog3->Filter = L"(*.bmp)|*.bmp";
 			this->openFileDialog3->Multiselect = true;
 			// 
-			// button10
+			// button11
 			// 
-			this->button10->Location = System::Drawing::Point(925, 178);
-			this->button10->Name = L"button10";
-			this->button10->Size = System::Drawing::Size(117, 38);
-			this->button10->TabIndex = 13;
-			this->button10->Text = L"Пулинг изображения";
-			this->button10->UseVisualStyleBackColor = true;
-			this->button10->Click += gcnew System::EventHandler(this, &MyForm::button10_Click);
+			this->button11->Location = System::Drawing::Point(925, 233);
+			this->button11->Name = L"button11";
+			this->button11->Size = System::Drawing::Size(116, 36);
+			this->button11->TabIndex = 14;
+			this->button11->Text = L"Гауссовский фильтр";
+			this->button11->UseVisualStyleBackColor = true;
+			this->button11->Click += gcnew System::EventHandler(this, &MyForm::button11_Click);
 			// 
 			// MyForm
 			// 
@@ -1016,6 +1030,29 @@ private: System::Void button10_Click(System::Object^  sender, System::EventArgs^
 	//Загружаем ЧБ фото
 	pictureBox2->Image = recognize::Max_Poling(myBitmap);
 	pictureBox2->Refresh();
+}
+
+		 //этот метод пока не работает
+private: System::Void button11_Click(System::Object^  sender, System::EventArgs^  e) {
+
+	//загрузка картинки 
+	System::String^ FileName;
+	openFileDialog2->Title = "Select pictures ";
+	//openFileDialog2->Multiselect = false;
+	//vector<Bitmap^> ImagesVec;
+	Bitmap^ * InputImages;
+	string str;
+	//cli::array<Bitmap^>^ Images;
+	if (openFileDialog2->ShowDialog() == System::Windows::Forms::DialogResult::OK)
+	{
+		FileName = openFileDialog2->FileName->ToString();
+		//pictureBox1->Image = Image::FromFile(openFileDialog2->FileName);
+		label1->Text = FileName;
+		msclr::interop::marshal_context context;
+		str = context.marshal_as<std::string>(FileName);
+		//System::Runtime::InteropServices::Marshal::StringToCoTaskMemUni(FileName);
+		recognize::Gaussian(str);
+	}
 }
 };
 }

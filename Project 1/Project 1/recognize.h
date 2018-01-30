@@ -25,6 +25,7 @@ public:
 	static std::vector<std::vector<double>> FileToVecWieights();//загружаем веса из файла
 	static Bitmap^ Recognized_Image(Bitmap ^inimg, Bitmap ^refimg); //ищем порок
 	static Bitmap^ Max_Poling(Bitmap ^inimg); //ищем порок
+	static void Gaussian(std::string FileName); //ищем порок
 	recognize();
 };
 
