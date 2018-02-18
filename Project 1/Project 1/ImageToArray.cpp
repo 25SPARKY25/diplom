@@ -40,14 +40,42 @@ std::vector<int> ImageToArray::BWImage(Bitmap ^img, std::vector<int> single_inpu
 	return single_inputvec;
 }
 
-vector<std::vector<double>> ImageToArray::AVG_Color(Bitmap ^ img)
+vector<std::vector<double>> ImageToArray::AVG_Color_For_Pooling(Bitmap ^ img)
 {
-	vector<std::vector<double>> AVG_Color((img->Height), vector <double>(img->Width));
+	vector<std::vector<double>> AVG_Color_For_Pooling((img->Height), vector <double>(img->Width));
 	for (int x = 0; x < img->Height; x++)
 	{
 		for (int y = 0; y < img->Width; y++)
 		{
-			AVG_Color[x][y]=((Convert::ToInt16(Color(img->GetPixel(x, y)).R) + Convert::ToInt16(Color(img->GetPixel(x, y)).G) + Convert::ToInt16(Color(img->GetPixel(x, y)).B))/3);
+			AVG_Color_For_Pooling[x][y]=((Convert::ToInt16(Color(img->GetPixel(x, y)).R) + Convert::ToInt16(Color(img->GetPixel(x, y)).G) + Convert::ToInt16(Color(img->GetPixel(x, y)).B))/3);
+			//i++;
+		}
+	}
+	return AVG_Color_For_Pooling;
+}
+
+vector<std::vector<double>> ImageToArray::Sum_AVG_Color(vector<std::vector<double>> AVG_Color_For_Pooling)
+{
+	vector<std::vector<double>> Sum_AVG_Color(AVG_Color_For_Pooling.size, AVG_Color_For_Pooling[0].size);
+	for (int x = 0; x < AVG_Color_For_Pooling.size; x++)
+	{
+		for (int y = 0; y < AVG_Color_For_Pooling[0].size; y++)
+		{
+			Sum_AVG_Color[x][y] += AVG_Color_For_Pooling[x][y];
+			//i++;
+		}
+	}
+	return Sum_AVG_Color;
+}
+
+vector<std::vector<double>> ImageToArray::AVG_Color(vector<std::vector<double>> Sum_AVG_Color, int counter)
+{
+	vector<std::vector<double>> AVG_Color(Sum_AVG_Color.size, Sum_AVG_Color[0].size);
+	for (int x = 0; x < Sum_AVG_Color.size; x++)
+	{
+		for (int y = 0; y < Sum_AVG_Color[0].size; y++)
+		{
+			Sum_AVG_Color[x][y] = (Sum_AVG_Color[x][y])/counter;
 			//i++;
 		}
 	}

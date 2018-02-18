@@ -15,7 +15,10 @@ public:
 	static vector<std::vector<int>> BWImageToVector(Bitmap ^img, vector<std::vector<int>> OutputBlackWhiteVec);//из ЧБ картинки и получаём её массив
 	//получение чб картнки из вектора загруженного из файла
 	static std::vector<int> BWImage(Bitmap ^img, std::vector<int> single_inputvec); //получаем vector пиксилей
-	static vector<std::vector<double>> AVG_Color(Bitmap ^img);//получаем двумерный вектор средних цветов для пулинга
+	static vector<std::vector<double>> AVG_Color_For_Pooling(Bitmap ^img);//получаем двумерный вектор средних цветов для пулинга
+	//нужно хорошенько обдумать как загружать и хранить массив средних значений на пиксель
+	static vector<std::vector<double>> Sum_AVG_Color(vector<std::vector<double>> AVG_Color_For_Pooling);//получаем двумерный вектор суммы средних цветов на пиксель
+	static vector<std::vector<double>> AVG_Color(vector<std::vector<double>> Sum_AVG_Color, int counter);//получаем финальный двумерный вектор суммы средних цветов на пиксель
 
 	//через массивы
 	static int** ImgToArr(Bitmap ^img, int** InputColorArr);//переводим картинку в массив

@@ -10,6 +10,8 @@ class ArrayToFromFile
 public:
 	//запись массива в файл
 	static void VecToFile(std::vector<std::vector<int>> blackwhitevec, int x, int y);
+	//запись массива среднего значения на пиксель в файл
+	static void Avg_VecToFile(std::vector<std::vector<double>> Sum_Avg_Vec);
 	//чтение из файла
 	static std::vector<std::vector<int>> FileToVec(std::ifstream &f);
 

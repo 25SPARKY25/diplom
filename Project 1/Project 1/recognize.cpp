@@ -133,18 +133,18 @@ Bitmap ^ recognize::Max_Poling(Bitmap ^ inimg)
 	std::vector<double> temp_of_grid(vector <double>(4));//временные данные в сетке
 	vector<std::vector<double>> result_of_poling((inimg->Height/2), vector <double>(inimg->Width / 2));//результат пулинга
 	std::vector<double> temp_of_poling(vector <double>((inimg->Width / 2)*(inimg->Height / 2)));//для хранения максимальных значений исходного вектора
-	vector<std::vector<double>> AVG_Color((inimg->Height), vector <double>(inimg->Width));
-	AVG_Color = ImageToArray::AVG_Color(inimg);//вектор средних цветов для пулинга
+	vector<std::vector<double>> AVG_Color_For_Pooling((inimg->Height), vector <double>(inimg->Width));
+	AVG_Color_For_Pooling = ImageToArray::AVG_Color_For_Pooling(inimg);//вектор средних цветов для пулинга
 	//исходный вектор
 	for (int y = 0; y < inimg->Height; y+=2)
 	{
 		for (int x = 0; x < inimg->Width; x+=2)
 		{
 			temp_of_grid.clear();
-			temp_of_grid.push_back(AVG_Color[y][x]);
-			temp_of_grid.push_back(AVG_Color[y][x+1]);
-			temp_of_grid.push_back(AVG_Color[y+1][x]);
-			temp_of_grid.push_back(AVG_Color[y+1][x + 1]);
+			temp_of_grid.push_back(AVG_Color_For_Pooling[y][x]);
+			temp_of_grid.push_back(AVG_Color_For_Pooling[y][x+1]);
+			temp_of_grid.push_back(AVG_Color_For_Pooling[y+1][x]);
+			temp_of_grid.push_back(AVG_Color_For_Pooling[y+1][x + 1]);
 			temp_of_poling[i]=(*std::max_element(temp_of_grid.begin(), temp_of_grid.end()));
 			i++;
 		}

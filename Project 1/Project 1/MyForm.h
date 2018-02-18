@@ -84,6 +84,10 @@ namespace Project1 {
 	private: System::Windows::Forms::OpenFileDialog^  openFileDialog3;
 	private: System::Windows::Forms::Button^  button10;
 	private: System::Windows::Forms::Button^  button11;
+	private: System::Windows::Forms::Button^  button12;
+	private: System::Windows::Forms::Button^  button15;
+	private: System::Windows::Forms::Button^  button14;
+	private: System::Windows::Forms::Button^  button13;
 
 	private: System::ComponentModel::IContainer^  components;
 
@@ -109,6 +113,7 @@ namespace Project1 {
 			this->openFileDialog1 = (gcnew System::Windows::Forms::OpenFileDialog());
 			this->tabControl1 = (gcnew System::Windows::Forms::TabControl());
 			this->tabPage1 = (gcnew System::Windows::Forms::TabPage());
+			this->button11 = (gcnew System::Windows::Forms::Button());
 			this->button10 = (gcnew System::Windows::Forms::Button());
 			this->button9 = (gcnew System::Windows::Forms::Button());
 			this->button8 = (gcnew System::Windows::Forms::Button());
@@ -136,7 +141,10 @@ namespace Project1 {
 			this->openFileDialog2 = (gcnew System::Windows::Forms::OpenFileDialog());
 			this->imageList1 = (gcnew System::Windows::Forms::ImageList(this->components));
 			this->openFileDialog3 = (gcnew System::Windows::Forms::OpenFileDialog());
-			this->button11 = (gcnew System::Windows::Forms::Button());
+			this->button12 = (gcnew System::Windows::Forms::Button());
+			this->button13 = (gcnew System::Windows::Forms::Button());
+			this->button14 = (gcnew System::Windows::Forms::Button());
+			this->button15 = (gcnew System::Windows::Forms::Button());
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->dataGridView1))->BeginInit();
 			this->tabControl1->SuspendLayout();
 			this->tabPage1->SuspendLayout();
@@ -203,6 +211,10 @@ namespace Project1 {
 			// 
 			// tabPage1
 			// 
+			this->tabPage1->Controls->Add(this->button15);
+			this->tabPage1->Controls->Add(this->button14);
+			this->tabPage1->Controls->Add(this->button13);
+			this->tabPage1->Controls->Add(this->button12);
 			this->tabPage1->Controls->Add(this->button11);
 			this->tabPage1->Controls->Add(this->button10);
 			this->tabPage1->Controls->Add(this->button9);
@@ -225,6 +237,16 @@ namespace Project1 {
 			this->tabPage1->TabIndex = 0;
 			this->tabPage1->Text = L"Загрузка данных";
 			this->tabPage1->UseVisualStyleBackColor = true;
+			// 
+			// button11
+			// 
+			this->button11->Location = System::Drawing::Point(925, 233);
+			this->button11->Name = L"button11";
+			this->button11->Size = System::Drawing::Size(116, 36);
+			this->button11->TabIndex = 14;
+			this->button11->Text = L"Гауссовский фильтр";
+			this->button11->UseVisualStyleBackColor = true;
+			this->button11->Click += gcnew System::EventHandler(this, &MyForm::button11_Click);
 			// 
 			// button10
 			// 
@@ -500,15 +522,45 @@ namespace Project1 {
 			this->openFileDialog3->Filter = L"(*.bmp)|*.bmp";
 			this->openFileDialog3->Multiselect = true;
 			// 
-			// button11
+			// button12
 			// 
-			this->button11->Location = System::Drawing::Point(925, 233);
-			this->button11->Name = L"button11";
-			this->button11->Size = System::Drawing::Size(116, 36);
-			this->button11->TabIndex = 14;
-			this->button11->Text = L"Гауссовский фильтр";
-			this->button11->UseVisualStyleBackColor = true;
-			this->button11->Click += gcnew System::EventHandler(this, &MyForm::button11_Click);
+			this->button12->Location = System::Drawing::Point(625, 127);
+			this->button12->Name = L"button12";
+			this->button12->Size = System::Drawing::Size(294, 34);
+			this->button12->TabIndex = 15;
+			this->button12->Text = L" Попробовать найти порок(через матрицу средних значений на пиксель(без сглаживани"
+				L"я))";
+			this->button12->UseVisualStyleBackColor = true;
+			this->button12->Click += gcnew System::EventHandler(this, &MyForm::button12_Click);
+			// 
+			// button13
+			// 
+			this->button13->Location = System::Drawing::Point(325, 127);
+			this->button13->Name = L"button13";
+			this->button13->Size = System::Drawing::Size(294, 34);
+			this->button13->TabIndex = 16;
+			this->button13->Text = L" Попробовать найти порок(через матрицу средних значений на пиксель(с применением "
+				L"сглаживания))";
+			this->button13->UseVisualStyleBackColor = true;
+			// 
+			// button14
+			// 
+			this->button14->Location = System::Drawing::Point(325, 178);
+			this->button14->Name = L"button14";
+			this->button14->Size = System::Drawing::Size(294, 34);
+			this->button14->TabIndex = 17;
+			this->button14->Text = L"Создать матрицу средних значений на пиксель(с применением сглаживания)\r\n";
+			this->button14->UseVisualStyleBackColor = true;
+			// 
+			// button15
+			// 
+			this->button15->Location = System::Drawing::Point(625, 178);
+			this->button15->Name = L"button15";
+			this->button15->Size = System::Drawing::Size(294, 34);
+			this->button15->TabIndex = 18;
+			this->button15->Text = L"Создать матрицу средних значений на пиксель(без сглаживания)";
+			this->button15->UseVisualStyleBackColor = true;
+			this->button15->Click += gcnew System::EventHandler(this, &MyForm::button15_Click);
 			// 
 			// MyForm
 			// 
@@ -1056,6 +1108,43 @@ private: System::Void button11_Click(System::Object^  sender, System::EventArgs^
 		str = context.marshal_as<std::string>(SFileName);
 		//System::Runtime::InteropServices::Marshal::StringToCoTaskMemUni(FileName);
 		recognize::Gaussian(str);
+	}
+}
+private: System::Void button12_Click(System::Object^  sender, System::EventArgs^  e) {
+}
+private: System::Void button15_Click(System::Object^  sender, System::EventArgs^  e) {
+	//загрузка картинки 
+	System::String^ FileName;
+	openFileDialog2->Title = "Select pictures ";
+	//openFileDialog2->Multiselect = false;
+	//vector<Bitmap^> ImagesVec;
+	Bitmap^ * InputImages;
+	//cli::array<Bitmap^>^ Images;
+	int i = 0;
+	if (openFileDialog2->ShowDialog() == System::Windows::Forms::DialogResult::OK)
+	{
+		FileName = openFileDialog2->FileName->ToString();
+		//pictureBox1->Image = Image::FromFile(openFileDialog2->FileName);
+		label1->Text = FileName;
+		for each (FileName in openFileDialog2->FileNames)
+		{
+			richTextBox1->AppendText(FileName);
+			//Bitmap^ file = gcnew Bitmap(500,500);
+			//Images->;
+			imageList1->Images->Add(Image::FromFile(FileName));
+			//ImagesVec.push_back(openFileDialog2->OpenFile);
+			//openFileDialog2->FileName= openFileDialog2->FileNames;
+			pictureBox1->Image = Image::FromFile(FileName);
+			//Images->Add(Image::FromFile(file));
+			InputImages[i]->FromFile(FileName);// = Image::FromFile(file);
+			i++;
+			//ImagesVec->push_back(Image::FromFile(file));
+		}
+		//pictureBox1->Image = InputImages[10];
+		//pictureBox2->Image = imageList1->Images[10];
+
+		//ImagesVec->push_back(Image::FromFile(file));
+		//Images->Add;
 	}
 }
 };

@@ -135,11 +135,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="..\..\nerualnet-master\fill.cpp" />
-    <ClCompile Include="..\..\nerualnet-master\main.cpp" />
-    <ClCompile Include="..\..\nerualnet-master\net.cpp" />
-    <ClCompile Include="..\..\nerualnet-master\neuron.cpp" />
-    <ClCompile Include="..\..\nerualnet-master\trainingSet.cpp" />
     <ClCompile Include="ArrayToFromFile.cpp" />
     <ClCompile Include="Create_Image.cpp" />
     <ClCompile Include="ImageToArray.cpp" />
@@ -147,12 +142,8 @@
     <ClCompile Include="MyForm1.cpp" />
     <ClCompile Include="MyForm2.cpp" />
     <ClCompile Include="recognize.cpp" />
-    <ClCompile Include="Source.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="..\..\nerualnet-master\net.h" />
-    <ClInclude Include="..\..\nerualnet-master\neuron.h" />
-    <ClInclude Include="..\..\nerualnet-master\trainingSet.h" />
     <ClInclude Include="ArrayToFromFile.h" />
     <ClInclude Include="Create_Image.h" />
     <ClInclude Include="ImageToArray.h" />
@@ -165,7 +156,6 @@
     <ClInclude Include="MyForm2.h">
       <FileType>CppForm</FileType>
     </ClInclude>
-    <ClInclude Include="NeuronHeader.h" />
     <ClInclude Include="recognize.h" />
   </ItemGroup>
   <ItemGroup>
