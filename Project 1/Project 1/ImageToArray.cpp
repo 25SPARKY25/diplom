@@ -1,85 +1,88 @@
 #include "ImageToArray.h"
 
 //через вектора
-vector<std::vector<int>> ImageToArray::ImgToVec(Bitmap ^ img, vector<std::vector<int>> inputvec)
+vector<std::vector<int>> ImageToArray::ImgToVec(Bitmap ^ img)
 {
+	vector<std::vector<int>> inputvec(img->Width, vector <int>(img->Height));
 	for (int x = 0; x < img->Width; x++)
 	{
 		for (int y = 0; y < img->Height; y++)
 		{
-			inputvec[x][y] = Convert::ToInt16(Color(img->GetPixel(x, y)).R) >= 130 && Convert::ToInt16(Color(img->GetPixel(x, y)).G) >= 130 && Convert::ToInt16(Color(img->GetPixel(x, y)).B) >= 130 ? 0 : 1;
+			inputvec[x][y] = (Convert::ToInt16(Color(img->GetPixel(x, y)).R) + Convert::ToInt16(Color(img->GetPixel(x, y)).G) + Convert::ToInt16(Color(img->GetPixel(x, y)).B))/3 ;
 		}
 	}
 	return inputvec;
 }
 
-vector<std::vector<int>> ImageToArray::BWImageToVector(Bitmap ^ img, vector<std::vector<int>> OutputBlackWhiteVec)
+vector<std::vector<int>> ImageToArray::InpVecBin(Bitmap ^ img)
+{
+	vector<std::vector<int>> inputvec(img->Width, vector <int>(img->Height));
+	inputvec = ImageToArray::ImgToVec(img);
+	for (int x = 0; x < img->Width; x++)
+	{
+		for (int y = 0; y < img->Height; y++)
+		{
+			inputvec[x][y] = inputvec[x][y] >= 130 ? 0 : 1;
+		}
+	}
+	return inputvec;
+}
+
+vector<std::vector<int>> ImageToArray::BWImageToVector(Bitmap ^ img)
 {
 	Bitmap ^img1 = ImageToArray::BWImage(img);//получаем картинку из метода, который превращает ееё в ЧБ
+	vector<std::vector<int>> OutputBlackWhiteVec= ImageToArray::ImgToVec(img1);
 	for (int x = 0; x < img1->Width; x++)
 	{
 		for (int y = 0; y < img1->Height; y++)
 		{
-			OutputBlackWhiteVec[x][y] = Convert::ToInt16(Color(img1->GetPixel(x, y)).R) >= 130 && Convert::ToInt16(Color(img1->GetPixel(x, y)).G) >= 130 && Convert::ToInt16(Color(img1->GetPixel(x, y)).B) >= 130 ? 0 : 1;
+			OutputBlackWhiteVec[x][y] = OutputBlackWhiteVec[x][y] >= 130 ? 0 : 1;
 		}
 	}
 	return OutputBlackWhiteVec;
 }
 
-std::vector<int> ImageToArray::BWImage(Bitmap ^img, std::vector<int> single_inputvec)
-{
-	//int i = 0;
-	for (int x = 0; x < img->Width; x++)
-	{
-		for (int y = 0; y < img->Height; y++)
-		{
-			single_inputvec.push_back(Convert::ToInt16(Color(img->GetPixel(x, y)).R) >= 130 && Convert::ToInt16(Color(img->GetPixel(x, y)).G) >= 130 && Convert::ToInt16(Color(img->GetPixel(x, y)).B) >= 130 ? 0 : 1);
-			//i++;
-		}
-	}
-	return single_inputvec;
-}
+//std::vector<int> ImageToArray::BWImage(Bitmap ^img, std::vector<int> single_inputvec)
+//{
+//	//int i = 0;
+//	for (int x = 0; x < img->Width; x++)
+//	{
+//		for (int y = 0; y < img->Height; y++)
+//		{
+//			single_inputvec.push_back(Convert::ToInt16(Color(img->GetPixel(x, y)).R) >= 130 && Convert::ToInt16(Color(img->GetPixel(x, y)).G) >= 130 && Convert::ToInt16(Color(img->GetPixel(x, y)).B) >= 130 ? 0 : 1);
+//			//i++;
+//		}
+//	}
+//	return single_inputvec;
+//}
 
-vector<std::vector<double>> ImageToArray::AVG_Color_For_Pooling(Bitmap ^ img)
-{
-	vector<std::vector<double>> AVG_Color_For_Pooling((img->Height), vector <double>(img->Width));
-	for (int x = 0; x < img->Height; x++)
-	{
-		for (int y = 0; y < img->Width; y++)
-		{
-			AVG_Color_For_Pooling[x][y]=((Convert::ToInt16(Color(img->GetPixel(x, y)).R) + Convert::ToInt16(Color(img->GetPixel(x, y)).G) + Convert::ToInt16(Color(img->GetPixel(x, y)).B))/3);
-			//i++;
-		}
-	}
-	return AVG_Color_For_Pooling;
-}
 
-vector<std::vector<double>> ImageToArray::Sum_AVG_Color(vector<std::vector<double>> AVG_Color_For_Pooling)
+vector<std::vector<int>> ImageToArray::Sum_AVG_Color(Bitmap ^img)
 {
-	vector<std::vector<double>> Sum_AVG_Color(AVG_Color_For_Pooling.size, AVG_Color_For_Pooling[0].size);
-	for (int x = 0; x < AVG_Color_For_Pooling.size; x++)
+	vector<std::vector<int>> Sum_AVG_Color= ImageToArray::ImgToVec(img);
+	for (int x = 0; x < Sum_AVG_Color.size(); x++)
 	{
-		for (int y = 0; y < AVG_Color_For_Pooling[0].size; y++)
+		for (int y = 0; y <Sum_AVG_Color[0].size(); y++)
 		{
-			Sum_AVG_Color[x][y] += AVG_Color_For_Pooling[x][y];
+			Sum_AVG_Color[x][y] += Sum_AVG_Color[x][y];
 			//i++;
 		}
 	}
 	return Sum_AVG_Color;
 }
 
-vector<std::vector<double>> ImageToArray::AVG_Color(vector<std::vector<double>> Sum_AVG_Color, int counter)
+vector<std::vector<int>> ImageToArray::AVG_Color(vector<std::vector<int>> Sum_AVG_Color, int counter)
 {
-	vector<std::vector<double>> AVG_Color(Sum_AVG_Color.size, Sum_AVG_Color[0].size);
-	for (int x = 0; x < Sum_AVG_Color.size; x++)
+	//vector<std::vector<int>> AVG_Color= ImageToArray::Sum_AVG_Color(img);
+	for (int x = 0; x < Sum_AVG_Color.size(); x++)
 	{
-		for (int y = 0; y < Sum_AVG_Color[0].size; y++)
+		for (int y = 0; y < Sum_AVG_Color[0].size(); y++)
 		{
 			Sum_AVG_Color[x][y] = (Sum_AVG_Color[x][y])/counter;
 			//i++;
 		}
 	}
-	return AVG_Color;
+	return Sum_AVG_Color;
 }
 
 int ** ImageToArray::ImgToArr(Bitmap ^ img, int ** InputColorArr)

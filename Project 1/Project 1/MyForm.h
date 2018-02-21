@@ -113,6 +113,10 @@ namespace Project1 {
 			this->openFileDialog1 = (gcnew System::Windows::Forms::OpenFileDialog());
 			this->tabControl1 = (gcnew System::Windows::Forms::TabControl());
 			this->tabPage1 = (gcnew System::Windows::Forms::TabPage());
+			this->button15 = (gcnew System::Windows::Forms::Button());
+			this->button14 = (gcnew System::Windows::Forms::Button());
+			this->button13 = (gcnew System::Windows::Forms::Button());
+			this->button12 = (gcnew System::Windows::Forms::Button());
 			this->button11 = (gcnew System::Windows::Forms::Button());
 			this->button10 = (gcnew System::Windows::Forms::Button());
 			this->button9 = (gcnew System::Windows::Forms::Button());
@@ -141,10 +145,6 @@ namespace Project1 {
 			this->openFileDialog2 = (gcnew System::Windows::Forms::OpenFileDialog());
 			this->imageList1 = (gcnew System::Windows::Forms::ImageList(this->components));
 			this->openFileDialog3 = (gcnew System::Windows::Forms::OpenFileDialog());
-			this->button12 = (gcnew System::Windows::Forms::Button());
-			this->button13 = (gcnew System::Windows::Forms::Button());
-			this->button14 = (gcnew System::Windows::Forms::Button());
-			this->button15 = (gcnew System::Windows::Forms::Button());
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->dataGridView1))->BeginInit();
 			this->tabControl1->SuspendLayout();
 			this->tabPage1->SuspendLayout();
@@ -196,6 +196,7 @@ namespace Project1 {
 			// openFileDialog1
 			// 
 			this->openFileDialog1->FileName = L"openFileDialog1";
+			this->openFileDialog1->Multiselect = true;
 			// 
 			// tabControl1
 			// 
@@ -237,6 +238,46 @@ namespace Project1 {
 			this->tabPage1->TabIndex = 0;
 			this->tabPage1->Text = L"«агрузка данных";
 			this->tabPage1->UseVisualStyleBackColor = true;
+			// 
+			// button15
+			// 
+			this->button15->Location = System::Drawing::Point(625, 178);
+			this->button15->Name = L"button15";
+			this->button15->Size = System::Drawing::Size(294, 34);
+			this->button15->TabIndex = 18;
+			this->button15->Text = L"—оздать матрицу средних значений на пиксель(без сглаживани€)";
+			this->button15->UseVisualStyleBackColor = true;
+			this->button15->Click += gcnew System::EventHandler(this, &MyForm::button15_Click);
+			// 
+			// button14
+			// 
+			this->button14->Location = System::Drawing::Point(325, 178);
+			this->button14->Name = L"button14";
+			this->button14->Size = System::Drawing::Size(294, 34);
+			this->button14->TabIndex = 17;
+			this->button14->Text = L"—оздать матрицу средних значений на пиксель(с применением сглаживани€)\r\n";
+			this->button14->UseVisualStyleBackColor = true;
+			// 
+			// button13
+			// 
+			this->button13->Location = System::Drawing::Point(325, 127);
+			this->button13->Name = L"button13";
+			this->button13->Size = System::Drawing::Size(294, 34);
+			this->button13->TabIndex = 16;
+			this->button13->Text = L" ѕопробовать найти порок(через матрицу средних значений на пиксель(с применением "
+				L"сглаживани€))";
+			this->button13->UseVisualStyleBackColor = true;
+			// 
+			// button12
+			// 
+			this->button12->Location = System::Drawing::Point(625, 127);
+			this->button12->Name = L"button12";
+			this->button12->Size = System::Drawing::Size(294, 34);
+			this->button12->TabIndex = 15;
+			this->button12->Text = L" ѕопробовать найти порок(через матрицу средних значений на пиксель(без сглаживани"
+				L"€))";
+			this->button12->UseVisualStyleBackColor = true;
+			this->button12->Click += gcnew System::EventHandler(this, &MyForm::button12_Click);
 			// 
 			// button11
 			// 
@@ -521,46 +562,6 @@ namespace Project1 {
 			this->openFileDialog3->FileName = L"openFileDialog1";
 			this->openFileDialog3->Filter = L"(*.bmp)|*.bmp";
 			this->openFileDialog3->Multiselect = true;
-			// 
-			// button12
-			// 
-			this->button12->Location = System::Drawing::Point(625, 127);
-			this->button12->Name = L"button12";
-			this->button12->Size = System::Drawing::Size(294, 34);
-			this->button12->TabIndex = 15;
-			this->button12->Text = L" ѕопробовать найти порок(через матрицу средних значений на пиксель(без сглаживани"
-				L"€))";
-			this->button12->UseVisualStyleBackColor = true;
-			this->button12->Click += gcnew System::EventHandler(this, &MyForm::button12_Click);
-			// 
-			// button13
-			// 
-			this->button13->Location = System::Drawing::Point(325, 127);
-			this->button13->Name = L"button13";
-			this->button13->Size = System::Drawing::Size(294, 34);
-			this->button13->TabIndex = 16;
-			this->button13->Text = L" ѕопробовать найти порок(через матрицу средних значений на пиксель(с применением "
-				L"сглаживани€))";
-			this->button13->UseVisualStyleBackColor = true;
-			// 
-			// button14
-			// 
-			this->button14->Location = System::Drawing::Point(325, 178);
-			this->button14->Name = L"button14";
-			this->button14->Size = System::Drawing::Size(294, 34);
-			this->button14->TabIndex = 17;
-			this->button14->Text = L"—оздать матрицу средних значений на пиксель(с применением сглаживани€)\r\n";
-			this->button14->UseVisualStyleBackColor = true;
-			// 
-			// button15
-			// 
-			this->button15->Location = System::Drawing::Point(625, 178);
-			this->button15->Name = L"button15";
-			this->button15->Size = System::Drawing::Size(294, 34);
-			this->button15->TabIndex = 18;
-			this->button15->Text = L"—оздать матрицу средних значений на пиксель(без сглаживани€)";
-			this->button15->UseVisualStyleBackColor = true;
-			this->button15->Click += gcnew System::EventHandler(this, &MyForm::button15_Click);
 			// 
 			// MyForm
 			// 
@@ -857,11 +858,11 @@ private: System::Void button3_Click(System::Object^  sender, System::EventArgs^ 
 	//«аполнение датагридов
 
 	//через вектора
-	inputvec = ImageToArray::ImgToVec(myBitmap, inputvec);//предаЄм картинку методу класса ImageToArray и возврат массива 0 и 1
+	inputvec = ImageToArray::InpVecBin(myBitmap);//предаЄм картинку методу класса ImageToArray и возврат массива 0 и 1
 														  //разбиение изображени€ на RGB-канал и заполнение датагрида
 
 														  //ƒатагрид2
-	blackwhitevec = ImageToArray::BWImageToVector(myBitmap, blackwhitevec);//предаЄм картинку методу класса ImageToArray и возврат массива 0 и 1
+	blackwhitevec = ImageToArray::BWImageToVector(myBitmap);//предаЄм картинку методу класса ImageToArray и возврат массива 0 и 1
 																		   //разбиение изображени€ на RGB-канал и заполнение датагрида
 
 	for (int x = 0; x < pictureBox1->Image->Width; x++)
@@ -1111,33 +1112,43 @@ private: System::Void button11_Click(System::Object^  sender, System::EventArgs^
 	}
 }
 private: System::Void button12_Click(System::Object^  sender, System::EventArgs^  e) {
+	//надо будет в качестве теста запилить логирование отклонений:
+	//матрица среднего значени€/значение пиксел€ * 100%
+	vector<std::vector<int>> FINAL_AVG_COLOR;
+	ifstream f;
+	f.open("AVG.txt");
+	FINAL_AVG_COLOR = ArrayToFromFile::Avg_FileToVec(f);
 }
 private: System::Void button15_Click(System::Object^  sender, System::EventArgs^  e) {
 	//загрузка картинки 
 	System::String^ FileName;
-	openFileDialog2->Title = "Select pictures ";
+	openFileDialog1->Title = "Select pictures ";
+	vector<std::vector<int>> AVG_COLOR;
+	vector<std::vector<int>> FINAL_AVG_COLOR;
 	//openFileDialog2->Multiselect = false;
 	//vector<Bitmap^> ImagesVec;
 	Bitmap^ * InputImages;
 	//cli::array<Bitmap^>^ Images;
-	int i = 0;
-	if (openFileDialog2->ShowDialog() == System::Windows::Forms::DialogResult::OK)
+	int counter = 0;
+	if (openFileDialog1->ShowDialog() == System::Windows::Forms::DialogResult::OK)
 	{
-		FileName = openFileDialog2->FileName->ToString();
+		FileName = openFileDialog1->FileName->ToString();
 		//pictureBox1->Image = Image::FromFile(openFileDialog2->FileName);
 		label1->Text = FileName;
-		for each (FileName in openFileDialog2->FileNames)
+		for each (FileName in openFileDialog1->FileNames)
 		{
+			Bitmap ^image = gcnew Bitmap(Image::FromFile(openFileDialog1->FileName));
 			richTextBox1->AppendText(FileName);
+			AVG_COLOR = ImageToArray::Sum_AVG_Color(image);
 			//Bitmap^ file = gcnew Bitmap(500,500);
 			//Images->;
-			imageList1->Images->Add(Image::FromFile(FileName));
+			//imageList1->Images->Add(Image::FromFile(FileName));
 			//ImagesVec.push_back(openFileDialog2->OpenFile);
 			//openFileDialog2->FileName= openFileDialog2->FileNames;
-			pictureBox1->Image = Image::FromFile(FileName);
+			//pictureBox1->Image = Image::FromFile(FileName);
 			//Images->Add(Image::FromFile(file));
-			InputImages[i]->FromFile(FileName);// = Image::FromFile(file);
-			i++;
+			//InputImages[i]->FromFile(FileName);// = Image::FromFile(file);
+			counter++;
 			//ImagesVec->push_back(Image::FromFile(file));
 		}
 		//pictureBox1->Image = InputImages[10];
@@ -1146,6 +1157,8 @@ private: System::Void button15_Click(System::Object^  sender, System::EventArgs^
 		//ImagesVec->push_back(Image::FromFile(file));
 		//Images->Add;
 	}
+	FINAL_AVG_COLOR = ImageToArray::AVG_Color(AVG_COLOR, counter);
+	ArrayToFromFile::Avg_VecToFile(FINAL_AVG_COLOR);
 }
 };
 }

@@ -127,14 +127,16 @@ Bitmap ^ recognize::Recognized_Image(Bitmap ^ inimg, Bitmap ^ refimg)
 
 Bitmap ^ recognize::Max_Poling(Bitmap ^ inimg)
 {
-	Bitmap ^ rezimg = gcnew Bitmap(inimg->Width/2, inimg->Height / 2);
+	Bitmap ^ rezimg = gcnew Bitmap(inimg->Height /2, inimg->Width / 2);
 	int i=0;//итераторы для выходного вектора
 	double a11, a12, a21, a22;
 	std::vector<double> temp_of_grid(vector <double>(4));//временные данные в сетке
 	vector<std::vector<double>> result_of_poling((inimg->Height/2), vector <double>(inimg->Width / 2));//результат пулинга
-	std::vector<double> temp_of_poling(vector <double>((inimg->Width / 2)*(inimg->Height / 2)));//для хранения максимальных значений исходного вектора
-	vector<std::vector<double>> AVG_Color_For_Pooling((inimg->Height), vector <double>(inimg->Width));
-	AVG_Color_For_Pooling = ImageToArray::AVG_Color_For_Pooling(inimg);//вектор средних цветов для пулинга
+	std::vector<double> temp_of_poling(vector <double>((inimg->Height / 2)*(inimg->Width / 2)));//для хранения максимальных значений исходного вектора
+
+	vector<std::vector<int>> AVG_Color_For_Pooling((inimg->Height), vector <int>(inimg->Width));
+
+	AVG_Color_For_Pooling = ImageToArray::ImgToVec(inimg);//вектор средних цветов для пулинга
 	//исходный вектор
 	for (int y = 0; y < inimg->Height; y+=2)
 	{
