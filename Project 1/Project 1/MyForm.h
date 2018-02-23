@@ -818,6 +818,8 @@ private: System::Void button3_Click(System::Object^  sender, System::EventArgs^ 
 	pictureBox2->Refresh();
 
 	//создаём вектор входного изображения
+	//vector<vector<int>*> *inputvec = new vector(pictureBox1->Image->Width, vector<int>(pictureBox2->Image->Height)); (pictureBox1->Image->Width, vector <int>(pictureBox2->Image->Height));
+
 	vector<vector<int>> inputvec(pictureBox1->Image->Width, vector <int>(pictureBox2->Image->Height));
 	vector<vector<int>> blackwhitevec(pictureBox1->Image->Width, vector <int>(pictureBox2->Image->Height));
 
@@ -893,7 +895,6 @@ private: System::Void button3_Click(System::Object^  sender, System::EventArgs^ 
 
 	ifstream f;
 	f.open("1.txt");
-
 	//тестово
 	vector<vector<int>> invec(pictureBox2->Image->Width, vector <int>(pictureBox2->Image->Height));
 	//vector<vector<int>> invec(268, vector <int>(268));
@@ -1136,58 +1137,57 @@ private: System::Void button12_Click(System::Object^  sender, System::EventArgs^
 	f.open("AVG.txt");
 	FINAL_AVG_COLOR = ArrayToFromFile::Avg_FileToVec(f);
 	//тестовое задание нового размера на основе предыдущей картинки
-	Bitmap ^image = gcnew Bitmap(FINAL_AVG_COLOR.size(), FINAL_AVG_COLOR[0].size());
-	for (int x = 0; x < image->Width; x++)
-	{
-		for (int y = 0; y < image->Height; y++)
-		{
-			//делаем картинку ЧБ
-			image->SetPixel(x, y, Color::FromArgb(FINAL_AVG_COLOR[x][y], FINAL_AVG_COLOR[x][y], FINAL_AVG_COLOR[x][y]));
-		}
-	}
-	image->Save("AVG_IMG.bmp");
+	//Bitmap ^image = gcnew Bitmap(FINAL_AVG_COLOR.size(), FINAL_AVG_COLOR[0].size());
+	//for (int x = 0; x < image->Width; x++)
+	//{
+	//	for (int y = 0; y < image->Height; y++)
+	//	{
+	//		//делаем картинку ЧБ
+	//		image->SetPixel(x, y, Color::FromArgb(FINAL_AVG_COLOR[x][y], FINAL_AVG_COLOR[x][y], FINAL_AVG_COLOR[x][y]));
+	//	}
+	//}
+	//image->Save("AVG_IMG.bmp");
 	ArrayToFromFile::Difference(FINAL_AVG_COLOR, refimage);
 }
 private: System::Void button15_Click(System::Object^  sender, System::EventArgs^  e) {
 	//загрузка картинки 
-	System::String^ FileName;
+	System::String^ FileName;//имя файла
 	openFileDialog1->Title = "Select pictures ";
-	vector<std::vector<int>> AVG_COLOR;
-	vector<std::vector<int>> FINAL_AVG_COLOR;
-	//openFileDialog2->Multiselect = false;
-	//vector<Bitmap^> ImagesVec;
-	Bitmap^ * InputImages;
-	//cli::array<Bitmap^>^ Images;
-	int counter = 0;
+	vector<std::vector<int>> AVG_COLOR;//вектор пикселей входного изображения
+	vector<std::vector<int>> TEMP_AVG_COLOR;//вектор для суммирования
+	vector<std::vector<int>> FINAL_AVG_COLOR;//вектор средних значений
+	int counter = 0;//счётчик изображений
 	if (openFileDialog1->ShowDialog() == System::Windows::Forms::DialogResult::OK)
 	{
 		FileName = openFileDialog1->FileName->ToString();
-		//pictureBox1->Image = Image::FromFile(openFileDialog2->FileName);
-		label1->Text = FileName;
-		for each (FileName in openFileDialog1->FileNames)
+		for each (FileName in openFileDialog1->FileNames)//в цикле каждый раз создаём новую картинку и суммируем значения для пикселя
 		{
 			Bitmap ^image = gcnew Bitmap(Image::FromFile(FileName));
-			richTextBox1->AppendText(FileName);
-			AVG_COLOR = ImageToArray::Sum_AVG_Color(image);
-			//Bitmap^ file = gcnew Bitmap(500,500);
-			//Images->;
-			//imageList1->Images->Add(Image::FromFile(FileName));
-			//agesVec.insert(Image::FromFile(openFileDialog1->FileName));
-			//openFileDialog2->FileName= openFileDialog2->FileNames;
-			//pictureBox1->Image = Image::FromFile(FileName);
-			//Images->Add(Image::FromFile(file));
-			//InputImages[i]->FromFile(FileName);// = Image::FromFile(file);
-			counter++;
-			//ImagesVec->push_back(Image::FromFile(file));
+			if (TEMP_AVG_COLOR.capacity() == 0) //задаём размер вектору, так как он нулевой
+			{ 
+				TEMP_AVG_COLOR.resize(image->Width); 
+				for (int s = 0; s < image->Height; s++) 
+				{TEMP_AVG_COLOR[s].resize(image->Height);} 
+			}
+			AVG_COLOR = ImageToArray::ImgToVec(image);//получаем вектор пикселей изображения
+			for (int i = 0;  i <AVG_COLOR.size(); i++)
+			{
+				for (int j = 0; j < AVG_COLOR.size(); j++)
+				{TEMP_AVG_COLOR[i][j] += AVG_COLOR[i][j];}//суммируем значения на пиксель
+			}
+			counter++;//увеличиваем счётчик картинок
 		}
-		//pictureBox1->Image = InputImages[10];
-		//pictureBox2->Image = imageList1->Images[10];
-
-		//ImagesVec->push_back(Image::FromFile(file));
-		//Images->Add;
 	}
-	FINAL_AVG_COLOR = ImageToArray::AVG_Color(AVG_COLOR, counter);
-	ArrayToFromFile::Avg_VecToFile(FINAL_AVG_COLOR);
+	FINAL_AVG_COLOR = ImageToArray::AVG_Color(TEMP_AVG_COLOR, counter);//получаем вектор средних значений
+	ArrayToFromFile::Avg_VecToFile(FINAL_AVG_COLOR);//записываем в файл
+	Bitmap ^image = gcnew Bitmap(FINAL_AVG_COLOR.size(), FINAL_AVG_COLOR[0].size());//наложенные друг на друга картинки
+	for (int x = 0; x < image->Width; x++)
+	{
+		for (int y = 0; y < image->Height; y++)
+		{image->SetPixel(x, y, Color::FromArgb(FINAL_AVG_COLOR[x][y], FINAL_AVG_COLOR[x][y], FINAL_AVG_COLOR[x][y]));}
+	}
+	image->Save("AVG_IMG.bmp");//сохраняем картинку
+
 }
 private: System::Void button13_Click(System::Object^  sender, System::EventArgs^  e) {
 	//std::vector<Bitmap> pbitmaps;

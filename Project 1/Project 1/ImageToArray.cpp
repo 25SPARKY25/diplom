@@ -57,20 +57,20 @@ vector<std::vector<int>> ImageToArray::BWImageToVector(Bitmap ^ img)
 //}
 
 
-vector<std::vector<int>> ImageToArray::Sum_AVG_Color(Bitmap ^img)
-{
-	vector<std::vector<int>> Sum_AVG_Color(img->Width, vector <int>(img->Height));
-	vector<std::vector<int>> templ= ImageToArray::ImgToVec(img);
-	for (int x = 0; x < Sum_AVG_Color.size(); x++)
-	{
-		for (int y = 0; y <Sum_AVG_Color[0].size(); y++)
-		{
-			Sum_AVG_Color[x][y] += templ[x][y];
-			//i++;
-		}
-	}
-	return Sum_AVG_Color;
-}
+//vector<std::vector<int>> ImageToArray::Sum_AVG_Color(Bitmap ^img)
+//{
+//	vector<std::vector<int>> Sum_AVG_Color(img->Width, vector <int>(img->Height));
+//	vector<std::vector<int>> templ= ImageToArray::ImgToVec(img);
+//	for (int x = 0; x < Sum_AVG_Color.size(); x++)
+//	{
+//		for (int y = 0; y <Sum_AVG_Color[0].size(); y++)
+//		{
+//			Sum_AVG_Color[x][y] += templ[x][y];
+//			//i++;
+//		}
+//	}
+//	return Sum_AVG_Color;
+//}
 
 vector<std::vector<int>> ImageToArray::AVG_Color(vector<std::vector<int>> Sum_AVG_Color, int counter)
 {

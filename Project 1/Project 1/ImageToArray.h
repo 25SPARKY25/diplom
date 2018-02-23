@@ -21,7 +21,7 @@ public:
 	//получение чб картнки из вектора загруженного из файла
 	//static std::vector<int> BWImage(Bitmap ^img, std::vector<int> single_inputvec); //получаем одномерный vector пиксилей
 	//нужно хорошенько обдумать как загружать и хранить массив средних значений на пиксель
-	static vector<std::vector<int>> Sum_AVG_Color(Bitmap ^img);//получаем двумерный вектор суммы средних цветов на пиксель
+	//static vector<std::vector<int>> Sum_AVG_Color(Bitmap ^img);//получаем двумерный вектор суммы средних цветов на пиксель
 	static vector<std::vector<int>> AVG_Color(vector<std::vector<int>> Sum_AVG_Color, int counter);//получаем финальный двумерный вектор суммы средних цветов на пиксель
 
 	//через массивы
