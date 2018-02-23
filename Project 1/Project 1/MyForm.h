@@ -267,6 +267,7 @@ namespace Project1 {
 			this->button13->Text = L" Попробовать найти порок(через матрицу средних значений на пиксель(с применением "
 				L"сглаживания))";
 			this->button13->UseVisualStyleBackColor = true;
+			this->button13->Click += gcnew System::EventHandler(this, &MyForm::button13_Click);
 			// 
 			// button12
 			// 
@@ -1114,10 +1115,38 @@ private: System::Void button11_Click(System::Object^  sender, System::EventArgs^
 private: System::Void button12_Click(System::Object^  sender, System::EventArgs^  e) {
 	//надо будет в качестве теста запилить логирование отклонений:
 	//матрица среднего значения/значение пикселя * 100%
+
+	System::String^ FileName;
+	openFileDialog1->Title = "Select ref picture ";
+	openFileDialog1->Multiselect = false;
+
+	if (openFileDialog1->ShowDialog() == System::Windows::Forms::DialogResult::OK)
+	{
+		FileName = openFileDialog1->FileName->ToString();
+		//pictureBox2->Image = Image::FromFile(openFileDialog2->FileName);
+		//Bitmap ^refimage = gcnew Bitmap(Image::FromFile(openFileDialog2->FileName));
+
+		//label1->Text = FileName;
+	}
+
+	Bitmap ^refimage = gcnew Bitmap(Image::FromFile(FileName));
+
 	vector<std::vector<int>> FINAL_AVG_COLOR;
 	ifstream f;
 	f.open("AVG.txt");
 	FINAL_AVG_COLOR = ArrayToFromFile::Avg_FileToVec(f);
+	//тестовое задание нового размера на основе предыдущей картинки
+	Bitmap ^image = gcnew Bitmap(FINAL_AVG_COLOR.size(), FINAL_AVG_COLOR[0].size());
+	for (int x = 0; x < image->Width; x++)
+	{
+		for (int y = 0; y < image->Height; y++)
+		{
+			//делаем картинку ЧБ
+			image->SetPixel(x, y, Color::FromArgb(FINAL_AVG_COLOR[x][y], FINAL_AVG_COLOR[x][y], FINAL_AVG_COLOR[x][y]));
+		}
+	}
+	image->Save("AVG_IMG.bmp");
+	ArrayToFromFile::Difference(FINAL_AVG_COLOR, refimage);
 }
 private: System::Void button15_Click(System::Object^  sender, System::EventArgs^  e) {
 	//загрузка картинки 
@@ -1137,13 +1166,13 @@ private: System::Void button15_Click(System::Object^  sender, System::EventArgs^
 		label1->Text = FileName;
 		for each (FileName in openFileDialog1->FileNames)
 		{
-			Bitmap ^image = gcnew Bitmap(Image::FromFile(openFileDialog1->FileName));
+			Bitmap ^image = gcnew Bitmap(Image::FromFile(FileName));
 			richTextBox1->AppendText(FileName);
 			AVG_COLOR = ImageToArray::Sum_AVG_Color(image);
 			//Bitmap^ file = gcnew Bitmap(500,500);
 			//Images->;
 			//imageList1->Images->Add(Image::FromFile(FileName));
-			//ImagesVec.push_back(openFileDialog2->OpenFile);
+			//agesVec.insert(Image::FromFile(openFileDialog1->FileName));
 			//openFileDialog2->FileName= openFileDialog2->FileNames;
 			//pictureBox1->Image = Image::FromFile(FileName);
 			//Images->Add(Image::FromFile(file));
@@ -1159,6 +1188,10 @@ private: System::Void button15_Click(System::Object^  sender, System::EventArgs^
 	}
 	FINAL_AVG_COLOR = ImageToArray::AVG_Color(AVG_COLOR, counter);
 	ArrayToFromFile::Avg_VecToFile(FINAL_AVG_COLOR);
+}
+private: System::Void button13_Click(System::Object^  sender, System::EventArgs^  e) {
+	//std::vector<Bitmap> pbitmaps;
+
 }
 };
 }
