@@ -17,3 +17,24 @@
     Реализовано 2 способа:
       -Сравнение каждого пикселя изображения образца с пикселем проверяемого изображения.
       -Сранение каждого пикселя наложенных друг на друга изображений образца с пикселем проверяемого изображения (более правильный и разумный подход по моему мнению).
+
+========================================================================================================================================
+
+The theme of my thesis: "Recognition of defects on the surface of tissue."
+The program is designed to find heterogeneities (defects) on the surface of the tissue.
+It is planned to switch to a neural network.
+At the moment the program has the following main features:
+  -Generation geometric shapes
+    Generates geometric shapes for the training sample.
+  -Do the original image in black and white
+  -Blur image (requires openCV)
+    Gaussian blur is used
+  -Pooling of the image
+    Reduces the original image by 2 times (the image dimensions should be even (it is planned to do work with even and odd dimensions))
+  -Recording/loading in/from the file the value of the matrix of the mean value per pixel
+  -Generation of the image based on the matrix of the mean value per pixel
+    Image will be black and white
+  - Find the heterogeneity in the image
+    There are 2 ways:
+      -Compare each pixel of the sample image with the pixel of the image being checked.
+      -Discover of each pixel of superimposed images of the sample with the pixel of the image being checked (a more correct and reasonable approach in my opinion).
