@@ -13,8 +13,6 @@ class ImageToArray
 public:
 	//через вектор
 	static vector<std::vector<int>> ImgToVec(Bitmap ^img);//переводим картинку в двумерный вектор
-
-
 	//среднеарифметических значений 3 каналов на пиксель
 	static vector<std::vector<int>> InpVecBin(Bitmap ^img);//получаем вектор 0 и 1 входного изображения
 	static vector<std::vector<int>> BWImageToVector(Bitmap ^img);//из ЧБ картинки и получаём её массив

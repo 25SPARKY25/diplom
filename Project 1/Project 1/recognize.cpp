@@ -122,6 +122,7 @@ Bitmap ^ recognize::Recognized_Image(Bitmap ^ inimg, Bitmap ^ refimg)
 	Graphics ^ g = Graphics::FromImage(clone_inimage);//создаём объект Graphics
 	Pen ^ blackPen = gcnew Pen(Color::Green, 5);
 	g->DrawRectangle(blackPen, bx-5, by-5, ex-bx+5+5, ey-by+5+5);
+	clone_inimage->Save("Recognized.bmp");
 	return clone_inimage;
 }
 
@@ -131,7 +132,7 @@ Bitmap ^ recognize::Max_Poling(Bitmap ^ inimg)
 	int i=0;//итераторы для выходного вектора
 	double a11, a12, a21, a22;
 	std::vector<double> temp_of_grid(vector <double>(4));//временные данные в сетке
-	vector<std::vector<double>> result_of_poling((inimg->Height/2), vector <double>(inimg->Width / 2));//результат пулинга
+	//vector<std::vector<double>> result_of_poling((inimg->Height/2), vector <double>(inimg->Width / 2));//результат пулинга
 	std::vector<double> temp_of_poling(vector <double>((inimg->Height / 2)*(inimg->Width / 2)));//для хранения максимальных значений исходного вектора
 
 	vector<std::vector<int>> AVG_Color_For_Pooling((inimg->Height), vector <int>(inimg->Width));
@@ -151,14 +152,16 @@ Bitmap ^ recognize::Max_Poling(Bitmap ^ inimg)
 			i++;
 		}
 	}
-	int z = 0;
+	i = 0;
 	for (int y = 0; y < inimg->Height/2; y ++)
 	{
 		for (int x = 0; x < inimg->Width/2; x ++)
 		{
-			result_of_poling[y][x] = temp_of_poling[z];
+			/*result_of_poling[y][x] = temp_of_poling[z];
 			z++;
-			rezimg->SetPixel(y, x, Color::FromArgb(result_of_poling[y][x], result_of_poling[y][x], result_of_poling[y][x]));
+			rezimg->SetPixel(y, x, Color::FromArgb(result_of_poling[y][x], result_of_poling[y][x], result_of_poling[y][x]));*/
+			rezimg->SetPixel(y, x, Color::FromArgb(temp_of_poling[i], temp_of_poling[i], temp_of_poling[i]));
+			i++;
 		}
 	}
 	rezimg->Save("polled.bmp");
@@ -172,8 +175,8 @@ Bitmap ^ recognize::Max_Poling(Bitmap ^ inimg)
 	//Bitmap ^inimage = gcnew Bitmap(inimg);//входное изображение
 
 	cv::Mat  src; 
-	int  DELAY_BLUR = 100;
-	int  MAX_KERNEL_LENGTH = 51;
+	//int  DELAY_BLUR = 100;
+	int  MAX_KERNEL_LENGTH = 21;
 	cv::Mat  dst;
 	src = cv::imread(FileName, 1);
 	dst = src.clone();
@@ -186,6 +189,57 @@ Bitmap ^ recognize::Max_Poling(Bitmap ^ inimg)
 	//throw gcnew System::NotImplementedException();
 	//// TODO: вставьте здесь оператор return
 }
+
+ void recognize::Difference(std::vector<std::vector<int>> Sum_Avg_Vec, Bitmap ^ img)
+ {
+	 vector<std::vector<int>> refvec = ImageToArray::ImgToVec(img);
+	 Bitmap ^dam_map_1 = gcnew Bitmap(img->Width, img->Height);
+	 Bitmap ^dam_map_2 = gcnew Bitmap(img->Width, img->Height);
+	 // vector<std::vector<int>> sumvec = Sum_Avg_Vec;
+	 ofstream f;
+	 f.open("Difference.txt");
+	 int t = Sum_Avg_Vec.size() + 2;
+	 double templ, sumtempl = 0;
+	 double max, min = 0;
+	 int low_h, upper_h = 0;
+	 if (f.is_open()) {
+		 for (int i = 0; i < t; i++)
+		 {
+			 //запись размеров вектора-------
+			 if (i == 0) { f << Sum_Avg_Vec.size() << "\n"; i++; f << Sum_Avg_Vec.size(); i++; }
+			 for (int j = 0; j < Sum_Avg_Vec.size(); j++)
+			 {
+				 //находим разницу в процентах
+				 if (Sum_Avg_Vec[i - 2][j] >= refvec[i - 2][j]) {
+					 templ = (Convert::ToDouble(Sum_Avg_Vec[i - 2][j] - refvec[i - 2][j]) / Convert::ToDouble(Sum_Avg_Vec[i - 2][j])) * 100;
+					 f << "\n" << templ;
+				 }
+				 else
+				 {
+					 templ = (Convert::ToDouble(refvec[i - 2][j] - Sum_Avg_Vec[i - 2][j]) / Convert::ToDouble(refvec[i - 2][j])) * 100;
+					 f << "\n" << templ;
+				 }
+				 sumtempl += templ;
+				 //делаем "карты повреждений"
+				 if (templ <= 15) { low_h++; dam_map_1->SetPixel(i - 2, j, Color::Green); }
+				 if (templ > 15) {
+					 upper_h++;  dam_map_2->SetPixel(i - 2, j, Color::Green);
+				 }
+				 //находим максимум и минимум в различиях
+				 if (max <= templ) { max = templ; }
+				 if (min >= templ) { min = templ; }
+			 }
+		 }
+	 }
+	 //сохраняем карты и записываем в файл показатели
+	 dam_map_1->Save("dam_map_1.bmp");
+	 dam_map_2->Save("dam_map_2.bmp");
+	 f << "\n" << "min=" << min;
+	 f << "\n" << "max=" << max;
+	 f << "\n" << "avg_difference=" << (sumtempl / (refvec.size()*refvec[0].size()));//среднее отклонение на пиксель
+																					 //f << "\n" << "low_h=" << low_h<< "\n" << "upper_h=" << upper_h; //использовалось для "половин" (>50 и <50)
+	 f.close();
+ }
 
 recognize::recognize()
 {

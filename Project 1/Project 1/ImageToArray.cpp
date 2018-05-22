@@ -30,7 +30,7 @@ vector<std::vector<int>> ImageToArray::InpVecBin(Bitmap ^ img)
 
 vector<std::vector<int>> ImageToArray::BWImageToVector(Bitmap ^ img)
 {
-	Bitmap ^img1 = ImageToArray::BWImage(img);//получаем картинку из метода, который превращает ееё в ЧБ
+	Bitmap ^img1 = ImageToArray::BWImage(img);//получаем картинку из метода, который превращает её в ЧБ
 	vector<std::vector<int>> OutputBlackWhiteVec= ImageToArray::ImgToVec(img1);
 	for (int x = 0; x < img1->Width; x++)
 	{

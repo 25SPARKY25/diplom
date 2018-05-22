@@ -47,8 +47,8 @@ namespace Project1 {
 				delete components;
 			}
 		}
-	private: System::Windows::Forms::Button^  button1;
-	private: System::Windows::Forms::TextBox^  textBox1;
+
+
 	private: System::Windows::Forms::DataGridView^  dataGridView1;
 
 	private: System::Windows::Forms::OpenFileDialog^  openFileDialog1;
@@ -56,7 +56,7 @@ namespace Project1 {
 	private: System::Windows::Forms::TabPage^  tabPage1;
 	private: System::Windows::Forms::TabPage^  tabPage2;
 	private: System::Windows::Forms::TabPage^  tabPage3;
-	private: System::Windows::Forms::SplitContainer^  splitContainer1;
+
 	public: System::Windows::Forms::PictureBox^  pictureBox1;
 	private:
 	public: System::Windows::Forms::Label^  label1;
@@ -67,7 +67,7 @@ namespace Project1 {
 	private: System::Windows::Forms::Label^  label3;
 	private: System::Windows::Forms::DataGridView^  dataGridView2;
 	private: System::Windows::Forms::Label^  label4;
-	private: System::Windows::Forms::Button^  button2;
+
 	private: System::Windows::Forms::Button^  button3;
 	private: System::Windows::Forms::PictureBox^  pictureBox3;
 	private: System::Windows::Forms::Button^  button4;
@@ -77,7 +77,7 @@ namespace Project1 {
 	private: System::Windows::Forms::RichTextBox^  richTextBox1;
 	private: System::Windows::Forms::ImageList^  imageList1;
 	private: System::Windows::Forms::Label^  label6;
-	private: System::Windows::Forms::Label^  label5;
+
 	private: System::Windows::Forms::Button^  button7;
 	private: System::Windows::Forms::Button^  button8;
 	private: System::Windows::Forms::Button^  button9;
@@ -86,8 +86,11 @@ namespace Project1 {
 	private: System::Windows::Forms::Button^  button11;
 	private: System::Windows::Forms::Button^  button12;
 	private: System::Windows::Forms::Button^  button15;
-	private: System::Windows::Forms::Button^  button14;
-	private: System::Windows::Forms::Button^  button13;
+	private: System::Windows::Forms::SplitContainer^  splitContainer1;
+
+
+
+
 
 	private: System::ComponentModel::IContainer^  components;
 
@@ -107,15 +110,11 @@ namespace Project1 {
 		void InitializeComponent(void)
 		{
 			this->components = (gcnew System::ComponentModel::Container());
-			this->button1 = (gcnew System::Windows::Forms::Button());
-			this->textBox1 = (gcnew System::Windows::Forms::TextBox());
 			this->dataGridView1 = (gcnew System::Windows::Forms::DataGridView());
 			this->openFileDialog1 = (gcnew System::Windows::Forms::OpenFileDialog());
 			this->tabControl1 = (gcnew System::Windows::Forms::TabControl());
 			this->tabPage1 = (gcnew System::Windows::Forms::TabPage());
 			this->button15 = (gcnew System::Windows::Forms::Button());
-			this->button14 = (gcnew System::Windows::Forms::Button());
-			this->button13 = (gcnew System::Windows::Forms::Button());
 			this->button12 = (gcnew System::Windows::Forms::Button());
 			this->button11 = (gcnew System::Windows::Forms::Button());
 			this->button10 = (gcnew System::Windows::Forms::Button());
@@ -123,13 +122,11 @@ namespace Project1 {
 			this->button8 = (gcnew System::Windows::Forms::Button());
 			this->button7 = (gcnew System::Windows::Forms::Button());
 			this->label6 = (gcnew System::Windows::Forms::Label());
-			this->label5 = (gcnew System::Windows::Forms::Label());
 			this->richTextBox1 = (gcnew System::Windows::Forms::RichTextBox());
 			this->button6 = (gcnew System::Windows::Forms::Button());
 			this->button5 = (gcnew System::Windows::Forms::Button());
 			this->button4 = (gcnew System::Windows::Forms::Button());
 			this->button3 = (gcnew System::Windows::Forms::Button());
-			this->button2 = (gcnew System::Windows::Forms::Button());
 			this->tabPage2 = (gcnew System::Windows::Forms::TabPage());
 			this->splitContainer2 = (gcnew System::Windows::Forms::SplitContainer());
 			this->label3 = (gcnew System::Windows::Forms::Label());
@@ -164,23 +161,6 @@ namespace Project1 {
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox2))->BeginInit();
 			this->SuspendLayout();
 			// 
-			// button1
-			// 
-			this->button1->Location = System::Drawing::Point(8, 6);
-			this->button1->Name = L"button1";
-			this->button1->Size = System::Drawing::Size(114, 55);
-			this->button1->TabIndex = 0;
-			this->button1->Text = L"Открыть обучающий файл";
-			this->button1->UseVisualStyleBackColor = true;
-			this->button1->Click += gcnew System::EventHandler(this, &MyForm::button1_Click);
-			// 
-			// textBox1
-			// 
-			this->textBox1->Location = System::Drawing::Point(79, 110);
-			this->textBox1->Name = L"textBox1";
-			this->textBox1->Size = System::Drawing::Size(153, 20);
-			this->textBox1->TabIndex = 1;
-			// 
 			// dataGridView1
 			// 
 			this->dataGridView1->AutoSizeColumnsMode = System::Windows::Forms::DataGridViewAutoSizeColumnsMode::DisplayedCells;
@@ -213,8 +193,6 @@ namespace Project1 {
 			// tabPage1
 			// 
 			this->tabPage1->Controls->Add(this->button15);
-			this->tabPage1->Controls->Add(this->button14);
-			this->tabPage1->Controls->Add(this->button13);
 			this->tabPage1->Controls->Add(this->button12);
 			this->tabPage1->Controls->Add(this->button11);
 			this->tabPage1->Controls->Add(this->button10);
@@ -222,61 +200,36 @@ namespace Project1 {
 			this->tabPage1->Controls->Add(this->button8);
 			this->tabPage1->Controls->Add(this->button7);
 			this->tabPage1->Controls->Add(this->label6);
-			this->tabPage1->Controls->Add(this->label5);
 			this->tabPage1->Controls->Add(this->richTextBox1);
 			this->tabPage1->Controls->Add(this->button6);
 			this->tabPage1->Controls->Add(this->button5);
 			this->tabPage1->Controls->Add(this->button4);
 			this->tabPage1->Controls->Add(this->button3);
-			this->tabPage1->Controls->Add(this->button2);
-			this->tabPage1->Controls->Add(this->button1);
-			this->tabPage1->Controls->Add(this->textBox1);
 			this->tabPage1->Location = System::Drawing::Point(4, 22);
 			this->tabPage1->Name = L"tabPage1";
 			this->tabPage1->Padding = System::Windows::Forms::Padding(3);
 			this->tabPage1->Size = System::Drawing::Size(1137, 574);
 			this->tabPage1->TabIndex = 0;
-			this->tabPage1->Text = L"Загрузка данных";
+			this->tabPage1->Text = L"Главная";
 			this->tabPage1->UseVisualStyleBackColor = true;
 			// 
 			// button15
 			// 
-			this->button15->Location = System::Drawing::Point(625, 178);
+			this->button15->Location = System::Drawing::Point(29, 178);
 			this->button15->Name = L"button15";
-			this->button15->Size = System::Drawing::Size(294, 34);
+			this->button15->Size = System::Drawing::Size(152, 34);
 			this->button15->TabIndex = 18;
-			this->button15->Text = L"Создать матрицу средних значений на пиксель(без сглаживания)";
+			this->button15->Text = L"Создать матрицу средних значений на пиксель";
 			this->button15->UseVisualStyleBackColor = true;
 			this->button15->Click += gcnew System::EventHandler(this, &MyForm::button15_Click);
 			// 
-			// button14
-			// 
-			this->button14->Location = System::Drawing::Point(325, 178);
-			this->button14->Name = L"button14";
-			this->button14->Size = System::Drawing::Size(294, 34);
-			this->button14->TabIndex = 17;
-			this->button14->Text = L"Создать матрицу средних значений на пиксель(с применением сглаживания)\r\n";
-			this->button14->UseVisualStyleBackColor = true;
-			// 
-			// button13
-			// 
-			this->button13->Location = System::Drawing::Point(325, 127);
-			this->button13->Name = L"button13";
-			this->button13->Size = System::Drawing::Size(294, 34);
-			this->button13->TabIndex = 16;
-			this->button13->Text = L" Попробовать найти порок(через матрицу средних значений на пиксель(с применением "
-				L"сглаживания))";
-			this->button13->UseVisualStyleBackColor = true;
-			this->button13->Click += gcnew System::EventHandler(this, &MyForm::button13_Click);
-			// 
 			// button12
 			// 
-			this->button12->Location = System::Drawing::Point(625, 127);
+			this->button12->Location = System::Drawing::Point(29, 127);
 			this->button12->Name = L"button12";
-			this->button12->Size = System::Drawing::Size(294, 34);
+			this->button12->Size = System::Drawing::Size(152, 34);
 			this->button12->TabIndex = 15;
-			this->button12->Text = L" Попробовать найти порок(через матрицу средних значений на пиксель(без сглаживани"
-				L"я))";
+			this->button12->Text = L" Попробовать найти порок";
 			this->button12->UseVisualStyleBackColor = true;
 			this->button12->Click += gcnew System::EventHandler(this, &MyForm::button12_Click);
 			// 
@@ -302,7 +255,7 @@ namespace Project1 {
 			// 
 			// button9
 			// 
-			this->button9->Location = System::Drawing::Point(925, 127);
+			this->button9->Location = System::Drawing::Point(215, 127);
 			this->button9->Name = L"button9";
 			this->button9->Size = System::Drawing::Size(116, 34);
 			this->button9->TabIndex = 12;
@@ -333,34 +286,26 @@ namespace Project1 {
 			// label6
 			// 
 			this->label6->AutoSize = true;
-			this->label6->Location = System::Drawing::Point(450, 303);
+			this->label6->Location = System::Drawing::Point(531, 303);
 			this->label6->Name = L"label6";
 			this->label6->Size = System::Drawing::Size(155, 13);
 			this->label6->TabIndex = 9;
 			this->label6->Text = L"Список загруженных файлов";
 			// 
-			// label5
-			// 
-			this->label5->AutoSize = true;
-			this->label5->Location = System::Drawing::Point(63, 303);
-			this->label5->Name = L"label5";
-			this->label5->Size = System::Drawing::Size(209, 13);
-			this->label5->TabIndex = 8;
-			this->label5->Text = L"Используйте нижеприведённые кнопки";
-			// 
 			// richTextBox1
 			// 
-			this->richTextBox1->Location = System::Drawing::Point(453, 339);
+			this->richTextBox1->Location = System::Drawing::Point(534, 339);
 			this->richTextBox1->Name = L"richTextBox1";
-			this->richTextBox1->Size = System::Drawing::Size(309, 157);
+			this->richTextBox1->ReadOnly = true;
+			this->richTextBox1->Size = System::Drawing::Size(353, 157);
 			this->richTextBox1->TabIndex = 7;
 			this->richTextBox1->Text = L"";
 			// 
 			// button6
 			// 
-			this->button6->Location = System::Drawing::Point(213, 438);
+			this->button6->Location = System::Drawing::Point(925, 380);
 			this->button6->Name = L"button6";
-			this->button6->Size = System::Drawing::Size(85, 52);
+			this->button6->Size = System::Drawing::Size(116, 40);
 			this->button6->TabIndex = 6;
 			this->button6->Text = L"Загрузить изображения";
 			this->button6->UseVisualStyleBackColor = true;
@@ -368,9 +313,9 @@ namespace Project1 {
 			// 
 			// button5
 			// 
-			this->button5->Location = System::Drawing::Point(42, 438);
+			this->button5->Location = System::Drawing::Point(925, 322);
 			this->button5->Name = L"button5";
-			this->button5->Size = System::Drawing::Size(98, 52);
+			this->button5->Size = System::Drawing::Size(116, 52);
 			this->button5->TabIndex = 5;
 			this->button5->Text = L"Сгенерировать несколько картинок";
 			this->button5->UseVisualStyleBackColor = true;
@@ -378,9 +323,9 @@ namespace Project1 {
 			// 
 			// button4
 			// 
-			this->button4->Location = System::Drawing::Point(213, 341);
+			this->button4->Location = System::Drawing::Point(925, 275);
 			this->button4->Name = L"button4";
-			this->button4->Size = System::Drawing::Size(118, 52);
+			this->button4->Size = System::Drawing::Size(118, 41);
 			this->button4->TabIndex = 4;
 			this->button4->Text = L"Нарисовать картинку";
 			this->button4->UseVisualStyleBackColor = true;
@@ -388,23 +333,13 @@ namespace Project1 {
 			// 
 			// button3
 			// 
-			this->button3->Location = System::Drawing::Point(42, 339);
+			this->button3->Location = System::Drawing::Point(925, 117);
 			this->button3->Name = L"button3";
 			this->button3->Size = System::Drawing::Size(114, 55);
 			this->button3->TabIndex = 3;
 			this->button3->Text = L"Загрузить 1 картинку используя Vector";
 			this->button3->UseVisualStyleBackColor = true;
 			this->button3->Click += gcnew System::EventHandler(this, &MyForm::button3_Click);
-			// 
-			// button2
-			// 
-			this->button2->Location = System::Drawing::Point(141, 6);
-			this->button2->Name = L"button2";
-			this->button2->Size = System::Drawing::Size(123, 55);
-			this->button2->TabIndex = 2;
-			this->button2->Text = L"Открыть эксперементальный файл";
-			this->button2->UseVisualStyleBackColor = true;
-			this->button2->Click += gcnew System::EventHandler(this, &MyForm::button2_Click);
 			// 
 			// tabPage2
 			// 
@@ -500,7 +435,7 @@ namespace Project1 {
 			// 
 			// pictureBox1
 			// 
-			this->pictureBox1->Dock = System::Windows::Forms::DockStyle::Fill;
+			this->pictureBox1->Anchor = System::Windows::Forms::AnchorStyles::None;
 			this->pictureBox1->Location = System::Drawing::Point(0, 13);
 			this->pictureBox1->Name = L"pictureBox1";
 			this->pictureBox1->Size = System::Drawing::Size(568, 561);
@@ -511,7 +446,6 @@ namespace Project1 {
 			// label1
 			// 
 			this->label1->AutoSize = true;
-			this->label1->Dock = System::Windows::Forms::DockStyle::Top;
 			this->label1->Location = System::Drawing::Point(0, 0);
 			this->label1->Name = L"label1";
 			this->label1->Size = System::Drawing::Size(127, 13);
@@ -520,7 +454,7 @@ namespace Project1 {
 			// 
 			// pictureBox3
 			// 
-			this->pictureBox3->Location = System::Drawing::Point(3, 497);
+			this->pictureBox3->Location = System::Drawing::Point(2, 485);
 			this->pictureBox3->Name = L"pictureBox3";
 			this->pictureBox3->Size = System::Drawing::Size(79, 69);
 			this->pictureBox3->TabIndex = 9;
@@ -538,8 +472,8 @@ namespace Project1 {
 			// 
 			// pictureBox2
 			// 
-			this->pictureBox2->Dock = System::Windows::Forms::DockStyle::Fill;
-			this->pictureBox2->Location = System::Drawing::Point(0, 0);
+			this->pictureBox2->Anchor = System::Windows::Forms::AnchorStyles::None;
+			this->pictureBox2->Location = System::Drawing::Point(0, 13);
 			this->pictureBox2->Name = L"pictureBox2";
 			this->pictureBox2->Size = System::Drawing::Size(565, 574);
 			this->pictureBox2->SizeMode = System::Windows::Forms::PictureBoxSizeMode::AutoSize;
@@ -549,7 +483,6 @@ namespace Project1 {
 			// openFileDialog2
 			// 
 			this->openFileDialog2->FileName = L"openFileDialog1";
-			this->openFileDialog2->Filter = L"(*.bmp)|*.bmp";
 			this->openFileDialog2->Multiselect = true;
 			// 
 			// imageList1
@@ -561,7 +494,6 @@ namespace Project1 {
 			// openFileDialog3
 			// 
 			this->openFileDialog3->FileName = L"openFileDialog1";
-			this->openFileDialog3->Filter = L"(*.bmp)|*.bmp";
 			this->openFileDialog3->Multiselect = true;
 			// 
 			// MyForm
@@ -571,7 +503,7 @@ namespace Project1 {
 			this->ClientSize = System::Drawing::Size(1145, 600);
 			this->Controls->Add(this->tabControl1);
 			this->Name = L"MyForm";
-			this->Text = L"MyForm";
+			this->Text = L"Главное окно";
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->dataGridView1))->EndInit();
 			this->tabControl1->ResumeLayout(false);
 			this->tabPage1->ResumeLayout(false);
@@ -601,9 +533,6 @@ namespace Project1 {
 
 #pragma endregion
 	private: System::Void button1_Click(System::Object^  sender, System::EventArgs^  e) {
-		//textBox1->Text = "TEST1";
-		//MyForm1^ MyFrm1=gcnew MyForm1;
-
 		//загрузка картинки 
 		System::String^ FileName;
 		openFileDialog1->Title = "Select picture ";
@@ -951,7 +880,7 @@ private: System::Void button6_Click(System::Object^  sender, System::EventArgs^ 
 		label1->Text = FileName;
 		for each (FileName in openFileDialog2->FileNames)
 		{
-			richTextBox1->AppendText(FileName);
+			richTextBox1->AppendText(FileName + Environment::NewLine);
 			//Bitmap^ file = gcnew Bitmap(500,500);
 			//Images->;
 			imageList1->Images->Add(Image::FromFile(FileName));
@@ -1017,8 +946,8 @@ private: System::Void button7_Click(System::Object^  sender, System::EventArgs^ 
 	}
 	vector<vector<double>> inweights(x, vector <double>(y));
 	inweights = recognize::FileToVecWieights();
-	label5->Text=Convert::ToString(y);
-	label6->Text = Convert::ToString(x);
+	/*label5->Text=Convert::ToString(y);
+	label6->Text = Convert::ToString(x);*/
 
 	for (int i = 0; i <x; i++)
 	{
@@ -1090,7 +1019,6 @@ private: System::Void button10_Click(System::Object^  sender, System::EventArgs^
 	pictureBox2->Refresh();
 }
 
-		 //этот метод пока не работает
 private: System::Void button11_Click(System::Object^  sender, System::EventArgs^  e) {
 
 	//загрузка картинки 
@@ -1147,7 +1075,7 @@ private: System::Void button12_Click(System::Object^  sender, System::EventArgs^
 	//	}
 	//}
 	//image->Save("AVG_IMG.bmp");
-	ArrayToFromFile::Difference(FINAL_AVG_COLOR, refimage);
+	recognize::Difference(FINAL_AVG_COLOR, refimage);
 }
 private: System::Void button15_Click(System::Object^  sender, System::EventArgs^  e) {
 	//загрузка картинки 
@@ -1193,5 +1121,7 @@ private: System::Void button13_Click(System::Object^  sender, System::EventArgs^
 	//std::vector<Bitmap> pbitmaps;
 
 }
+
+
 };
 }
