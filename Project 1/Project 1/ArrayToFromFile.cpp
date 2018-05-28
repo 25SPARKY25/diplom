@@ -58,56 +58,6 @@ using namespace std;
 	 f.close();
  }
 
- void ArrayToFromFile::Difference(std::vector<std::vector<int>> Sum_Avg_Vec, Bitmap ^ img)
- {
-	 vector<std::vector<int>> refvec = ImageToArray::ImgToVec(img);
-	 Bitmap ^dam_map_1 = gcnew Bitmap(img->Width, img->Height);
-	 Bitmap ^dam_map_2 = gcnew Bitmap(img->Width, img->Height);
-	// vector<std::vector<int>> sumvec = Sum_Avg_Vec;
-	 ofstream f;
-	 f.open("Difference.txt");
-	 int t = Sum_Avg_Vec.size() + 2;
-	 double templ, sumtempl = 0;
-	 double max, min = 0;
-	 int low_h, upper_h = 0;
-	 if (f.is_open()) {
-		 for (int i = 0; i < t; i++)
-		 {
-			 //запись размеров вектора-------
-			 if (i == 0) { f << Sum_Avg_Vec.size() << "\n"; i++; f << Sum_Avg_Vec.size(); i++; }
-			 for (int j = 0; j < Sum_Avg_Vec.size(); j++)
-			 {
-				 //находим разницу в процентах
-				 if (Sum_Avg_Vec[i - 2][j] >= refvec[i - 2][j]){
-					 templ = (Convert::ToDouble(Sum_Avg_Vec[i - 2][j] - refvec[i - 2][j]) / Convert::ToDouble(Sum_Avg_Vec[i - 2][j])) * 100;
-					 f << "\n" << templ;
-				 }
-				 else
-				 {
-					 templ = (Convert::ToDouble(refvec[i - 2][j] - Sum_Avg_Vec[i - 2][j]) / Convert::ToDouble(refvec[i - 2][j])) * 100;
-					 f << "\n" << templ;
-				 }
-				 sumtempl += templ;
-				 //делаем "карты повреждений"
-				 if (templ <= 15) { low_h++; dam_map_1->SetPixel(i - 2, j, Color::Green);}
-				 if (templ > 15) { upper_h++;  dam_map_2->SetPixel(i - 2, j, Color::Green);
-				 }
-				 //находим максимум и минимум в различиях
-				 if (max <= templ) { max = templ; }
-				 if (min >= templ) { min = templ; }
-			 }
-		 }
-	 }
-	 //сохраняем карты и записываем в файл показатели
-	 dam_map_1->Save("dam_map_1.bmp");
-	 dam_map_2->Save("dam_map_2.bmp");
-	 f << "\n" << "min=" << min;
-	 f << "\n" << "max=" << max;
-	 f << "\n" << "avg_difference=" << (sumtempl/ (refvec.size()*refvec[0].size()));//среднее отклонение на пиксель
-	 //f << "\n" << "low_h=" << low_h<< "\n" << "upper_h=" << upper_h; //использовалось для "половин" (>50 и <50)
-	 f.close();
- }
-
  std::vector<std::vector<int>> ArrayToFromFile::Avg_FileToVec(std::ifstream & ff)
  {
 	// ifstream in;

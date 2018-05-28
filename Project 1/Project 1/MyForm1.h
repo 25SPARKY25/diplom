@@ -98,7 +98,7 @@ namespace Project1 {
 			this->Controls->Add(this->textBox1);
 			this->Controls->Add(this->label1);
 			this->Name = L"MyForm1";
-			this->Text = L"MyForm1";
+			this->Text = L"Введите количество генераций";
 			this->ResumeLayout(false);
 			this->PerformLayout();
 
@@ -111,7 +111,6 @@ namespace Project1 {
 		{
 			path = folderBrowserDialog1->SelectedPath;
 		}
-
 		for (int i = 0; i < z; i++)
 		{
 			Create_Image::void_Cr_image(path, i);
