@@ -29,8 +29,8 @@ d:\vs 2017 projects\project 1\project 1\recognize.h(7): warning C4067: непр�
 d:\vs 2017 projects\project 1\project 1\recognize.h(8): warning C4067: непредвиденные лексемы за директивой препроцессора, требуется newline
 d:\vs 2017 projects\project 1\project 1\recognize.h(9): warning C4067: непредвиденные лексемы за директивой препроцессора, требуется newline
 d:\vs 2017 projects\project 1\project 1\recognize.h(10): warning C4067: непредвиденные лексемы за директивой препроцессора, требуется newline
-d:\vs 2017 projects\project 1\project 1\myform.h(1029): warning C4101: InputImages: неиспользованная локальная переменная
-d:\vs 2017 projects\project 1\project 1\myform.h(1111): warning C4267: аргумент: преобразование из "size_t" в "int"; возможна потеря данных
+d:\vs 2017 projects\project 1\project 1\myform.h(1218): warning C4101: InputImages: неиспользованная локальная переменная
+d:\vs 2017 projects\project 1\project 1\myform.h(1304): warning C4267: аргумент: преобразование из "size_t" в "int"; возможна потеря данных
 d:\open_cv\opencv\build\include\opencv2\core\cvstd.hpp(575): warning C4793: cv::String::String: функция скомпилирована как машинная:
   	Обнаружена встроенная функция, которая не поддерживается в управляемом коде
 d:\open_cv\opencv\build\include\opencv2\core\mat.inl.hpp(482): warning C4793: cv::Mat::Mat: функция скомпилирована как машинная:

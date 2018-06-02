@@ -87,6 +87,25 @@ namespace Project1 {
 	private: System::Windows::Forms::Button^  button12;
 	private: System::Windows::Forms::Button^  button15;
 	private: System::Windows::Forms::SplitContainer^  splitContainer1;
+	private: System::Windows::Forms::ProgressBar^  progressBar1;
+	private: System::Windows::Forms::MenuStrip^  menuStrip1;
+	private: System::Windows::Forms::ToolStripMenuItem^  toolStripMenuItem1;
+	private: System::Windows::Forms::ToolStripMenuItem^  samplepic;
+
+	private: System::Windows::Forms::ToolStripMenuItem^  averageMatrix;
+	private: System::Windows::Forms::ToolStripMenuItem^  createAVmatrix;
+	private: System::Windows::Forms::ToolStripMenuItem^  работаСИзображениемToolStripMenuItem;
+	private: System::Windows::Forms::ToolStripMenuItem^  loadOnePic;
+	private: System::Windows::Forms::ToolStripMenuItem^  loadManyPic;
+	private: System::Windows::Forms::ToolStripMenuItem^  pooling;
+	private: System::Windows::Forms::ToolStripMenuItem^  GaussianBlur;
+	private: System::Windows::Forms::ToolStripMenuItem^  genPic;
+	private: System::Windows::Forms::ToolStripMenuItem^  genOnePic;
+	private: System::Windows::Forms::ToolStripMenuItem^  genManyPic;
+	private: System::Windows::Forms::ToolStripMenuItem^  работаСВесамиToolStripMenuItem;
+	private: System::Windows::Forms::ToolStripMenuItem^  createWeightMat;
+	private: System::Windows::Forms::ToolStripMenuItem^  loadWeightMat;
+
 
 
 
@@ -114,6 +133,7 @@ namespace Project1 {
 			this->openFileDialog1 = (gcnew System::Windows::Forms::OpenFileDialog());
 			this->tabControl1 = (gcnew System::Windows::Forms::TabControl());
 			this->tabPage1 = (gcnew System::Windows::Forms::TabPage());
+			this->progressBar1 = (gcnew System::Windows::Forms::ProgressBar());
 			this->button15 = (gcnew System::Windows::Forms::Button());
 			this->button12 = (gcnew System::Windows::Forms::Button());
 			this->button11 = (gcnew System::Windows::Forms::Button());
@@ -142,6 +162,22 @@ namespace Project1 {
 			this->openFileDialog2 = (gcnew System::Windows::Forms::OpenFileDialog());
 			this->imageList1 = (gcnew System::Windows::Forms::ImageList(this->components));
 			this->openFileDialog3 = (gcnew System::Windows::Forms::OpenFileDialog());
+			this->menuStrip1 = (gcnew System::Windows::Forms::MenuStrip());
+			this->toolStripMenuItem1 = (gcnew System::Windows::Forms::ToolStripMenuItem());
+			this->samplepic = (gcnew System::Windows::Forms::ToolStripMenuItem());
+			this->averageMatrix = (gcnew System::Windows::Forms::ToolStripMenuItem());
+			this->createAVmatrix = (gcnew System::Windows::Forms::ToolStripMenuItem());
+			this->работаСИзображениемToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
+			this->loadOnePic = (gcnew System::Windows::Forms::ToolStripMenuItem());
+			this->loadManyPic = (gcnew System::Windows::Forms::ToolStripMenuItem());
+			this->pooling = (gcnew System::Windows::Forms::ToolStripMenuItem());
+			this->GaussianBlur = (gcnew System::Windows::Forms::ToolStripMenuItem());
+			this->genPic = (gcnew System::Windows::Forms::ToolStripMenuItem());
+			this->genOnePic = (gcnew System::Windows::Forms::ToolStripMenuItem());
+			this->genManyPic = (gcnew System::Windows::Forms::ToolStripMenuItem());
+			this->работаСВесамиToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
+			this->createWeightMat = (gcnew System::Windows::Forms::ToolStripMenuItem());
+			this->loadWeightMat = (gcnew System::Windows::Forms::ToolStripMenuItem());
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->dataGridView1))->BeginInit();
 			this->tabControl1->SuspendLayout();
 			this->tabPage1->SuspendLayout();
@@ -159,6 +195,7 @@ namespace Project1 {
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox1))->BeginInit();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox3))->BeginInit();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox2))->BeginInit();
+			this->menuStrip1->SuspendLayout();
 			this->SuspendLayout();
 			// 
 			// dataGridView1
@@ -170,7 +207,7 @@ namespace Project1 {
 			this->dataGridView1->Name = L"dataGridView1";
 			this->dataGridView1->ReadOnly = true;
 			this->dataGridView1->RowTemplate->Resizable = System::Windows::Forms::DataGridViewTriState::True;
-			this->dataGridView1->Size = System::Drawing::Size(557, 568);
+			this->dataGridView1->Size = System::Drawing::Size(557, 544);
 			this->dataGridView1->TabIndex = 2;
 			// 
 			// openFileDialog1
@@ -184,14 +221,15 @@ namespace Project1 {
 			this->tabControl1->Controls->Add(this->tabPage2);
 			this->tabControl1->Controls->Add(this->tabPage3);
 			this->tabControl1->Dock = System::Windows::Forms::DockStyle::Fill;
-			this->tabControl1->Location = System::Drawing::Point(0, 0);
+			this->tabControl1->Location = System::Drawing::Point(0, 24);
 			this->tabControl1->Name = L"tabControl1";
 			this->tabControl1->SelectedIndex = 0;
-			this->tabControl1->Size = System::Drawing::Size(1145, 600);
+			this->tabControl1->Size = System::Drawing::Size(1145, 576);
 			this->tabControl1->TabIndex = 3;
 			// 
 			// tabPage1
 			// 
+			this->tabPage1->Controls->Add(this->progressBar1);
 			this->tabPage1->Controls->Add(this->button15);
 			this->tabPage1->Controls->Add(this->button12);
 			this->tabPage1->Controls->Add(this->button11);
@@ -208,10 +246,19 @@ namespace Project1 {
 			this->tabPage1->Location = System::Drawing::Point(4, 22);
 			this->tabPage1->Name = L"tabPage1";
 			this->tabPage1->Padding = System::Windows::Forms::Padding(3);
-			this->tabPage1->Size = System::Drawing::Size(1137, 574);
+			this->tabPage1->Size = System::Drawing::Size(1137, 550);
 			this->tabPage1->TabIndex = 0;
 			this->tabPage1->Text = L"Главная";
 			this->tabPage1->UseVisualStyleBackColor = true;
+			this->tabPage1->Click += gcnew System::EventHandler(this, &MyForm::tabPage1_Click);
+			// 
+			// progressBar1
+			// 
+			this->progressBar1->Location = System::Drawing::Point(116, 287);
+			this->progressBar1->Name = L"progressBar1";
+			this->progressBar1->Size = System::Drawing::Size(397, 10);
+			this->progressBar1->Step = 1;
+			this->progressBar1->TabIndex = 19;
 			// 
 			// button15
 			// 
@@ -221,6 +268,7 @@ namespace Project1 {
 			this->button15->TabIndex = 18;
 			this->button15->Text = L"Создать матрицу средних значений на пиксель";
 			this->button15->UseVisualStyleBackColor = true;
+			this->button15->Visible = false;
 			this->button15->Click += gcnew System::EventHandler(this, &MyForm::button15_Click);
 			// 
 			// button12
@@ -231,6 +279,7 @@ namespace Project1 {
 			this->button12->TabIndex = 15;
 			this->button12->Text = L" Попробовать найти порок с использованием матрицы средних значений";
 			this->button12->UseVisualStyleBackColor = true;
+			this->button12->Visible = false;
 			this->button12->Click += gcnew System::EventHandler(this, &MyForm::button12_Click);
 			// 
 			// button11
@@ -241,6 +290,7 @@ namespace Project1 {
 			this->button11->TabIndex = 14;
 			this->button11->Text = L"Гауссовский фильтр";
 			this->button11->UseVisualStyleBackColor = true;
+			this->button11->Visible = false;
 			this->button11->Click += gcnew System::EventHandler(this, &MyForm::button11_Click);
 			// 
 			// button10
@@ -251,6 +301,7 @@ namespace Project1 {
 			this->button10->TabIndex = 13;
 			this->button10->Text = L"Пулинг изображения";
 			this->button10->UseVisualStyleBackColor = true;
+			this->button10->Visible = false;
 			this->button10->Click += gcnew System::EventHandler(this, &MyForm::button10_Click);
 			// 
 			// button9
@@ -261,6 +312,7 @@ namespace Project1 {
 			this->button9->TabIndex = 12;
 			this->button9->Text = L"Попробовать найти порок";
 			this->button9->UseVisualStyleBackColor = true;
+			this->button9->Visible = false;
 			this->button9->Click += gcnew System::EventHandler(this, &MyForm::button9_Click);
 			// 
 			// button8
@@ -271,6 +323,7 @@ namespace Project1 {
 			this->button8->TabIndex = 11;
 			this->button8->Text = L"Загрузить веса";
 			this->button8->UseVisualStyleBackColor = true;
+			this->button8->Visible = false;
 			this->button8->Click += gcnew System::EventHandler(this, &MyForm::button8_Click);
 			// 
 			// button7
@@ -281,6 +334,7 @@ namespace Project1 {
 			this->button7->TabIndex = 10;
 			this->button7->Text = L"Зарандомить веса";
 			this->button7->UseVisualStyleBackColor = true;
+			this->button7->Visible = false;
 			this->button7->Click += gcnew System::EventHandler(this, &MyForm::button7_Click);
 			// 
 			// label6
@@ -309,6 +363,7 @@ namespace Project1 {
 			this->button6->TabIndex = 6;
 			this->button6->Text = L"Загрузить изображения";
 			this->button6->UseVisualStyleBackColor = true;
+			this->button6->Visible = false;
 			this->button6->Click += gcnew System::EventHandler(this, &MyForm::button6_Click);
 			// 
 			// button5
@@ -319,6 +374,7 @@ namespace Project1 {
 			this->button5->TabIndex = 5;
 			this->button5->Text = L"Сгенерировать несколько картинок";
 			this->button5->UseVisualStyleBackColor = true;
+			this->button5->Visible = false;
 			this->button5->Click += gcnew System::EventHandler(this, &MyForm::button5_Click);
 			// 
 			// button4
@@ -329,6 +385,7 @@ namespace Project1 {
 			this->button4->TabIndex = 4;
 			this->button4->Text = L"Нарисовать картинку";
 			this->button4->UseVisualStyleBackColor = true;
+			this->button4->Visible = false;
 			this->button4->Click += gcnew System::EventHandler(this, &MyForm::button4_Click);
 			// 
 			// button3
@@ -339,6 +396,7 @@ namespace Project1 {
 			this->button3->TabIndex = 3;
 			this->button3->Text = L"Загрузить 1 картинку используя Vector";
 			this->button3->UseVisualStyleBackColor = true;
+			this->button3->Visible = false;
 			this->button3->Click += gcnew System::EventHandler(this, &MyForm::button3_Click);
 			// 
 			// tabPage2
@@ -347,7 +405,7 @@ namespace Project1 {
 			this->tabPage2->Location = System::Drawing::Point(4, 22);
 			this->tabPage2->Name = L"tabPage2";
 			this->tabPage2->Padding = System::Windows::Forms::Padding(3);
-			this->tabPage2->Size = System::Drawing::Size(1137, 574);
+			this->tabPage2->Size = System::Drawing::Size(1137, 550);
 			this->tabPage2->TabIndex = 1;
 			this->tabPage2->Text = L"Матрица 0 и 1";
 			this->tabPage2->UseVisualStyleBackColor = true;
@@ -367,7 +425,7 @@ namespace Project1 {
 			// 
 			this->splitContainer2->Panel2->Controls->Add(this->dataGridView2);
 			this->splitContainer2->Panel2->Controls->Add(this->label4);
-			this->splitContainer2->Size = System::Drawing::Size(1131, 568);
+			this->splitContainer2->Size = System::Drawing::Size(1131, 544);
 			this->splitContainer2->SplitterDistance = 557;
 			this->splitContainer2->TabIndex = 3;
 			// 
@@ -390,7 +448,7 @@ namespace Project1 {
 			this->dataGridView2->Name = L"dataGridView2";
 			this->dataGridView2->ReadOnly = true;
 			this->dataGridView2->RowTemplate->Resizable = System::Windows::Forms::DataGridViewTriState::True;
-			this->dataGridView2->Size = System::Drawing::Size(570, 555);
+			this->dataGridView2->Size = System::Drawing::Size(570, 531);
 			this->dataGridView2->TabIndex = 3;
 			// 
 			// label4
@@ -408,7 +466,7 @@ namespace Project1 {
 			this->tabPage3->Controls->Add(this->splitContainer1);
 			this->tabPage3->Location = System::Drawing::Point(4, 22);
 			this->tabPage3->Name = L"tabPage3";
-			this->tabPage3->Size = System::Drawing::Size(1137, 574);
+			this->tabPage3->Size = System::Drawing::Size(1137, 550);
 			this->tabPage3->TabIndex = 2;
 			this->tabPage3->Text = L"Изображения";
 			this->tabPage3->UseVisualStyleBackColor = true;
@@ -429,14 +487,14 @@ namespace Project1 {
 			this->splitContainer1->Panel2->Controls->Add(this->pictureBox3);
 			this->splitContainer1->Panel2->Controls->Add(this->label2);
 			this->splitContainer1->Panel2->Controls->Add(this->pictureBox2);
-			this->splitContainer1->Size = System::Drawing::Size(1137, 574);
+			this->splitContainer1->Size = System::Drawing::Size(1137, 550);
 			this->splitContainer1->SplitterDistance = 568;
 			this->splitContainer1->TabIndex = 8;
 			// 
 			// pictureBox1
 			// 
 			this->pictureBox1->Anchor = System::Windows::Forms::AnchorStyles::None;
-			this->pictureBox1->Location = System::Drawing::Point(0, 13);
+			this->pictureBox1->Location = System::Drawing::Point(0, 1);
 			this->pictureBox1->Name = L"pictureBox1";
 			this->pictureBox1->Size = System::Drawing::Size(568, 561);
 			this->pictureBox1->SizeMode = System::Windows::Forms::PictureBoxSizeMode::AutoSize;
@@ -473,7 +531,7 @@ namespace Project1 {
 			// pictureBox2
 			// 
 			this->pictureBox2->Anchor = System::Windows::Forms::AnchorStyles::None;
-			this->pictureBox2->Location = System::Drawing::Point(0, 13);
+			this->pictureBox2->Location = System::Drawing::Point(0, 1);
 			this->pictureBox2->Name = L"pictureBox2";
 			this->pictureBox2->Size = System::Drawing::Size(565, 574);
 			this->pictureBox2->SizeMode = System::Windows::Forms::PictureBoxSizeMode::AutoSize;
@@ -496,12 +554,140 @@ namespace Project1 {
 			this->openFileDialog3->FileName = L"openFileDialog1";
 			this->openFileDialog3->Multiselect = true;
 			// 
+			// menuStrip1
+			// 
+			this->menuStrip1->Items->AddRange(gcnew cli::array< System::Windows::Forms::ToolStripItem^  >(3) {
+				this->toolStripMenuItem1,
+					this->работаСИзображениемToolStripMenuItem, this->работаСВесамиToolStripMenuItem
+			});
+			this->menuStrip1->Location = System::Drawing::Point(0, 0);
+			this->menuStrip1->Name = L"menuStrip1";
+			this->menuStrip1->Size = System::Drawing::Size(1145, 24);
+			this->menuStrip1->TabIndex = 4;
+			this->menuStrip1->Text = L"menuStrip1";
+			// 
+			// toolStripMenuItem1
+			// 
+			this->toolStripMenuItem1->DropDownItems->AddRange(gcnew cli::array< System::Windows::Forms::ToolStripItem^  >(3) {
+				this->samplepic,
+					this->averageMatrix, this->createAVmatrix
+			});
+			this->toolStripMenuItem1->Name = L"toolStripMenuItem1";
+			this->toolStripMenuItem1->Size = System::Drawing::Size(97, 20);
+			this->toolStripMenuItem1->Text = L"Поиск порока";
+			// 
+			// samplepic
+			// 
+			this->samplepic->Name = L"samplepic";
+			this->samplepic->Size = System::Drawing::Size(269, 22);
+			this->samplepic->Text = L"Через сравнение снимка образца";
+			this->samplepic->Click += gcnew System::EventHandler(this, &MyForm::button9_Click);
+			// 
+			// averageMatrix
+			// 
+			this->averageMatrix->Name = L"averageMatrix";
+			this->averageMatrix->Size = System::Drawing::Size(269, 22);
+			this->averageMatrix->Text = L"Через матрицу средних значений";
+			this->averageMatrix->Click += gcnew System::EventHandler(this, &MyForm::button12_Click);
+			// 
+			// createAVmatrix
+			// 
+			this->createAVmatrix->Name = L"createAVmatrix";
+			this->createAVmatrix->Size = System::Drawing::Size(269, 22);
+			this->createAVmatrix->Text = L"Создать матрицу средних значений";
+			this->createAVmatrix->Click += gcnew System::EventHandler(this, &MyForm::button15_Click);
+			// 
+			// работаСИзображениемToolStripMenuItem
+			// 
+			this->работаСИзображениемToolStripMenuItem->DropDownItems->AddRange(gcnew cli::array< System::Windows::Forms::ToolStripItem^  >(5) {
+				this->loadOnePic,
+					this->loadManyPic, this->pooling, this->GaussianBlur, this->genPic
+			});
+			this->работаСИзображениемToolStripMenuItem->Name = L"работаСИзображениемToolStripMenuItem";
+			this->работаСИзображениемToolStripMenuItem->Size = System::Drawing::Size(152, 20);
+			this->работаСИзображениемToolStripMenuItem->Text = L"Работа с изображением";
+			// 
+			// loadOnePic
+			// 
+			this->loadOnePic->Name = L"loadOnePic";
+			this->loadOnePic->Size = System::Drawing::Size(267, 22);
+			this->loadOnePic->Text = L"Загрузить одно изображение";
+			this->loadOnePic->Click += gcnew System::EventHandler(this, &MyForm::button3_Click);
+			// 
+			// loadManyPic
+			// 
+			this->loadManyPic->Name = L"loadManyPic";
+			this->loadManyPic->Size = System::Drawing::Size(267, 22);
+			this->loadManyPic->Text = L"Загрузить несколько изображений";
+			this->loadManyPic->Click += gcnew System::EventHandler(this, &MyForm::button6_Click);
+			// 
+			// pooling
+			// 
+			this->pooling->Name = L"pooling";
+			this->pooling->Size = System::Drawing::Size(267, 22);
+			this->pooling->Text = L"Уменьшение изображения";
+			this->pooling->Click += gcnew System::EventHandler(this, &MyForm::button10_Click);
+			// 
+			// GaussianBlur
+			// 
+			this->GaussianBlur->Name = L"GaussianBlur";
+			this->GaussianBlur->Size = System::Drawing::Size(267, 22);
+			this->GaussianBlur->Text = L"Фильтр Гаусса";
+			this->GaussianBlur->Click += gcnew System::EventHandler(this, &MyForm::button11_Click);
+			// 
+			// genPic
+			// 
+			this->genPic->DropDownItems->AddRange(gcnew cli::array< System::Windows::Forms::ToolStripItem^  >(2) { this->genOnePic, this->genManyPic });
+			this->genPic->Name = L"genPic";
+			this->genPic->Size = System::Drawing::Size(267, 22);
+			this->genPic->Text = L"Генерация изображений";
+			// 
+			// genOnePic
+			// 
+			this->genOnePic->Name = L"genOnePic";
+			this->genOnePic->Size = System::Drawing::Size(276, 22);
+			this->genOnePic->Text = L"Генерация одного изображения";
+			this->genOnePic->Click += gcnew System::EventHandler(this, &MyForm::button4_Click);
+			// 
+			// genManyPic
+			// 
+			this->genManyPic->Name = L"genManyPic";
+			this->genManyPic->Size = System::Drawing::Size(276, 22);
+			this->genManyPic->Text = L"Генерация нескольких изображений";
+			this->genManyPic->Click += gcnew System::EventHandler(this, &MyForm::button5_Click);
+			// 
+			// работаСВесамиToolStripMenuItem
+			// 
+			this->работаСВесамиToolStripMenuItem->DropDownItems->AddRange(gcnew cli::array< System::Windows::Forms::ToolStripItem^  >(2) {
+				this->createWeightMat,
+					this->loadWeightMat
+			});
+			this->работаСВесамиToolStripMenuItem->Name = L"работаСВесамиToolStripMenuItem";
+			this->работаСВесамиToolStripMenuItem->Size = System::Drawing::Size(109, 20);
+			this->работаСВесамиToolStripMenuItem->Text = L"Работа с весами";
+			// 
+			// createWeightMat
+			// 
+			this->createWeightMat->Name = L"createWeightMat";
+			this->createWeightMat->Size = System::Drawing::Size(212, 22);
+			this->createWeightMat->Text = L"Создать матрицу весов";
+			this->createWeightMat->Click += gcnew System::EventHandler(this, &MyForm::button7_Click);
+			// 
+			// loadWeightMat
+			// 
+			this->loadWeightMat->Name = L"loadWeightMat";
+			this->loadWeightMat->Size = System::Drawing::Size(212, 22);
+			this->loadWeightMat->Text = L"Загрузить матрицу весов";
+			this->loadWeightMat->Click += gcnew System::EventHandler(this, &MyForm::button8_Click);
+			// 
 			// MyForm
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
 			this->ClientSize = System::Drawing::Size(1145, 600);
 			this->Controls->Add(this->tabControl1);
+			this->Controls->Add(this->menuStrip1);
+			this->MainMenuStrip = this->menuStrip1;
 			this->Name = L"MyForm";
 			this->Text = L"Главное окно";
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->dataGridView1))->EndInit();
@@ -526,7 +712,10 @@ namespace Project1 {
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox1))->EndInit();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox3))->EndInit();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox2))->EndInit();
+			this->menuStrip1->ResumeLayout(false);
+			this->menuStrip1->PerformLayout();
 			this->ResumeLayout(false);
+			this->PerformLayout();
 
 		}
 
@@ -1087,6 +1276,7 @@ private: System::Void button15_Click(System::Object^  sender, System::EventArgs^
 	int counter = 0;//счётчик изображений
 	if (openFileDialog1->ShowDialog() == System::Windows::Forms::DialogResult::OK)
 	{
+		progressBar1->Maximum = openFileDialog1->FileNames->Length;
 		FileName = openFileDialog1->FileName->ToString();
 		for each (FileName in openFileDialog1->FileNames)//в цикле каждый раз создаём новую картинку и суммируем значения для пикселя
 		{
@@ -1104,8 +1294,11 @@ private: System::Void button15_Click(System::Object^  sender, System::EventArgs^
 				{TEMP_AVG_COLOR[i][j] += AVG_COLOR[i][j];}//суммируем значения на пиксель
 			}
 			counter++;//увеличиваем счётчик картинок
+			progressBar1->PerformStep();
 		}
+		//progressBar1->Maximum = (AVG_COLOR.size()+ AVG_COLOR.size())*counter;
 	}
+	
 	FINAL_AVG_COLOR = ImageToArray::AVG_Color(TEMP_AVG_COLOR, counter);//получаем вектор средних значений
 	ArrayToFromFile::Avg_VecToFile(FINAL_AVG_COLOR);//записываем в файл
 	Bitmap ^image = gcnew Bitmap(FINAL_AVG_COLOR.size(), FINAL_AVG_COLOR[0].size());//наложенные друг на друга картинки
@@ -1115,7 +1308,7 @@ private: System::Void button15_Click(System::Object^  sender, System::EventArgs^
 		{image->SetPixel(x, y, Color::FromArgb(FINAL_AVG_COLOR[x][y], FINAL_AVG_COLOR[x][y], FINAL_AVG_COLOR[x][y]));}
 	}
 	image->Save("AVG_IMG.bmp");//сохраняем картинку
-
+	//progressBar1->Value = 0;
 }
 private: System::Void button13_Click(System::Object^  sender, System::EventArgs^  e) {
 	//std::vector<Bitmap> pbitmaps;
@@ -1123,5 +1316,11 @@ private: System::Void button13_Click(System::Object^  sender, System::EventArgs^
 }
 
 
+
+
+
+
+private: System::Void tabPage1_Click(System::Object^  sender, System::EventArgs^  e) {
+}
 };
 }
