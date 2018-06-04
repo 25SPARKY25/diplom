@@ -1,5 +1,6 @@
 #pragma once
 #include "Create_Image.h";
+#include "MyForm2.h";
 
 namespace Project1 {
 
@@ -38,7 +39,9 @@ namespace Project1 {
 	private: System::Windows::Forms::FolderBrowserDialog^  folderBrowserDialog1;
 	protected:
 	private: System::Windows::Forms::Label^  label1;
-	private: System::Windows::Forms::TextBox^  textBox1;
+	public: System::Windows::Forms::TextBox^  textBox1;
+	private:
+
 	private: System::Windows::Forms::Button^  button1;
 
 
@@ -57,6 +60,7 @@ namespace Project1 {
 		/// </summary>
 		void InitializeComponent(void)
 		{
+			System::ComponentModel::ComponentResourceManager^  resources = (gcnew System::ComponentModel::ComponentResourceManager(MyForm1::typeid));
 			this->folderBrowserDialog1 = (gcnew System::Windows::Forms::FolderBrowserDialog());
 			this->label1 = (gcnew System::Windows::Forms::Label());
 			this->textBox1 = (gcnew System::Windows::Forms::TextBox());
@@ -93,6 +97,7 @@ namespace Project1 {
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
+			this->BackgroundImage = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"$this.BackgroundImage")));
 			this->ClientSize = System::Drawing::Size(374, 154);
 			this->Controls->Add(this->button1);
 			this->Controls->Add(this->textBox1);
@@ -107,6 +112,9 @@ namespace Project1 {
 	private: System::Void button1_Click(System::Object^  sender, System::EventArgs^  e) {
 		int z = Convert::ToInt32(textBox1->Text);
 		String^ path;
+		MyForm2 ^ progress = gcnew MyForm2();
+		progress->progressBar1->Maximum = z;
+		progress->Show();
 		if (folderBrowserDialog1->ShowDialog() == System::Windows::Forms::DialogResult::OK)
 		{
 			path = folderBrowserDialog1->SelectedPath;
@@ -114,7 +122,12 @@ namespace Project1 {
 		for (int i = 0; i < z; i++)
 		{
 			Create_Image::void_Cr_image(path, i);
+			progress->Text = ("Идёт создание изображений. Создано " + i.ToString() + " из " + z.ToString());
+			//label6->Text = ("Идёт обработка изображений. Обработано " + counter.ToString() + " из " + openFileDialog1->FileNames->Length.ToString());
+			//progress->label1->Text = ("Идёт обработка изображений. Обработано " + counter.ToString() + " из " + openFileDialog1->FileNames->Length.ToString());
+			progress->progressBar1->PerformStep();
 		}
+		this->Close();
 	}
 	};
 }

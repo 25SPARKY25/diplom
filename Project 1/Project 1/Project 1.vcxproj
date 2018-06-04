@@ -142,6 +142,7 @@
     <ClCompile Include="ImageToArray.cpp" />
     <ClCompile Include="MyForm.cpp" />
     <ClCompile Include="MyForm1.cpp" />
+    <ClCompile Include="MyForm2.cpp" />
     <ClCompile Include="recognize.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -154,6 +155,9 @@
     <ClInclude Include="MyForm1.h">
       <FileType>CppForm</FileType>
     </ClInclude>
+    <ClInclude Include="MyForm2.h">
+      <FileType>CppForm</FileType>
+    </ClInclude>
     <ClInclude Include="recognize.h" />
   </ItemGroup>
   <ItemGroup>
@@ -162,6 +166,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="MyForm1.resx">
       <DependentUpon>MyForm1.h</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MyForm2.resx">
+      <DependentUpon>MyForm2.h</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

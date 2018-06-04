@@ -6,6 +6,7 @@
 #include <vector>;
 #include "Create_Image.h";
 #include "MyForm1.h";
+#include "MyForm2.h";
 #include "recognize.h";
 
 
@@ -60,7 +61,7 @@ namespace Project1 {
 	public: System::Windows::Forms::PictureBox^  pictureBox1;
 	private:
 	public: System::Windows::Forms::Label^  label1;
-	public: System::Windows::Forms::Label^  label2;
+
 	public: System::Windows::Forms::PictureBox^  pictureBox2;
 	private: System::Windows::Forms::SplitContainer^  splitContainer2;
 	public:
@@ -87,7 +88,7 @@ namespace Project1 {
 	private: System::Windows::Forms::Button^  button12;
 	private: System::Windows::Forms::Button^  button15;
 	private: System::Windows::Forms::SplitContainer^  splitContainer1;
-	private: System::Windows::Forms::ProgressBar^  progressBar1;
+
 	private: System::Windows::Forms::MenuStrip^  menuStrip1;
 	private: System::Windows::Forms::ToolStripMenuItem^  toolStripMenuItem1;
 	private: System::Windows::Forms::ToolStripMenuItem^  samplepic;
@@ -105,6 +106,7 @@ namespace Project1 {
 	private: System::Windows::Forms::ToolStripMenuItem^  работаСВесамиToolStripMenuItem;
 	private: System::Windows::Forms::ToolStripMenuItem^  createWeightMat;
 	private: System::Windows::Forms::ToolStripMenuItem^  loadWeightMat;
+
 
 
 
@@ -129,11 +131,11 @@ namespace Project1 {
 		void InitializeComponent(void)
 		{
 			this->components = (gcnew System::ComponentModel::Container());
+			System::ComponentModel::ComponentResourceManager^  resources = (gcnew System::ComponentModel::ComponentResourceManager(MyForm::typeid));
 			this->dataGridView1 = (gcnew System::Windows::Forms::DataGridView());
 			this->openFileDialog1 = (gcnew System::Windows::Forms::OpenFileDialog());
 			this->tabControl1 = (gcnew System::Windows::Forms::TabControl());
 			this->tabPage1 = (gcnew System::Windows::Forms::TabPage());
-			this->progressBar1 = (gcnew System::Windows::Forms::ProgressBar());
 			this->button15 = (gcnew System::Windows::Forms::Button());
 			this->button12 = (gcnew System::Windows::Forms::Button());
 			this->button11 = (gcnew System::Windows::Forms::Button());
@@ -157,7 +159,6 @@ namespace Project1 {
 			this->pictureBox1 = (gcnew System::Windows::Forms::PictureBox());
 			this->label1 = (gcnew System::Windows::Forms::Label());
 			this->pictureBox3 = (gcnew System::Windows::Forms::PictureBox());
-			this->label2 = (gcnew System::Windows::Forms::Label());
 			this->pictureBox2 = (gcnew System::Windows::Forms::PictureBox());
 			this->openFileDialog2 = (gcnew System::Windows::Forms::OpenFileDialog());
 			this->imageList1 = (gcnew System::Windows::Forms::ImageList(this->components));
@@ -229,7 +230,7 @@ namespace Project1 {
 			// 
 			// tabPage1
 			// 
-			this->tabPage1->Controls->Add(this->progressBar1);
+			this->tabPage1->BackgroundImage = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"tabPage1.BackgroundImage")));
 			this->tabPage1->Controls->Add(this->button15);
 			this->tabPage1->Controls->Add(this->button12);
 			this->tabPage1->Controls->Add(this->button11);
@@ -251,14 +252,6 @@ namespace Project1 {
 			this->tabPage1->Text = L"Главная";
 			this->tabPage1->UseVisualStyleBackColor = true;
 			this->tabPage1->Click += gcnew System::EventHandler(this, &MyForm::tabPage1_Click);
-			// 
-			// progressBar1
-			// 
-			this->progressBar1->Location = System::Drawing::Point(116, 287);
-			this->progressBar1->Name = L"progressBar1";
-			this->progressBar1->Size = System::Drawing::Size(397, 10);
-			this->progressBar1->Step = 1;
-			this->progressBar1->TabIndex = 19;
 			// 
 			// button15
 			// 
@@ -340,20 +333,23 @@ namespace Project1 {
 			// label6
 			// 
 			this->label6->AutoSize = true;
-			this->label6->Location = System::Drawing::Point(531, 303);
+			this->label6->BackColor = System::Drawing::Color::White;
+			this->label6->Location = System::Drawing::Point(389, 322);
 			this->label6->Name = L"label6";
 			this->label6->Size = System::Drawing::Size(155, 13);
 			this->label6->TabIndex = 9;
 			this->label6->Text = L"Список загруженных файлов";
+			this->label6->Visible = false;
 			// 
 			// richTextBox1
 			// 
-			this->richTextBox1->Location = System::Drawing::Point(534, 339);
+			this->richTextBox1->Location = System::Drawing::Point(392, 358);
 			this->richTextBox1->Name = L"richTextBox1";
 			this->richTextBox1->ReadOnly = true;
 			this->richTextBox1->Size = System::Drawing::Size(353, 157);
 			this->richTextBox1->TabIndex = 7;
 			this->richTextBox1->Text = L"";
+			this->richTextBox1->Visible = false;
 			// 
 			// button6
 			// 
@@ -401,6 +397,7 @@ namespace Project1 {
 			// 
 			// tabPage2
 			// 
+			this->tabPage2->BackgroundImage = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"tabPage2.BackgroundImage")));
 			this->tabPage2->Controls->Add(this->splitContainer2);
 			this->tabPage2->Location = System::Drawing::Point(4, 22);
 			this->tabPage2->Name = L"tabPage2";
@@ -463,6 +460,7 @@ namespace Project1 {
 			// 
 			// tabPage3
 			// 
+			this->tabPage3->BackgroundImage = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"tabPage3.BackgroundImage")));
 			this->tabPage3->Controls->Add(this->splitContainer1);
 			this->tabPage3->Location = System::Drawing::Point(4, 22);
 			this->tabPage3->Name = L"tabPage3";
@@ -485,7 +483,6 @@ namespace Project1 {
 			// splitContainer1.Panel2
 			// 
 			this->splitContainer1->Panel2->Controls->Add(this->pictureBox3);
-			this->splitContainer1->Panel2->Controls->Add(this->label2);
 			this->splitContainer1->Panel2->Controls->Add(this->pictureBox2);
 			this->splitContainer1->Size = System::Drawing::Size(1137, 550);
 			this->splitContainer1->SplitterDistance = 568;
@@ -512,21 +509,12 @@ namespace Project1 {
 			// 
 			// pictureBox3
 			// 
-			this->pictureBox3->Location = System::Drawing::Point(2, 485);
+			this->pictureBox3->Location = System::Drawing::Point(45, 345);
 			this->pictureBox3->Name = L"pictureBox3";
-			this->pictureBox3->Size = System::Drawing::Size(79, 69);
+			this->pictureBox3->Size = System::Drawing::Size(274, 184);
 			this->pictureBox3->TabIndex = 9;
 			this->pictureBox3->TabStop = false;
-			// 
-			// label2
-			// 
-			this->label2->AutoSize = true;
-			this->label2->Dock = System::Windows::Forms::DockStyle::Top;
-			this->label2->Location = System::Drawing::Point(0, 0);
-			this->label2->Name = L"label2";
-			this->label2->Size = System::Drawing::Size(93, 13);
-			this->label2->TabIndex = 8;
-			this->label2->Text = L"ЧБ изображение";
+			this->pictureBox3->Visible = false;
 			// 
 			// pictureBox2
 			// 
@@ -565,6 +553,7 @@ namespace Project1 {
 			this->menuStrip1->Size = System::Drawing::Size(1145, 24);
 			this->menuStrip1->TabIndex = 4;
 			this->menuStrip1->Text = L"menuStrip1";
+			this->menuStrip1->ItemClicked += gcnew System::Windows::Forms::ToolStripItemClickedEventHandler(this, &MyForm::menuStrip1_ItemClicked);
 			// 
 			// toolStripMenuItem1
 			// 
@@ -684,6 +673,8 @@ namespace Project1 {
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
+			this->BackColor = System::Drawing::SystemColors::MenuHighlight;
+			this->BackgroundImage = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"$this.BackgroundImage")));
 			this->ClientSize = System::Drawing::Size(1145, 600);
 			this->Controls->Add(this->tabControl1);
 			this->Controls->Add(this->menuStrip1);
@@ -1037,7 +1028,7 @@ private: System::Void button3_Click(System::Object^  sender, System::EventArgs^ 
 			image->SetPixel(x, y, Color::FromArgb(averageValueColor, averageValueColor, averageValueColor));
 		}
 	}
-
+	pictureBox3->Visible = true;
 	pictureBox3->Image = image;
 	pictureBox3->Refresh();
 }
@@ -1081,6 +1072,8 @@ private: System::Void button6_Click(System::Object^  sender, System::EventArgs^ 
 			i++;
 			//ImagesVec->push_back(Image::FromFile(file));
 		}
+		label6->Visible = true;
+		richTextBox1->Visible = true;
 		//pictureBox1->Image = InputImages[10];
 		//pictureBox2->Image = imageList1->Images[10];
 
@@ -1094,7 +1087,7 @@ private: System::Void button7_Click(System::Object^  sender, System::EventArgs^ 
 	private: System::Void button8_Click(System::Object^  sender, System::EventArgs^  e) {
 		//загрузка весов из файла 
 		ifstream in;
-		in.open("ranom_weights.txt");//открываем файл для вывода инфы из файла в прогу
+		in.open("random_weights.txt");//открываем файл для вывода инфы из файла в прогу
 		char dig;//символ в файле, может принимать значенио 0 или 1 или размер вектора
 		int x, y;//размеры вектора
 		string str;//переменная для записи числа()
@@ -1160,9 +1153,9 @@ private: System::Void button7_Click(System::Object^  sender, System::EventArgs^ 
 }
 private: System::Void button9_Click(System::Object^  sender, System::EventArgs^  e) {
 	System::String^ FileName;
-	openFileDialog2->Title = "Select ref picture ";
+	openFileDialog2->Title = "Выберите снимок образца ";
 	openFileDialog2->Multiselect = false;
-	openFileDialog3->Title = "Select in picture ";
+	openFileDialog3->Title = "Выберите сравниваемый снимок ";
 	openFileDialog3->Multiselect = false;
 	
 	if (openFileDialog2->ShowDialog() == System::Windows::Forms::DialogResult::OK)
@@ -1235,7 +1228,7 @@ private: System::Void button12_Click(System::Object^  sender, System::EventArgs^
 	//матрица среднего значения/значение пикселя * 100%
 
 	System::String^ FileName;
-	openFileDialog1->Title = "Select picture ";
+	openFileDialog1->Title = "Выберите сравниваемый снимок ";
 	openFileDialog1->Multiselect = false;
 
 	if (openFileDialog1->ShowDialog() == System::Windows::Forms::DialogResult::OK)
@@ -1269,15 +1262,18 @@ private: System::Void button12_Click(System::Object^  sender, System::EventArgs^
 private: System::Void button15_Click(System::Object^  sender, System::EventArgs^  e) {
 	//загрузка картинки 
 	System::String^ FileName;//имя файла
-	openFileDialog1->Title = "Select pictures ";
+	openFileDialog1->Title = "Выберите снимки образца ";
 	vector<std::vector<int>> AVG_COLOR;//вектор пикселей входного изображения
 	vector<std::vector<int>> TEMP_AVG_COLOR;//вектор для суммирования
 	vector<std::vector<int>> FINAL_AVG_COLOR;//вектор средних значений
+	MyForm2 ^ progress = gcnew MyForm2();
 	int counter = 0;//счётчик изображений
 	if (openFileDialog1->ShowDialog() == System::Windows::Forms::DialogResult::OK)
 	{
-		progressBar1->Maximum = openFileDialog1->FileNames->Length;
+		progress->progressBar1->Maximum = openFileDialog1->FileNames->Length;
 		FileName = openFileDialog1->FileName->ToString();
+		progress->Show();
+		
 		for each (FileName in openFileDialog1->FileNames)//в цикле каждый раз создаём новую картинку и суммируем значения для пикселя
 		{
 			Bitmap ^image = gcnew Bitmap(Image::FromFile(FileName));
@@ -1294,11 +1290,13 @@ private: System::Void button15_Click(System::Object^  sender, System::EventArgs^
 				{TEMP_AVG_COLOR[i][j] += AVG_COLOR[i][j];}//суммируем значения на пиксель
 			}
 			counter++;//увеличиваем счётчик картинок
-			progressBar1->PerformStep();
+			progress->Text = ("Идёт обработка изображений. Обработано " + counter.ToString() + " из " + openFileDialog1->FileNames->Length.ToString());
+			//label6->Text = ("Идёт обработка изображений. Обработано " + counter.ToString() + " из " + openFileDialog1->FileNames->Length.ToString());
+			//progress->label1->Text = ("Идёт обработка изображений. Обработано " + counter.ToString() + " из " + openFileDialog1->FileNames->Length.ToString());
+			progress->progressBar1->PerformStep();
 		}
 		//progressBar1->Maximum = (AVG_COLOR.size()+ AVG_COLOR.size())*counter;
 	}
-	
 	FINAL_AVG_COLOR = ImageToArray::AVG_Color(TEMP_AVG_COLOR, counter);//получаем вектор средних значений
 	ArrayToFromFile::Avg_VecToFile(FINAL_AVG_COLOR);//записываем в файл
 	Bitmap ^image = gcnew Bitmap(FINAL_AVG_COLOR.size(), FINAL_AVG_COLOR[0].size());//наложенные друг на друга картинки
@@ -1309,6 +1307,7 @@ private: System::Void button15_Click(System::Object^  sender, System::EventArgs^
 	}
 	image->Save("AVG_IMG.bmp");//сохраняем картинку
 	//progressBar1->Value = 0;
+	progress->Close();
 }
 private: System::Void button13_Click(System::Object^  sender, System::EventArgs^  e) {
 	//std::vector<Bitmap> pbitmaps;
@@ -1321,6 +1320,8 @@ private: System::Void button13_Click(System::Object^  sender, System::EventArgs^
 
 
 private: System::Void tabPage1_Click(System::Object^  sender, System::EventArgs^  e) {
+}
+private: System::Void menuStrip1_ItemClicked(System::Object^  sender, System::Windows::Forms::ToolStripItemClickedEventArgs^  e) {
 }
 };
 }

@@ -34,6 +34,10 @@ namespace Project1 {
 				delete components;
 			}
 		}
+	public: System::Windows::Forms::ProgressBar^  progressBar1;
+	protected:
+
+
 
 	private:
 		/// <summary>
@@ -48,18 +52,32 @@ namespace Project1 {
 		/// </summary>
 		void InitializeComponent(void)
 		{
+			System::ComponentModel::ComponentResourceManager^  resources = (gcnew System::ComponentModel::ComponentResourceManager(MyForm2::typeid));
+			this->progressBar1 = (gcnew System::Windows::Forms::ProgressBar());
 			this->SuspendLayout();
+			// 
+			// progressBar1
+			// 
+			this->progressBar1->Location = System::Drawing::Point(12, 12);
+			this->progressBar1->Name = L"progressBar1";
+			this->progressBar1->Size = System::Drawing::Size(397, 10);
+			this->progressBar1->Step = 1;
+			this->progressBar1->TabIndex = 20;
+			this->progressBar1->Click += gcnew System::EventHandler(this, &MyForm2::progressBar1_Click);
 			// 
 			// MyForm2
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
-			this->ClientSize = System::Drawing::Size(351, 145);
+			this->BackgroundImage = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"$this.BackgroundImage")));
+			this->ClientSize = System::Drawing::Size(422, 34);
+			this->Controls->Add(this->progressBar1);
 			this->Name = L"MyForm2";
-			this->Text = L"MyForm2";
 			this->ResumeLayout(false);
 
 		}
 #pragma endregion
+	private: System::Void progressBar1_Click(System::Object^  sender, System::EventArgs^  e) {
+	}
 	};
 }
