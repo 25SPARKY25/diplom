@@ -127,6 +127,8 @@ namespace Project1 {
 			//progress->label1->Text = ("Идёт обработка изображений. Обработано " + counter.ToString() + " из " + openFileDialog1->FileNames->Length.ToString());
 			progress->progressBar1->PerformStep();
 		}
+		progress->Close();
+		MessageBox::Show("Создание картинок завершено");
 		this->Close();
 	}
 	};
