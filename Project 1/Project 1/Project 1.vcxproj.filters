@@ -33,6 +33,9 @@
     <ClCompile Include="MyForm1.cpp">
       <Filter>Файлы исходного кода</Filter>
     </ClCompile>
+    <ClCompile Include="MyForm2.cpp">
+      <Filter>Файлы исходного кода</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="MyForm.h">
@@ -53,15 +56,15 @@
     <ClInclude Include="recognize.h">
       <Filter>Заголовочные файлы</Filter>
     </ClInclude>
+    <ClInclude Include="MyForm2.h">
+      <Filter>Заголовочные файлы</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="MyForm.resx">
       <Filter>Файлы ресурсов</Filter>
     </EmbeddedResource>
     <EmbeddedResource Include="MyForm1.resx">
-      <Filter>Файлы ресурсов</Filter>
-    </EmbeddedResource>
-    <EmbeddedResource Include="MyForm2.resx">
       <Filter>Файлы ресурсов</Filter>
     </EmbeddedResource>
   </ItemGroup>

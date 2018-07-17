@@ -1,7 +1,126 @@
-﻿  Create_Image.cpp
+﻿  ArrayToFromFile.cpp
+d:\vs 2017 projects\project 1\project 1\arraytofromfile.h(2): warning C4067: непредвиденные лексемы за директивой препроцессора, требуется newline
+d:\vs 2017 projects\project 1\project 1\arraytofromfile.h(3): warning C4067: непредвиденные лексемы за директивой препроцессора, требуется newline
+d:\vs 2017 projects\project 1\project 1\arraytofromfile.h(4): warning C4067: непредвиденные лексемы за директивой препроцессора, требуется newline
+d:\vs 2017 projects\project 1\project 1\arraytofromfile.h(5): warning C4067: непредвиденные лексемы за директивой препроцессора, требуется newline
+d:\vs 2017 projects\project 1\project 1\imagetoarray.h(2): warning C4067: непредвиденные лексемы за директивой препроцессора, требуется newline
+d:\vs 2017 projects\project 1\project 1\arraytofromfile.h(6): warning C4067: непредвиденные лексемы за директивой препроцессора, требуется newline
+d:\vs 2017 projects\project 1\project 1\arraytofromfile.h(7): warning C4067: непредвиденные лексемы за директивой препроцессора, требуется newline
+d:\vs 2017 projects\project 1\project 1\arraytofromfile.cpp(37): warning C4267: инициализация: преобразование из "size_t" в "int"; возможна потеря данных
+d:\vs 2017 projects\project 1\project 1\arraytofromfile.cpp(65): warning C4101: dig: неиспользованная локальная переменная
+  Create_Image.cpp
 d:\vs 2017 projects\project 1\project 1\create_image.h(2): warning C4067: непредвиденные лексемы за директивой препроцессора, требуется newline
 d:\vs 2017 projects\project 1\project 1\create_image.h(3): warning C4067: непредвиденные лексемы за директивой препроцессора, требуется newline
 d:\vs 2017 projects\project 1\project 1\create_image.h(4): warning C4067: непредвиденные лексемы за директивой препроцессора, требуется newline
 d:\vs 2017 projects\project 1\project 1\create_image.h(5): warning C4067: непредвиденные лексемы за директивой препроцессора, требуется newline
 d:\vs 2017 projects\project 1\project 1\create_image.h(6): warning C4067: непредвиденные лексемы за директивой препроцессора, требуется newline
+  ImageToArray.cpp
+d:\vs 2017 projects\project 1\project 1\imagetoarray.h(2): warning C4067: непредвиденные лексемы за директивой препроцессора, требуется newline
+d:\vs 2017 projects\project 1\project 1\arraytofromfile.h(2): warning C4067: непредвиденные лексемы за директивой препроцессора, требуется newline
+d:\vs 2017 projects\project 1\project 1\arraytofromfile.h(3): warning C4067: непредвиденные лексемы за директивой препроцессора, требуется newline
+d:\vs 2017 projects\project 1\project 1\arraytofromfile.h(4): warning C4067: непредвиденные лексемы за директивой препроцессора, требуется newline
+d:\vs 2017 projects\project 1\project 1\arraytofromfile.h(5): warning C4067: непредвиденные лексемы за директивой препроцессора, требуется newline
+d:\vs 2017 projects\project 1\project 1\arraytofromfile.h(6): warning C4067: непредвиденные лексемы за директивой препроцессора, требуется newline
+d:\vs 2017 projects\project 1\project 1\arraytofromfile.h(7): warning C4067: непредвиденные лексемы за директивой препроцессора, требуется newline
+  MyForm.cpp
+d:\vs 2017 projects\project 1\project 1\myform.h(2): warning C4067: непредвиденные лексемы за директивой препроцессора, требуется newline
+d:\vs 2017 projects\project 1\project 1\myform.h(3): warning C4067: непредвиденные лексемы за директивой препроцессора, требуется newline
+d:\vs 2017 projects\project 1\project 1\myform.h(4): warning C4067: непредвиденные лексемы за директивой препроцессора, требуется newline
+d:\vs 2017 projects\project 1\project 1\imagetoarray.h(2): warning C4067: непредвиденные лексемы за директивой препроцессора, требуется newline
+d:\vs 2017 projects\project 1\project 1\arraytofromfile.h(2): warning C4067: непредвиденные лексемы за директивой препроцессора, требуется newline
+d:\vs 2017 projects\project 1\project 1\arraytofromfile.h(3): warning C4067: непредвиденные лексемы за директивой препроцессора, требуется newline
+d:\vs 2017 projects\project 1\project 1\arraytofromfile.h(4): warning C4067: непредвиденные лексемы за директивой препроцессора, требуется newline
+d:\vs 2017 projects\project 1\project 1\arraytofromfile.h(5): warning C4067: непредвиденные лексемы за директивой препроцессора, требуется newline
+d:\vs 2017 projects\project 1\project 1\arraytofromfile.h(6): warning C4067: непредвиденные лексемы за директивой препроцессора, требуется newline
+d:\vs 2017 projects\project 1\project 1\arraytofromfile.h(7): warning C4067: непредвиденные лексемы за директивой препроцессора, требуется newline
+d:\vs 2017 projects\project 1\project 1\myform.h(5): warning C4067: непредвиденные лексемы за директивой препроцессора, требуется newline
+d:\vs 2017 projects\project 1\project 1\myform.h(6): warning C4067: непредвиденные лексемы за директивой препроцессора, требуется newline
+d:\vs 2017 projects\project 1\project 1\myform.h(7): warning C4067: непредвиденные лексемы за директивой препроцессора, требуется newline
+d:\vs 2017 projects\project 1\project 1\create_image.h(2): warning C4067: непредвиденные лексемы за директивой препроцессора, требуется newline
+d:\vs 2017 projects\project 1\project 1\create_image.h(3): warning C4067: непредвиденные лексемы за директивой препроцессора, требуется newline
+d:\vs 2017 projects\project 1\project 1\create_image.h(4): warning C4067: непредвиденные лексемы за директивой препроцессора, требуется newline
+d:\vs 2017 projects\project 1\project 1\create_image.h(5): warning C4067: непредвиденные лексемы за директивой препроцессора, требуется newline
+d:\vs 2017 projects\project 1\project 1\create_image.h(6): warning C4067: непредвиденные лексемы за директивой препроцессора, требуется newline
+d:\vs 2017 projects\project 1\project 1\myform.h(8): warning C4067: непредвиденные лексемы за директивой препроцессора, требуется newline
+d:\vs 2017 projects\project 1\project 1\myform1.h(2): warning C4067: непредвиденные лексемы за директивой препроцессора, требуется newline
+d:\vs 2017 projects\project 1\project 1\myform1.h(3): warning C4067: непредвиденные лексемы за директивой препроцессора, требуется newline
+d:\vs 2017 projects\project 1\project 1\myform.h(9): warning C4067: непредвиденные лексемы за директивой препроцессора, требуется newline
+d:\vs 2017 projects\project 1\project 1\myform.h(10): warning C4067: непредвиденные лексемы за директивой препроцессора, требуется newline
+d:\vs 2017 projects\project 1\project 1\recognize.h(2): warning C4067: непредвиденные лексемы за директивой препроцессора, требуется newline
+d:\vs 2017 projects\project 1\project 1\recognize.h(3): warning C4067: непредвиденные лексемы за директивой препроцессора, требуется newline
+d:\vs 2017 projects\project 1\project 1\recognize.h(4): warning C4067: непредвиденные лексемы за директивой препроцессора, требуется newline
+d:\vs 2017 projects\project 1\project 1\recognize.h(5): warning C4067: непредвиденные лексемы за директивой препроцессора, требуется newline
+d:\vs 2017 projects\project 1\project 1\recognize.h(6): warning C4067: непредвиденные лексемы за директивой препроцессора, требуется newline
+d:\vs 2017 projects\project 1\project 1\recognize.h(7): warning C4067: непредвиденные лексемы за директивой препроцессора, требуется newline
+d:\vs 2017 projects\project 1\project 1\recognize.h(8): warning C4067: непредвиденные лексемы за директивой препроцессора, требуется newline
+d:\vs 2017 projects\project 1\project 1\recognize.h(9): warning C4067: непредвиденные лексемы за директивой препроцессора, требуется newline
+d:\vs 2017 projects\project 1\project 1\recognize.h(10): warning C4067: непредвиденные лексемы за директивой препроцессора, требуется newline
+d:\vs 2017 projects\project 1\project 1\myform.h(1244): warning C4101: InputImages: неиспользованная локальная переменная
+d:\vs 2017 projects\project 1\project 1\myform.h(1357): warning C4267: аргумент: преобразование из "size_t" в "int"; возможна потеря данных
+  MyForm1.cpp
+d:\vs 2017 projects\project 1\project 1\myform1.h(2): warning C4067: непредвиденные лексемы за директивой препроцессора, требуется newline
+d:\vs 2017 projects\project 1\project 1\create_image.h(2): warning C4067: непредвиденные лексемы за директивой препроцессора, требуется newline
+d:\vs 2017 projects\project 1\project 1\create_image.h(3): warning C4067: непредвиденные лексемы за директивой препроцессора, требуется newline
+d:\vs 2017 projects\project 1\project 1\create_image.h(4): warning C4067: непредвиденные лексемы за директивой препроцессора, требуется newline
+d:\vs 2017 projects\project 1\project 1\create_image.h(5): warning C4067: непредвиденные лексемы за директивой препроцессора, требуется newline
+d:\vs 2017 projects\project 1\project 1\create_image.h(6): warning C4067: непредвиденные лексемы за директивой препроцессора, требуется newline
+d:\vs 2017 projects\project 1\project 1\myform1.h(3): warning C4067: непредвиденные лексемы за директивой препроцессора, требуется newline
+  MyForm2.cpp
+  recognize.cpp
+d:\vs 2017 projects\project 1\project 1\recognize.h(2): warning C4067: непредвиденные лексемы за директивой препроцессора, требуется newline
+d:\vs 2017 projects\project 1\project 1\recognize.h(3): warning C4067: непредвиденные лексемы за директивой препроцессора, требуется newline
+d:\vs 2017 projects\project 1\project 1\recognize.h(4): warning C4067: непредвиденные лексемы за директивой препроцессора, требуется newline
+d:\vs 2017 projects\project 1\project 1\recognize.h(5): warning C4067: непредвиденные лексемы за директивой препроцессора, требуется newline
+d:\vs 2017 projects\project 1\project 1\recognize.h(6): warning C4067: непредвиденные лексемы за директивой препроцессора, требуется newline
+d:\vs 2017 projects\project 1\project 1\recognize.h(7): warning C4067: непредвиденные лексемы за директивой препроцессора, требуется newline
+d:\vs 2017 projects\project 1\project 1\imagetoarray.h(2): warning C4067: непредвиденные лексемы за директивой препроцессора, требуется newline
+d:\vs 2017 projects\project 1\project 1\arraytofromfile.h(2): warning C4067: непредвиденные лексемы за директивой препроцессора, требуется newline
+d:\vs 2017 projects\project 1\project 1\arraytofromfile.h(3): warning C4067: непредвиденные лексемы за директивой препроцессора, требуется newline
+d:\vs 2017 projects\project 1\project 1\arraytofromfile.h(4): warning C4067: непредвиденные лексемы за директивой препроцессора, требуется newline
+d:\vs 2017 projects\project 1\project 1\arraytofromfile.h(5): warning C4067: непредвиденные лексемы за директивой препроцессора, требуется newline
+d:\vs 2017 projects\project 1\project 1\arraytofromfile.h(6): warning C4067: непредвиденные лексемы за директивой препроцессора, требуется newline
+d:\vs 2017 projects\project 1\project 1\arraytofromfile.h(7): warning C4067: непредвиденные лексемы за директивой препроцессора, требуется newline
+d:\vs 2017 projects\project 1\project 1\recognize.h(8): warning C4067: непредвиденные лексемы за директивой препроцессора, требуется newline
+d:\vs 2017 projects\project 1\project 1\recognize.h(9): warning C4067: непредвиденные лексемы за директивой препроцессора, требуется newline
+d:\vs 2017 projects\project 1\project 1\recognize.h(10): warning C4067: непредвиденные лексемы за директивой препроцессора, требуется newline
+d:\vs 2017 projects\project 1\project 1\recognize.cpp(8): warning C4244: аргумент: преобразование "time_t" в "unsigned int", возможна потеря данных
+d:\vs 2017 projects\project 1\project 1\recognize.cpp(164): warning C4244: аргумент: преобразование "double" в "int", возможна потеря данных
+d:\vs 2017 projects\project 1\project 1\recognize.cpp(134): warning C4101: a22: неиспользованная локальная переменная
+d:\vs 2017 projects\project 1\project 1\recognize.cpp(134): warning C4101: a11: неиспользованная локальная переменная
+d:\vs 2017 projects\project 1\project 1\recognize.cpp(134): warning C4101: a12: неиспользованная локальная переменная
+d:\vs 2017 projects\project 1\project 1\recognize.cpp(134): warning C4101: a21: неиспользованная локальная переменная
+d:\vs 2017 projects\project 1\project 1\recognize.cpp(202): warning C4267: инициализация: преобразование из "size_t" в "int"; возможна потеря данных
+  Создание кода...
+d:\open_cv\opencv\build\include\opencv2\core\cvstd.hpp(575): warning C4793: cv::String::String: функция скомпилирована как машинная:
+  	Обнаружена встроенная функция, которая не поддерживается в управляемом коде
+d:\open_cv\opencv\build\include\opencv2\core\mat.inl.hpp(482): warning C4793: cv::Mat::Mat: функция скомпилирована как машинная:
+  	Обнаружена встроенная функция, которая не поддерживается в управляемом коде
+d:\vs 2017 projects\project 1\project 1\recognize.cpp(226): warning C4700: использована неинициализированная локальная переменная "low_h"
+d:\vs 2017 projects\project 1\project 1\recognize.cpp(230): warning C4700: использована неинициализированная локальная переменная "max"
+d:\vs 2017 projects\project 1\project 1\recognize.cpp(95): warning C4715: recognize::FileToVecWieights: значение возвращается не при всех путях выполнения
+d:\open_cv\opencv\build\include\opencv2\core\mat.inl.hpp(803): warning C4793: cv::Mat::release: функция скомпилирована как машинная:
+  	Обнаружена встроенная функция, которая не поддерживается в управляемом коде
+d:\open_cv\opencv\build\include\opencv2\core\mat.inl.hpp(2083): warning C4793: cv::SparseMat::addref: функция скомпилирована как машинная:
+  	Обнаружена встроенная функция, которая не поддерживается в управляемом коде
+d:\open_cv\opencv\build\include\opencv2\core\mat.inl.hpp(3683): warning C4793: cv::UMat::addref: функция скомпилирована как машинная:
+  	Обнаружена встроенная функция, которая не поддерживается в управляемом коде
+d:\open_cv\opencv\build\include\opencv2\core\ptr.inl.hpp(67): warning C4793: cv::detail::PtrOwner::incRef: функция скомпилирована как машинная:
+  	Обнаружена встроенная функция, которая не поддерживается в управляемом коде
+d:\open_cv\opencv\build\include\opencv2\core\ptr.inl.hpp(72): warning C4793: cv::detail::PtrOwner::decRef: функция скомпилирована как машинная:
+  	Обнаружена встроенная функция, которая не поддерживается в управляемом коде
+d:\open_cv\opencv\build\include\opencv2\core\cvstd.hpp(575): warning C4793: cv::String::String: функция скомпилирована как машинная:
+  	Обнаружена встроенная функция, которая не поддерживается в управляемом коде
+d:\open_cv\opencv\build\include\opencv2\core\mat.inl.hpp(482): warning C4793: cv::Mat::Mat: функция скомпилирована как машинная:
+  	Обнаружена встроенная функция, которая не поддерживается в управляемом коде
+d:\open_cv\opencv\build\include\opencv2\core\mat.inl.hpp(2083): warning C4793: cv::SparseMat::addref: функция скомпилирована как машинная:
+  	Обнаружена встроенная функция, которая не поддерживается в управляемом коде
+d:\open_cv\opencv\build\include\opencv2\core\mat.inl.hpp(3683): warning C4793: cv::UMat::addref: функция скомпилирована как машинная:
+  	Обнаружена встроенная функция, которая не поддерживается в управляемом коде
+d:\open_cv\opencv\build\include\opencv2\core\ptr.inl.hpp(67): warning C4793: cv::detail::PtrOwner::incRef: функция скомпилирована как машинная:
+  	Обнаружена встроенная функция, которая не поддерживается в управляемом коде
+d:\open_cv\opencv\build\include\opencv2\core\ptr.inl.hpp(72): warning C4793: cv::detail::PtrOwner::decRef: функция скомпилирована как машинная:
+  	Обнаружена встроенная функция, которая не поддерживается в управляемом коде
+d:\vs 2017 projects\project 1\project 1\arraytofromfile.cpp(101): warning C4715: ArrayToFromFile::Avg_FileToVec: значение возвращается не при всех путях выполнения
+d:\vs 2017 projects\project 1\project 1\arraytofromfile.cpp(139): warning C4715: ArrayToFromFile::FileToVec: значение возвращается не при всех путях выполнения
+  .NETFramework,Version=v4.5.1.AssemblyAttributes.cpp
   Project 1.vcxproj -> D:\VS 2017 projects\Project 1\x64\Debug\Project 1.exe
